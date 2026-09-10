@@ -55,28 +55,6 @@
   --info: #026EB9;
 }
 
-/* .hero-title {
-  color: #0B3154;
+.font-handwriting {
+  font-family: var(--font-caveat), 'Caveat', 'Segoe Print', 'Bradley Hand', cursive;
 }
-
-.hero-title span {
-  color: #0B9DA8;
-} */
-
-/* <h1 className="text-[#0B3154]">
-  Your Smile
-  <span className="block text-[#0B9DA8]">
-    Our Priority
-  </span>
-</h1> */
-
-
-/* 
-<button className="
-  bg-[#0B9DA8]
-  hover:bg-[#07828C]
-  text-white
-  transition-colors
-">
-  Book Appointment
-</button> */
