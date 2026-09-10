@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,13 +16,14 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "SmileCare Dental Clinic | Healthy Smile, Happy Life",
-  description: "SmileCare Dental Clinic provides advanced and affordable dental care with modern technology and expert doctors.",
+  description: "SmileCare Dental Clinic provides advanced, gentle and affordable dental care with modern 3D technology and expert specialist doctors.",
   icons: {
     icon: [
-      { url: "/imags/logo.png", type: "image/png" }
+      { url: "/images/logo.png", type: "image/png" },
+      { url: "/imags/logo.png", type: "image/png" },
     ],
-    shortcut: "/imags/logo.png",
-    apple: "/imags/logo.png",
+    shortcut: "/images/logo.png",
+    apple: "/images/logo.png",
   },
 };
 
@@ -40,6 +42,7 @@ export default function RootLayout({
         <main className="flex-1">
           {children}
         </main>
+        <Footer />
       </body>
     </html>
   );

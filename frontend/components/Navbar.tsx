@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
-// 2. Chevron Down Icon for "Treatments" dropdown
+// Chevron Down Icon for "Treatments" dropdown
 function ChevronDownIcon({ className = "w-3.5 h-3.5" }: { className?: string }) {
   return (
     <svg
@@ -21,7 +22,7 @@ function ChevronDownIcon({ className = "w-3.5 h-3.5" }: { className?: string }) 
   );
 }
 
-// 3. Phone with signal waves icon matching the screenshot
+// Phone with signal waves icon matching brand colors
 function PhoneCallIcon({ className = "w-6 h-6" }: { className?: string }) {
   return (
     <svg
@@ -40,7 +41,7 @@ function PhoneCallIcon({ className = "w-6 h-6" }: { className?: string }) {
   );
 }
 
-// 4. White Calendar Icon inside "Book Appointment" button
+// Calendar Icon inside "Book Appointment" button
 function CalendarIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
     <svg
@@ -70,19 +71,45 @@ function CalendarIcon({ className = "w-4 h-4" }: { className?: string }) {
 const NAV_ITEMS = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
-  { name: "Treatments", href: "/treatments", hasDropdown: true },
+  { 
+    name: "Treatments", 
+    href: "/treatments", 
+    hasDropdown: true,
+    subItems: [
+      { name: "Teeth Whitening", href: "/treatments#whitening", desc: "Laser & home whitening kits" },
+      { name: "Dental Implants", href: "/treatments#implants", desc: "Permanent titanium tooth replacements" },
+      { name: "Root Canal Therapy", href: "/treatments#root-canal", desc: "Gentle single-visit endodontics" },
+      { name: "Orthodontics & Braces", href: "/treatments#orthodontics", desc: "Invisalign & ceramic braces" },
+      { name: "Cosmetic Dentistry", href: "/treatments#cosmetic", desc: "Veneers, bonding & smile design" },
+      { name: "Pediatric Dentistry", href: "/treatments#pediatric", desc: "Friendly dental care for children" },
+    ]
+  },
   { name: "Doctors", href: "/doctors" },
   { name: "Gallery", href: "/gallery" },
   { name: "Testimonials", href: "/testimonials" },
-  { name: "Blog", href: "/blog", isActive: true }, // Highlighted as active in screenshot
+  { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
 ];
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+
+  // Close dropdown when clicked outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setDropdownOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
-    <header className="w-full sticky top-0 z-50 bg-white border-b border-[#D5ECF0]/80 shadow-[0_2px_12px_rgba(8,50,88,0.04)]">
+    <header className="w-full sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-[#D5ECF0]/80 shadow-[0_2px_12px_rgba(8,50,88,0.04)] transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-[76px]">
           
@@ -94,10 +121,10 @@ export function Navbar() {
             className="flex items-center gap-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0AADA8] rounded-xl group transition-transform hover:opacity-95"
             aria-label="SmileCare Dental Clinic Home"
           >
-            {/* Part 1: Logo Icon from /imags/logo.png */}
+            {/* Logo Icon */}
             <div className="w-10 h-10 flex items-center justify-center shrink-0">
               <Image
-                src="/imags/logo.png"
+                src="/images/logo.png"
                 alt="SmileCare Dental Clinic Logo"
                 width={42}
                 height={40}
@@ -106,7 +133,7 @@ export function Navbar() {
               />
             </div>
 
-            {/* Part 2: Logo Text */}
+            {/* Logo Text */}
             <div className="flex flex-col justify-center select-none">
               <div className="text-[21px] font-bold tracking-tight leading-none text-[#083258]">
                 Smile<span className="text-[#0AADA8]">Care</span>
@@ -118,45 +145,99 @@ export function Navbar() {
           </Link>
 
           {/* ========================================================
-              MIDDLE PART: NAVBAR LINKS
+              MIDDLE PART: NAVBAR LINKS WITH DYNAMIC ROUTING
              ======================================================== */}
           <nav className="hidden lg:flex items-center gap-6 xl:gap-7">
             {NAV_ITEMS.map((item) => {
-              if (item.isActive) {
-                // Active link: "Blog" with teal text and bottom indicator line
+              const isActive = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+
+              if (item.hasDropdown) {
                 return (
-                  <div key={item.name} className="relative flex flex-col items-center">
-                    <Link
-                      href={item.href}
-                      className="text-sm font-semibold text-[#0AADA8] transition-colors py-1 focus:outline-none"
-                    >
-                      {item.name}
-                    </Link>
-                    {/* Active Underline Indicator matching logo teal */}
-                    <span className="absolute -bottom-2 w-5 h-[2.5px] bg-[#0AADA8] rounded-full" />
+                  <div
+                    key={item.name}
+                    ref={dropdownRef}
+                    className="relative"
+                    onMouseEnter={() => setDropdownOpen(true)}
+                    onMouseLeave={() => setDropdownOpen(false)}
+                  >
+                    <div className="relative flex flex-col items-center">
+                      <Link
+                        href={item.href}
+                        className={`inline-flex items-center gap-1 text-sm font-medium py-1 transition-colors focus:outline-none ${
+                          isActive ? "text-[#0AADA8] font-semibold" : "text-[#426480] hover:text-[#0AADA8]"
+                        }`}
+                        onClick={() => setDropdownOpen(false)}
+                      >
+                        <span>{item.name}</span>
+                        <ChevronDownIcon
+                          className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                            dropdownOpen ? "rotate-180 text-[#0AADA8]" : "text-[#6B8BA2]"
+                          }`}
+                        />
+                      </Link>
+                      {isActive && (
+                        <span className="absolute -bottom-2 w-5 h-[2.5px] bg-[#0AADA8] rounded-full" />
+                      )}
+                    </div>
+
+                    {/* Dropdown Menu */}
+                    {dropdownOpen && (
+                      <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 w-72 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+                        <div className="rounded-2xl border border-[#D5ECF0] bg-white p-2.5 shadow-[0_15px_35px_rgba(8,50,88,0.12)]">
+                          <div className="text-[10.5px] font-bold uppercase tracking-wider text-[#6B8BA2] px-3 py-1.5 border-b border-[#D5ECF0]/60 mb-1">
+                            Key Treatments
+                          </div>
+                          {item.subItems?.map((sub) => (
+                            <Link
+                              key={sub.name}
+                              href={sub.href}
+                              onClick={() => setDropdownOpen(false)}
+                              className="group flex flex-col rounded-xl px-3 py-2 transition-colors hover:bg-[#E8F8F8]/60"
+                            >
+                              <span className="text-xs font-semibold text-[#083258] group-hover:text-[#0AADA8] transition-colors">
+                                {sub.name}
+                              </span>
+                              <span className="text-[11px] text-[#6B8BA2] line-clamp-1">
+                                {sub.desc}
+                              </span>
+                            </Link>
+                          ))}
+                          <div className="mt-1 pt-1.5 border-t border-[#D5ECF0]/60">
+                            <Link
+                              href="/treatments"
+                              onClick={() => setDropdownOpen(false)}
+                              className="block text-center text-xs font-bold text-[#0AADA8] py-1 hover:text-[#089692]"
+                            >
+                              View All Treatments →
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 );
               }
 
               return (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="inline-flex items-center gap-1 text-sm font-medium text-[#426480] hover:text-[#0AADA8] transition-colors py-1 focus:outline-none"
-                >
-                  <span>{item.name}</span>
-                  {item.hasDropdown && (
-                    <ChevronDownIcon className="w-3.5 h-3.5 text-[#6B8BA2] mt-0.5" />
+                <div key={item.name} className="relative flex flex-col items-center">
+                  <Link
+                    href={item.href}
+                    className={`text-sm font-medium transition-colors py-1 focus:outline-none ${
+                      isActive ? "text-[#0AADA8] font-semibold" : "text-[#426480] hover:text-[#0AADA8]"
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                  {isActive && (
+                    <span className="absolute -bottom-2 w-5 h-[2.5px] bg-[#0AADA8] rounded-full" />
                   )}
-                </Link>
+                </div>
               );
             })}
           </nav>
 
           {/* ========================================================
-              RIGHT PART: 2 DIVS
-              Div 1: Phone Icon + Mobile & Emergency 24/7
-              Div 2: Book Appointment Button
+              RIGHT PART: Emergency Hotline & Book Appointment Button
              ======================================================== */}
           <div className="hidden sm:flex items-center gap-6 xl:gap-7">
             
@@ -164,13 +245,12 @@ export function Navbar() {
             <a
               href="tel:+919876543210"
               className="flex items-center gap-2.5 group focus:outline-none"
+              title="Call SmileCare Dental Helpline"
             >
-              {/* Phone Icon (Ocean Blue #026EB9 matching right tooth stroke) */}
-              <div className="w-8 h-8 flex items-center justify-center text-[#026EB9] group-hover:scale-105 transition-transform shrink-0">
+              <div className="w-8 h-8 flex items-center justify-center text-[#026EB9] group-hover:scale-110 transition-transform shrink-0">
                 <PhoneCallIcon className="w-[22px] h-[22px]" />
               </div>
 
-              {/* Mobile Number & Emergency Status */}
               <div className="flex flex-col text-left leading-tight">
                 <span className="text-[13px] font-bold text-[#083258] tracking-tight group-hover:text-[#026EB9] transition-colors">
                   +91 98765 43210
@@ -194,11 +274,11 @@ export function Navbar() {
 
           </div>
 
-          {/* Mobile Menu Hamburger (for smaller screens) */}
+          {/* Mobile Menu Hamburger */}
           <div className="flex items-center gap-3 lg:hidden">
             <Link
               href="/appointment"
-              className="sm:hidden inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#0AADA8] text-white text-xs font-semibold"
+              className="sm:hidden inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#0AADA8] text-white text-xs font-semibold shadow-sm"
             >
               <CalendarIcon className="w-3.5 h-3.5" />
               <span>Book</span>
@@ -227,40 +307,43 @@ export function Navbar() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-[#D5ECF0] bg-white px-4 pt-3 pb-6 space-y-3 shadow-lg">
+        <div className="lg:hidden border-t border-[#D5ECF0] bg-white px-4 pt-3 pb-6 space-y-3 shadow-xl">
           <nav className="flex flex-col space-y-1">
-            {NAV_ITEMS.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                  item.isActive
-                    ? "text-[#0AADA8] bg-[#E8F8F8] font-semibold"
-                    : "text-[#426480] hover:bg-[#F5FBFC] hover:text-[#0AADA8]"
-                }`}
-              >
-                {item.name}
-              </Link>
-            ))}
+            {NAV_ITEMS.map((item) => {
+              const isActive = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`px-3 py-2 rounded-xl text-sm font-medium transition-colors ${
+                    isActive
+                      ? "text-[#0AADA8] bg-[#E8F8F8] font-semibold"
+                      : "text-[#426480] hover:bg-[#F5FBFC] hover:text-[#0AADA8]"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="pt-3 border-t border-[#D5ECF0] space-y-3">
             <a
               href="tel:+919876543210"
-              className="flex items-center gap-3 py-2.5 px-3 rounded-lg bg-[#F5FBFC] text-[#083258]"
+              className="flex items-center gap-3 py-2.5 px-3 rounded-xl bg-[#F5FBFC] text-[#083258]"
             >
               <PhoneCallIcon className="w-5 h-5 text-[#026EB9]" />
               <div className="flex flex-col text-left">
                 <span className="text-xs font-bold">+91 98765 43210</span>
-                <span className="text-[10px] font-semibold text-[#EF4444]">Emergency 24/7</span>
+                <span className="text-[10px] font-semibold text-[#EF4444]">Emergency 24/7 Helpline</span>
               </div>
             </a>
 
             <Link
               href="/appointment"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-full bg-[#0AADA8] text-white text-xs font-semibold shadow-sm"
+              className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#0AADA8] text-white text-xs font-semibold shadow-sm"
             >
               <CalendarIcon className="w-4 h-4" />
               <span>Book Appointment</span>
@@ -271,3 +354,4 @@ export function Navbar() {
     </header>
   );
 }
+export default Navbar;
