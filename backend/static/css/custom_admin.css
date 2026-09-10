@@ -1,0 +1,35 @@
+/* Login screen container styling */
+.login-box .login-logo,
+.login-page .login-logo {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-bottom: 15px !important;
+}
+
+/* Duplicate second logo ko completely hide karein */
+.login-box .login-logo img:nth-of-type(n+2),
+.login-page .login-logo img:nth-of-type(n+2),
+.login-box .login-logo a + img,
+.login-box .login-logo a:nth-of-type(n+2) {
+    display: none !important;
+}
+
+/* Sirf pehle logo ki sizing fix karein */
+.login-box .login-logo img:first-of-type,
+.login-page .login-logo img:first-of-type {
+    max-width: 90px !important;
+    max-height: 90px !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    display: block !important;
+    margin: 0 auto !important;
+}
+
+/* Inside admin navbar logo */
+.brand-link .brand-image {
+    max-height: 32px !important;
+    width: auto !important;
+    object-fit: contain !important;
+}
