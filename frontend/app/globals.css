@@ -1,0 +1,82 @@
+@import "tailwindcss";
+/* globals.css */
+
+:root {
+  /* ========================================================
+     Dental Brand Colors (Extracted directly from logo.png)
+     ======================================================== */
+
+  /* Teal / Turquoise (Left wing of tooth) */
+  --teal: #0AADA8;
+  --teal-hover: #089692;
+  --teal-light: #16C4BE;
+  --teal-soft: #E8F8F8;
+  --teal-border: #BCEBE9;
+
+  /* Ocean Blue (Right wing of tooth) */
+  --blue: #026EB9;
+  --blue-hover: #025B9A;
+  --blue-light: #037DD1;
+  --blue-soft: #EBF4FB;
+  --blue-border: #B9DAF3;
+
+  /* Primary Deep Navy & Typography */
+  --primary: #083258;
+  --primary-dark: #062643;
+  --primary-light: #134B7D;
+
+  --text-primary: #083258;
+  --text-secondary: #426480;
+  --text-muted: #6B8BA2;
+
+  /* Background Colors */
+  --background: #FFFFFF;
+  --background-soft: #F5FBFC;
+  --background-teal: #E8F8F8;
+  --background-blue: #EBF4FB;
+
+  /* Border */
+  --border: #D5ECF0;
+  --border-light: #E4F3F5;
+
+  /* Buttons */
+  --button-primary: #0AADA8;
+  --button-primary-hover: #089692;
+  --button-secondary: #026EB9;
+  --button-secondary-hover: #025B9A;
+
+  /* Cards */
+  --card: #FFFFFF;
+  --card-shadow: rgba(8, 50, 88, 0.08);
+
+  /* Status */
+  --emergency: #EF4444;
+  --success: #0AADA8;
+  --info: #026EB9;
+}
+
+/* .hero-title {
+  color: #0B3154;
+}
+
+.hero-title span {
+  color: #0B9DA8;
+} */
+
+/* <h1 className="text-[#0B3154]">
+  Your Smile
+  <span className="block text-[#0B9DA8]">
+    Our Priority
+  </span>
+</h1> */
+
+
+/* 
+<button className="
+  bg-[#0B9DA8]
+  hover:bg-[#07828C]
+  text-white
+  transition-colors
+">
+  Book Appointment
+</button> */
