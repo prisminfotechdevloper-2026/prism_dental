@@ -114,7 +114,7 @@ export const LandingHero = () => {
       {/* ========================================================
           MAIN BOUNDED HERO CONTAINER (Reduced width, exact match)
           ======================================================== */}
-      <div className="relative mx-auto max-w-[1180px] px-4 sm:px-6 lg:px-8 py-7 sm:py-8 lg:py-10 min-h-[380px] lg:min-h-[430px] flex items-center">
+      <div className="relative mx-auto max-w-[1180px] px-4 sm:px-6 lg:px-8 py-8 sm:py-9 lg:py-11 min-h-[400px] lg:min-h-[440px] flex items-center">
         
         {/* ======================================================
             HERO IMAGE (Shifted to Left, natural scale, seamless fade)
@@ -191,7 +191,7 @@ export const LandingHero = () => {
           </h1>
 
           {/* Description Paragraph */}
-          <p className="mt-3 text-sm text-[#52687F] leading-relaxed max-w-[430px]">
+          <p className="mt-3 text-sm lg:text-[14.5px] text-[#52687F] leading-relaxed max-w-[440px]">
             We provide advanced &amp; affordable dental care with modern technology and expert doctors. Get the best care for a healthier, brighter smile.
           </p>
 
