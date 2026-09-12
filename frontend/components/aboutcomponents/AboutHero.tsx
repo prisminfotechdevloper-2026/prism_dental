@@ -151,8 +151,7 @@ export function AboutHero() {
           {/* Pill Tag: About SmileCare */}
           <div className="mb-2.5">
             <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white/90 backdrop-blur-sm border border-[#0AADA8]/30 text-[#0AADA8] text-xs font-bold tracking-wide shadow-2xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#0AADA8]" />
-              About SmileCare
+               About SmileCare
             </span>
           </div>
 

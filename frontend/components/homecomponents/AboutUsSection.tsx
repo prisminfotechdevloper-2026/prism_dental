@@ -366,7 +366,7 @@ export const AboutUsSection = () => {
             {/* Modal Header */}
             <div className="flex items-center justify-between px-5 py-3 border-b border-white/10 bg-[#062643]">
               <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#0AADA8] animate-pulse" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#0AADA8]" />
                 <h3 className="text-sm font-bold text-white">
                   SmileCare Dental Clinic - Virtual Tour
                 </h3>

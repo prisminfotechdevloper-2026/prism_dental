@@ -55,6 +55,25 @@
   --info: #026EB9;
 }
 
+/* ── Global Font Setup ─────────────────────────────────────── */
+html {
+  font-family: var(--font-inter), 'Inter', system-ui, -apple-system, sans-serif;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-inter), 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+/* ── Handwriting font (Caveat for WhyChooseOurDoctors overlay) ─ */
 .font-handwriting {
-  font-family: var(--font-caveat), 'Caveat', 'Segoe Print', 'Bradley Hand', cursive;
+  font-family: var(--font-caveat), 'Caveat', cursive;
+}
+
+/* ── Playfair utility for display headings ─────────────────── */
+.font-display {
+  font-family: var(--font-playfair), 'Playfair Display', Georgia, serif;
 }

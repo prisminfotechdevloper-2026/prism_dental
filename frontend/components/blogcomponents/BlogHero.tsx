@@ -180,8 +180,7 @@ export function BlogHero() {
 
             {/* Editorial Trust Badge */}
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/80 border border-[#D5ECF0] text-[11px] font-semibold text-[#426480] shadow-2xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#0AADA8] animate-pulse" />
-              Doctor-Reviewed Articles
+               Doctor-Reviewed Articles
             </span>
           </div>
 
