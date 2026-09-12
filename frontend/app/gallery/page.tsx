@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { GalleryHero } from "@/components/GalleryHero";
+import { GalleryHero } from "@/components/gallerycomponents/GalleryHero";
 
 export default function GalleryPage() {
   return (

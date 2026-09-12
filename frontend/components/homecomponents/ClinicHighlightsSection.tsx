@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import { BeforeAfterSlider } from "./highlights/BeforeAfterSlider";
-import { PatientFeedbackCarousel } from "./highlights/PatientFeedbackCarousel";
-import { ClinicGalleryPreview } from "./highlights/ClinicGalleryPreview";
+import { BeforeAfterSlider } from "../highlightscomponents/BeforeAfterSlider";
+import { PatientFeedbackCarousel } from "../highlightscomponents/PatientFeedbackCarousel";
+import { ClinicGalleryPreview } from "../highlightscomponents/ClinicGalleryPreview";
 
 export function ClinicHighlightsSection() {
   return (

@@ -1,8 +1,8 @@
-import { LandingHero } from "@/components/LandingHero";
-import { TreatmentsSection } from "@/components/TreatmentsSection";
-import { AboutUsSection } from "@/components/AboutUsSection";
-import { DoctorsSection } from "@/components/DoctorsSection";
-import { ClinicHighlightsSection } from "@/components/ClinicHighlightsSection";
+import { LandingHero } from "@/components/homecomponents/LandingHero";
+import { TreatmentsSection } from "@/components/homecomponents/TreatmentsSection";
+import { AboutUsSection } from "@/components/homecomponents/AboutUsSection";
+import { DoctorsSection } from "@/components/homecomponents/DoctorsSection";
+import { ClinicHighlightsSection } from "@/components/homecomponents/ClinicHighlightsSection";
 
 export default function Home() {
   return (

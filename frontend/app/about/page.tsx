@@ -1,9 +1,9 @@
 import React from "react";
-import { AboutHero } from "@/components/AboutHero";
-import { WhyChooseUs } from "@/components/WhyChooseUs";
-import { OurNumbers } from "@/components/OurNumbers";
-import { MeetOurTeam } from "@/components/MeetOurTeam";
-import { OurTechnology } from "@/components/OurTechnology";
+import { AboutHero } from "@/components/aboutcomponents/AboutHero";
+import { WhyChooseUs } from "@/components/aboutcomponents/WhyChooseUs";
+import { OurNumbers } from "@/components/aboutcomponents/OurNumbers";
+import { MeetOurTeam } from "@/components/doctorscomponents/MeetOurTeam";
+import { OurTechnology } from "@/components/aboutcomponents/OurTechnology";
 
 export const metadata = {
   title: "About Us | SmileCare Dental Clinic",

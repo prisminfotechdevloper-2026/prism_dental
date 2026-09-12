@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import { TestimonialsHero } from "@/components/TestimonialsHero";
-import { TestimonialsGrid } from "@/components/TestimonialsGrid";
-import { TestimonialsStats } from "@/components/TestimonialsStats";
+import { TestimonialsHero } from "@/components/testimonialscomponents/TestimonialsHero";
+import { TestimonialsGrid } from "@/components/testimonialscomponents/TestimonialsGrid";
+import { TestimonialsStats } from "@/components/testimonialscomponents/TestimonialsStats";
 
 export default function TestimonialsPage() {
   return (

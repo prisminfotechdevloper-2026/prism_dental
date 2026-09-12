@@ -69,7 +69,7 @@ function ShieldIcon() {
 export function TestimonialsHero() {
   return (
     <section
-      className="relative w-full overflow-hidden bg-[#E8F6F8] border-b border-[#D5ECF0] min-h-[400px] sm:min-h-[420px] lg:min-h-[440px] flex items-center"
+      className="relative w-full overflow-hidden bg-[#E8F6F8] border-b border-[#D5ECF0] min-h-[380px] sm:min-h-[400px] lg:min-h-[400px] flex items-center"
       aria-label="Testimonials hero section"
     >
       {/* ─────────────────────────────────────────────────────────────────────

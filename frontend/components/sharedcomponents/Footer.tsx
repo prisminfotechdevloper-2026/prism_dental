@@ -67,44 +67,7 @@ export function Footer() {
       <div className="pointer-events-none absolute -left-20 -top-20 h-72 w-72 rounded-full bg-[#0AADA8]/15 blur-3xl" />
       <div className="pointer-events-none absolute right-0 bottom-0 h-96 w-96 rounded-full bg-[#026EB9]/15 blur-3xl" />
 
-      {/* ========================================================
-          PRE-FOOTER BANNER: Immediate CTA
-         ======================================================== */}
-      <div className="border-b border-white/10 bg-[#072847]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0AADA8]/20 text-[#0AADA8] text-xs font-semibold uppercase tracking-wider mb-2">
-                <HeartPulse className="w-3.5 h-3.5" />
-                Prompt & Painless Appointments
-              </span>
-              <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-                Ready to restore your smile confidence?
-              </h3>
-              <p className="text-sm text-slate-300 mt-1 max-w-xl">
-                Book your comprehensive dental checkup today or consult our specialist doctors online.
-              </p>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-3 shrink-0">
-              <Link
-                href="/appointment"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#0AADA8] hover:bg-[#089692] text-white text-sm font-semibold shadow-[0_4px_14px_rgba(10,173,168,0.35)] transition-all hover:-translate-y-0.5"
-              >
-                <CalendarDays className="w-4 h-4" />
-                <span>Book Appointment</span>
-              </Link>
-              <a
-                href="tel:+919876543210"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-white/20 hover:border-[#0AADA8] bg-white/5 hover:bg-white/10 text-white text-sm font-medium transition-all"
-              >
-                <Phone className="w-4 h-4 text-[#0AADA8]" />
-                <span>+91 98765 43210</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+      
 
       {/* ========================================================
           MAIN FOOTER CONTENT

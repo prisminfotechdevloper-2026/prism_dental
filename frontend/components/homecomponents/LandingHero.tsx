@@ -119,7 +119,7 @@ export const LandingHero = () => {
         {/* ======================================================
             HERO IMAGE (Shifted to Left, natural scale, seamless fade)
             ====================================================== */}
-        <div className="absolute right-0 top-0 bottom-0 w-[62%] lg:w-[66%] pointer-events-none select-none overflow-hidden hidden md:block z-0">
+        <div className="absolute right-0 top-0 bottom-0 w-[60%] lg:w-[62%] pointer-events-none select-none overflow-hidden hidden md:block z-0">
           <div className="relative w-full h-full">
             <Image
               src="/images/heroimg.png"
@@ -127,11 +127,13 @@ export const LandingHero = () => {
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 800px"
-              className="object-cover object-[40%_center] lg:object-[42%_center]"
+              className="object-cover object-[center_center]"
             />
             {/* Smooth fade on the left edge into #EDF7FA */}
-            <div className="absolute inset-y-0 left-0 w-32 lg:w-44 bg-gradient-to-r from-[#EDF7FA] via-[#EDF7FA]/80 to-transparent z-1" />
-            {/* Subtle edge softening */}
+            <div className="absolute inset-y-0 left-0 w-28 lg:w-36 bg-gradient-to-r from-[#EDF7FA] via-[#EDF7FA]/70 to-transparent z-1" />
+            {/* Right edge fade so image doesn't hard-cut */}
+            <div className="absolute inset-y-0 right-0 w-4 bg-gradient-to-l from-[#EDF7FA]/20 to-transparent z-1" />
+            {/* Subtle edge softening top/bottom */}
             <div className="absolute inset-x-0 top-0 h-4 bg-gradient-to-b from-[#EDF7FA]/30 to-transparent z-1" />
             <div className="absolute inset-x-0 bottom-0 h-4 bg-gradient-to-t from-[#EDF7FA]/30 to-transparent z-1" />
           </div>

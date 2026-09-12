@@ -1,9 +1,9 @@
 import React from "react";
-import { TreatmentsHero } from "@/components/TreatmentsHero";
-import { AboutCosmeticDentistry } from "@/components/AboutCosmeticDentistry";
-import { TreatmentProcess } from "@/components/TreatmentProcess";
-import { TreatmentResultsAndSpecialist } from "@/components/TreatmentResultsAndSpecialist";
-import { TreatmentTestimonialsAndFaq } from "@/components/TreatmentTestimonialsAndFaq";
+import { TreatmentsHero } from "@/components/treatmentscomponents/TreatmentsHero";
+import { AboutCosmeticDentistry } from "@/components/treatmentscomponents/AboutCosmeticDentistry";
+import { TreatmentProcess } from "@/components/treatmentscomponents/TreatmentProcess";
+import { TreatmentResultsAndSpecialist } from "@/components/treatmentscomponents/TreatmentResultsAndSpecialist";
+import { TreatmentTestimonialsAndFaq } from "@/components/treatmentscomponents/TreatmentTestimonialsAndFaq";
 
 export const metadata = {
   title: "Braces & Aligners | Treatments | SmileCare Dental Clinic",

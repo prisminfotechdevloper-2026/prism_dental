@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
  
-import { DoctorsHero } from "@/components/DoctorsHero";
+import { DoctorsHero } from "@/components/doctorscomponents/DoctorsHero";
  
  
 
