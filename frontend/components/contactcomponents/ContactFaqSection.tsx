@@ -100,7 +100,7 @@ export function ContactFaqSection() {
                   alt="Prism Dental Logo"
                   width={28}
                   height={28}
-                  className="object-contain shrink-0"
+                  className="w-auto h-auto object-contain shrink-0"
                 />
                 <h3 className="text-[16.5px] sm:text-[17.5px] font-extrabold text-[#083258] leading-tight tracking-tight">
                   Your Smile <br />
@@ -197,7 +197,7 @@ export function ContactFaqSection() {
                 alt="Prism Dental Logo"
                 width={80}
                 height={80}
-                className="object-contain"
+                className="w-auto h-auto object-contain"
               />
             </div>
 

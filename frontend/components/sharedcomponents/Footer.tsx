@@ -84,7 +84,7 @@ export function Footer() {
                   alt="SmileCare Dental Clinic Logo"
                   width={38}
                   height={38}
-                  className="w-full h-full object-contain"
+                  className="w-auto h-auto max-w-full max-h-full object-contain"
                 />
               </div>
               <div className="flex flex-col">

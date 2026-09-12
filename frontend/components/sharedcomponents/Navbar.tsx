@@ -126,10 +126,10 @@ export function Navbar() {
               <Image
                 src="/images/logo.png"
                 alt="SmileCare Dental Clinic Logo"
-                width={42}
+                width={40}
                 height={40}
                 priority
-                className="w-10 h-10 object-contain transition-transform group-hover:scale-105"
+                className="w-10 h-auto object-contain transition-transform group-hover:scale-105"
               />
             </div>
 
