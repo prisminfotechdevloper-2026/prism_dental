@@ -4,6 +4,7 @@ import React from "react";
 import { ContactHero } from "@/components/contactcomponents/ContactHero";
 import { ContactInfoBar } from "@/components/contactcomponents/ContactInfoBar";
 import { ContactBookingAndLocation } from "@/components/contactcomponents/ContactBookingAndLocation";
+import { ContactFaqSection } from "@/components/contactcomponents/ContactFaqSection";
 
 export default function ContactPage() {
   return (
@@ -16,6 +17,9 @@ export default function ContactPage() {
 
       {/* 3. BOOK YOUR APPOINTMENT & OUR CLINIC LOCATION */}
       <ContactBookingAndLocation />
+
+      {/* 4. FREQUENTLY ASKED QUESTIONS & ASSISTANCE */}
+      <ContactFaqSection />
     </div>
   );
 }

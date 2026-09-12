@@ -1,11 +1,12 @@
 import React from "react";
-import Link from "next/link";
 import { BlogHero } from "@/components/blogcomponents/BlogHero";
+import { BlogArticleSection } from "@/components/blogcomponents/BlogArticleSection";
 
 export default function BlogPage() {
   return (
     <>
-    <BlogHero />
+      <BlogHero />
+      <BlogArticleSection />
     </>
   );
 }
