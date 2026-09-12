@@ -6,8 +6,9 @@ interface BlogFilterTabsProps {
   categories: string[];
   activeCategory: string;
   onSelectCategory: (category: string) => void;
-}
+} 
 
+ 
 export function BlogFilterTabs({
   categories,
   activeCategory,
