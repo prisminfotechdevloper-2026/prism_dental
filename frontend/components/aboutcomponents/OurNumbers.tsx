@@ -139,7 +139,7 @@ export function OurNumbers() {
   ];
 
   return (
-    <section className="relative w-full overflow-hidden bg-gradient-to-r from-[#01506D] via-[#026284] to-[#014B67] py-8 sm:py-10">
+    <section className="relative w-full overflow-hidden bg-gradient-to-r from-[#01506D] via-[#026284] to-[#014B67] py4 sm:py-5">
       {/* Subtle background ambient light */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(33,210,204,0.12),_transparent_70%)] pointer-events-none" />
 

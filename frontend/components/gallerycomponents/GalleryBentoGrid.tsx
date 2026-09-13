@@ -56,8 +56,7 @@ export function GalleryBentoGrid({ items, onSelect }: GalleryBentoGridProps) {
             <div className="absolute top-4 sm:top-6 left-4 sm:left-6 right-4 sm:right-6 z-20 flex items-center justify-between pointer-events-none">
               <div className="flex items-center gap-2">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0AADA8] text-white text-xs font-black tracking-wide shadow-md uppercase">
-                  <span className="w-2 h-2 rounded-full bg-white" />
-                  Featured Showcase
+                   Featured Showcase
                 </span>
                 {heroItem.category === "transformations" && (
                   <span className="hidden sm:inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-bold border border-white/20">
@@ -186,7 +185,6 @@ export function GalleryBentoGrid({ items, onSelect }: GalleryBentoGridProps) {
                 {/* Stats / Highlight */}
                 {item.statsHighlight && (
                   <div className="mb-1 text-[10.5px] font-bold text-[#65F4F0] flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#0AADA8]" />
                     <span>{item.statsHighlight}</span>
                   </div>
                 )}

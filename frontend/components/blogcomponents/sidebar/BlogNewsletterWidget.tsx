@@ -46,7 +46,11 @@ export function BlogNewsletterWidget() {
         </div>
       ) : (
         <form onSubmit={handleSubscribe} className="relative flex items-center mb-6">
+          <label htmlFor="blog-newsletter-email" className="sr-only">
+            Your Email Address
+          </label>
           <input
+            id="blog-newsletter-email"
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}

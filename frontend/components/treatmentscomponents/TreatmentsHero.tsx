@@ -120,7 +120,10 @@ function WhatsAppIcon() {
   );
 }
 
-export function TreatmentsHero() {
+// ─────────────────────────────────────────────────────────────────────────────
+// CONSULTATION BOOKING CARD SUBCOMPONENT
+// ─────────────────────────────────────────────────────────────────────────────
+function ConsultationBookingCard() {
   const router = useRouter();
   const [selectedTreatment, setSelectedTreatment] = useState("Braces & Aligners");
   const [selectedDoctor, setSelectedDoctor] = useState("Dr. Priya Sharma");
@@ -138,8 +141,156 @@ export function TreatmentsHero() {
   };
 
   return (
+    <div className="w-full sm:w-[290px] xl:w-[310px] shrink-0 z-10 lg:self-center">
+      <div className="w-full bg-white rounded-2xl shadow-[0_12px_36px_rgba(8,50,88,0.09)] border border-[#D5ECF0] p-4 sm:p-5 transition-all hover:shadow-[0_16px_44px_rgba(8,50,88,0.13)]">
+        {/* Card Header */}
+        <div className="mb-3">
+          <h3 className="text-[15px] sm:text-[16px] font-bold text-[#083258] tracking-tight leading-tight">
+            Book Your Consultation
+          </h3>
+          <p className="text-[10.5px] sm:text-[11px] text-[#6B8BA2] mt-0.5">
+            Get expert advice for your perfect smile.
+          </p>
+        </div>
+
+        {/* Consultation Form */}
+        <form onSubmit={handleSubmit} className="space-y-3">
+          {/* 1. Select Treatment */}
+          <div>
+            <label
+              htmlFor="treatment-select"
+              className="block text-[10.5px] font-semibold text-[#54738C] mb-1"
+            >
+              Select Treatment
+            </label>
+            <div className="relative">
+              <select
+                id="treatment-select"
+                value={selectedTreatment}
+                onChange={(e) => setSelectedTreatment(e.target.value)}
+                className="w-full appearance-none bg-[#F8FCFD] border border-[#D5ECF0] rounded-lg px-3 py-1.5 text-[11.5px] text-[#083258] font-medium focus:outline-none focus:border-[#0AADA8] focus:ring-1 focus:ring-[#0AADA8] transition-colors cursor-pointer"
+              >
+                <option value="Braces & Aligners">Braces & Aligners</option>
+                <option value="Teeth Whitening">Teeth Whitening</option>
+                <option value="Dental Implants">Dental Implants</option>
+                <option value="Single-Sitting Root Canal">Single-Sitting Root Canal</option>
+                <option value="Cosmetic Veneers">Cosmetic Veneers</option>
+              </select>
+              {/* Dropdown Chevron Icon */}
+              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-[#0AADA8]">
+                <svg className="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path
+                    fillRule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          {/* 2. Select Doctor */}
+          <div>
+            <label
+              htmlFor="doctor-select"
+              className="block text-[10.5px] font-semibold text-[#54738C] mb-1"
+            >
+              Select Doctor
+            </label>
+            <div className="relative">
+              <select
+                id="doctor-select"
+                value={selectedDoctor}
+                onChange={(e) => setSelectedDoctor(e.target.value)}
+                className="w-full appearance-none bg-[#F8FCFD] border border-[#D5ECF0] rounded-lg px-3 py-1.5 text-[11.5px] text-[#083258] font-medium focus:outline-none focus:border-[#0AADA8] focus:ring-1 focus:ring-[#0AADA8] transition-colors cursor-pointer"
+              >
+                <option value="Dr. Priya Sharma">Dr. Priya Sharma</option>
+                <option value="Dr. Rohan Mehta">Dr. Rohan Mehta</option>
+                <option value="Dr. Amit Verma">Dr. Amit Verma</option>
+                <option value="Dr. Sneha Patel">Dr. Sneha Patel</option>
+              </select>
+              {/* Dropdown Chevron Icon */}
+              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-[#0AADA8]">
+                <svg className="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path
+                    fillRule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          {/* 3. Select Date */}
+          <div>
+            <label
+              htmlFor="date-select"
+              className="block text-[10.5px] font-semibold text-[#54738C] mb-1"
+            >
+              Select Date
+            </label>
+            <div className="relative">
+              <input
+                id="date-select"
+                type="date"
+                value={selectedDate}
+                onChange={(e) => setSelectedDate(e.target.value)}
+                className="w-full bg-[#F8FCFD] border border-[#D5ECF0] rounded-lg px-3 py-1.5 text-[11.5px] text-[#083258] font-medium focus:outline-none focus:border-[#0AADA8] focus:ring-1 focus:ring-[#0AADA8] transition-colors cursor-pointer"
+              />
+              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5">
+                <CalendarIcon />
+              </div>
+            </div>
+          </div>
+
+          {/* 4. Book Appointment Submit Button */}
+          <button
+            type="submit"
+            className="w-full py-2.5 px-4 bg-[#0AADA8] hover:bg-[#089692] text-white text-xs sm:text-[12.5px] font-bold rounded-lg shadow-[0_4px_14px_rgba(10,173,168,0.25)] hover:shadow-[0_6px_20px_rgba(10,173,168,0.35)] active:scale-[0.98] transition-all flex items-center justify-center gap-1.5 cursor-pointer mt-1"
+          >
+            <span>Book Appointment</span>
+            <svg
+              className="w-3.5 h-3.5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </button>
+        </form>
+
+        {/* WhatsApp Quick Chat */}
+        <div className="mt-2.5 text-center">
+          <a
+            href="https://wa.me/919876543210?text=Hi%20SmileCare,%20I%20would%20like%20to%20consult%20about%20Braces%20and%20Aligners"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-1.5 text-[11px] text-[#083258] hover:text-[#0AADA8] font-semibold transition-colors"
+          >
+            <WhatsAppIcon />
+            <span>Chat on WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function TreatmentsHero() {
+  return (
     <section className="relative w-full overflow-hidden bg-[#E8F6F8] border-b border-[#D5ECF0] min-h-[400px] sm:min-h-[420px] lg:min-h-[440px] flex items-center">
       
+      {/* ─────────────────────────────────────────────────────────────
+          PANORAMIC BACKGROUND HERO IMAGE (Girl + Glass Clinic Operatory)
+          Spans across the center and right side, placing the girl
+          directly in the middle and the glass background under the card
+          ───────────────────────────────────────────────────────────── */}
       {/* ─────────────────────────────────────────────────────────────
           PANORAMIC BACKGROUND HERO IMAGE (Girl + Glass Clinic Operatory)
           Spans across the center and right side, placing the girl
@@ -152,12 +303,10 @@ export function TreatmentsHero() {
           fill
           priority
           sizes="(max-width: 1024px) 100vw, 70vw"
-          className="object-cover object-left"
+          className="object-cover object-center lg:object-left"
         />
-        {/* Soft horizontal gradient blend into the solid left-column background */}
-        <div className="absolute inset-y-0 left-0 w-28 sm:w-36 lg:w-48 bg-gradient-to-r from-[#E8F6F8] via-[#E8F6F8]/80 to-transparent" />
-        {/* Mobile vertical gradient overlay for clean contrast */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#E8F6F8] via-[#E8F6F8]/60 to-transparent lg:hidden" />
+        {/* Soft horizontal gradient blend into the solid left-column background (Desktop only) */}
+        <div className="hidden lg:block absolute inset-y-0 left-0 w-28 sm:w-36 lg:w-48 bg-gradient-to-r from-[#E8F6F8] via-[#E8F6F8]/80 to-transparent" />
       </div>
 
       {/* ─────────────────────────────────────────────────────────────
@@ -177,7 +326,6 @@ export function TreatmentsHero() {
         <p className="font-handwriting text-lg xl:text-[21px] font-bold text-[#083258] leading-tight pl-3 drop-shadow-sm">
           Future
         </p>
-        
       </div>
 
       {/* ─────────────────────────────────────────────────────────────
@@ -189,7 +337,7 @@ export function TreatmentsHero() {
           {/* ─────────────────────────────────────────────────────────────
               LEFT COLUMN: BREADCRUMB, HEADLINE, DESCRIPTION & 4 PILLS
               ───────────────────────────────────────────────────────────── */}
-          <div className="w-full lg:w-[40%] xl:w-[38%] shrink-0 z-10">
+          <div className="w-full max-w-xl lg:max-w-none lg:w-[40%] xl:w-[38%] shrink-0 z-10">
             {/* Breadcrumb Navigation */}
             <nav
               aria-label="Breadcrumb"
@@ -286,144 +434,7 @@ export function TreatmentsHero() {
               RIGHT COLUMN: "BOOK YOUR CONSULTATION" POPUP / CARD
               Top-aligned, floating cleanly over the glass background
               ───────────────────────────────────────────────────────────── */}
-          <div className="w-full sm:w-[290px] xl:w-[310px] shrink-0 z-10 lg:self-center">
-            <div className="w-full bg-white rounded-2xl shadow-[0_12px_36px_rgba(8,50,88,0.09)] border border-[#D5ECF0] p-4 sm:p-5 transition-all hover:shadow-[0_16px_44px_rgba(8,50,88,0.13)]">
-              {/* Card Header */}
-              <div className="mb-3">
-                <h3 className="text-[15px] sm:text-[16px] font-bold text-[#083258] tracking-tight leading-tight">
-                  Book Your Consultation
-                </h3>
-                <p className="text-[10.5px] sm:text-[11px] text-[#6B8BA2] mt-0.5">
-                  Get expert advice for your perfect smile.
-                </p>
-              </div>
-
-              {/* Consultation Form */}
-              <form onSubmit={handleSubmit} className="space-y-3">
-                {/* 1. Select Treatment */}
-                <div>
-                  <label
-                    htmlFor="treatment-select"
-                    className="block text-[10.5px] font-semibold text-[#54738C] mb-1"
-                  >
-                    Select Treatment
-                  </label>
-                  <div className="relative">
-                    <select
-                      id="treatment-select"
-                      value={selectedTreatment}
-                      onChange={(e) => setSelectedTreatment(e.target.value)}
-                      className="w-full appearance-none bg-[#F8FCFD] border border-[#D5ECF0] rounded-lg px-3 py-1.5 text-[11.5px] text-[#083258] font-medium focus:outline-none focus:border-[#0AADA8] focus:ring-1 focus:ring-[#0AADA8] transition-colors cursor-pointer"
-                    >
-                      <option value="Braces & Aligners">Braces & Aligners</option>
-                      <option value="Teeth Whitening">Teeth Whitening</option>
-                      <option value="Dental Implants">Dental Implants</option>
-                      <option value="Single-Sitting Root Canal">Single-Sitting Root Canal</option>
-                      <option value="Cosmetic Veneers">Cosmetic Veneers</option>
-                    </select>
-                    {/* Dropdown Chevron Icon */}
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-[#0AADA8]">
-                      <svg className="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
-                        <path
-                          fillRule="evenodd"
-                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-
-                {/* 2. Select Doctor */}
-                <div>
-                  <label
-                    htmlFor="doctor-select"
-                    className="block text-[10.5px] font-semibold text-[#54738C] mb-1"
-                  >
-                    Select Doctor
-                  </label>
-                  <div className="relative">
-                    <select
-                      id="doctor-select"
-                      value={selectedDoctor}
-                      onChange={(e) => setSelectedDoctor(e.target.value)}
-                      className="w-full appearance-none bg-[#F8FCFD] border border-[#D5ECF0] rounded-lg px-3 py-1.5 text-[11.5px] text-[#083258] font-medium focus:outline-none focus:border-[#0AADA8] focus:ring-1 focus:ring-[#0AADA8] transition-colors cursor-pointer"
-                    >
-                      <option value="Dr. Priya Sharma">Dr. Priya Sharma</option>
-                      <option value="Dr. Rohan Mehta">Dr. Rohan Mehta</option>
-                      <option value="Dr. Amit Verma">Dr. Amit Verma</option>
-                      <option value="Dr. Sneha Patel">Dr. Sneha Patel</option>
-                    </select>
-                    {/* Dropdown Chevron Icon */}
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-[#0AADA8]">
-                      <svg className="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
-                        <path
-                          fillRule="evenodd"
-                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-
-                {/* 3. Select Date */}
-                <div>
-                  <label
-                    htmlFor="date-select"
-                    className="block text-[10.5px] font-semibold text-[#54738C] mb-1"
-                  >
-                    Select Date
-                  </label>
-                  <div className="relative">
-                    <input
-                      id="date-select"
-                      type="date"
-                      value={selectedDate}
-                      onChange={(e) => setSelectedDate(e.target.value)}
-                      className="w-full bg-[#F8FCFD] border border-[#D5ECF0] rounded-lg px-3 py-1.5 text-[11.5px] text-[#083258] font-medium focus:outline-none focus:border-[#0AADA8] focus:ring-1 focus:ring-[#0AADA8] transition-colors cursor-pointer"
-                    />
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5">
-                      <CalendarIcon />
-                    </div>
-                  </div>
-                </div>
-
-                {/* 4. Book Appointment Submit Button */}
-                <button
-                  type="submit"
-                  className="w-full py-2.5 px-4 bg-[#0AADA8] hover:bg-[#089692] text-white text-xs sm:text-[12.5px] font-bold rounded-lg shadow-[0_4px_14px_rgba(10,173,168,0.25)] hover:shadow-[0_6px_20px_rgba(10,173,168,0.35)] active:scale-[0.98] transition-all flex items-center justify-center gap-1.5 cursor-pointer mt-1"
-                >
-                  <span>Book Appointment</span>
-                  <svg
-                    className="w-3.5 h-3.5"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M5 12h14" />
-                    <path d="m12 5 7 7-7 7" />
-                  </svg>
-                </button>
-              </form>
-
-              {/* WhatsApp Quick Chat */}
-              <div className="mt-2.5 text-center">
-                <a
-                  href="https://wa.me/919876543210?text=Hi%20SmileCare,%20I%20would%20like%20to%20consult%20about%20Braces%20and%20Aligners"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-1.5 text-[11px] text-[#083258] hover:text-[#0AADA8] font-semibold transition-colors"
-                >
-                  <WhatsAppIcon />
-                  <span>Chat on WhatsApp</span>
-                </a>
-              </div>
-            </div>
-          </div>
+          <ConsultationBookingCard />
 
         </div>
       </div>

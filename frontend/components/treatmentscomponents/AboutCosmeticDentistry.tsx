@@ -54,7 +54,7 @@ export function AboutCosmeticDentistry() {
   ];
 
   return (
-    <section className="w-full bg-white py-3 sm:py-3 lg:py-2 border-b border-[#E8F3F6]">
+    <section className="w-full bg-white py-3 sm:py-3 lg:py-5 border-b border-[#E8F3F6]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-10">
         
         {/* 3-Column Balanced Grid */}

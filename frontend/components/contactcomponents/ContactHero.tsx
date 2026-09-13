@@ -21,12 +21,13 @@ export function ContactHero() {
           fill
           priority
           sizes="(max-width: 1024px) 100vw, 58vw"
-          className="object-cover object-[70%_center] sm:object-[72%_center] lg:object-[64%_center]"
+          className="object-cover object-center lg:object-[64%_center]"
         />
-        {/* Optimized subtle edge blend: smooth transition without covering/washing out the clinic background */}
-        <div className="absolute inset-y-0 left-0 w-24 sm:w-36 lg:w-44 bg-gradient-to-r from-[#E8F6F8] via-[#E8F6F8]/50 to-transparent z-1" />
-        {/* Mobile vertical gradient overlay for clean contrast & readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#E8F6F8] via-[#E8F6F8]/60 to-transparent lg:hidden z-1" />
+        {/* Left smooth gradient blend (Desktop only) */}
+        <div className="hidden lg:block absolute inset-y-0 left-0 w-28 sm:w-36 lg:w-44 bg-gradient-to-r from-[#E8F6F8] via-[#E8F6F8]/85 to-transparent z-1" />
+        {/* Edge softening (Desktop only) */}
+        <div className="hidden lg:block absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-[#E8F6F8]/60 to-transparent z-1" />
+        <div className="hidden lg:block absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-[#E8F6F8]/80 to-transparent z-1" />
       </div>
 
       {/* ─────────────────────────────────────────────────────────────
@@ -104,11 +105,11 @@ export function ContactHero() {
       {/* ─────────────────────────────────────────────────────────────
           FOREGROUND CONTENT WRAPPER (LEFT COLUMN)
           ───────────────────────────────────────────────────────────── */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 py-12 sm:py-14 lg:py-16">
-        <div className="w-full lg:max-w-[480px] xl:max-w-[520px]">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 py-8 sm:py-14 lg:py-16">
+        <div className="w-full max-w-xl lg:max-w-[480px] xl:max-w-[520px]">
           {/* Breadcrumb Pill */}
-          <div className="mb-5 sm:mb-6">
-            <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#D7F2F6] border border-[#BCEBE9]/60 text-xs font-semibold shadow-2xs">
+          <div className="mb-3 sm:mb-6">
+            <span className="inline-flex items-center gap-2 px-3 py-0.5 sm:px-3.5 sm:py-1 rounded-full bg-[#D7F2F6] border border-[#BCEBE9]/60 text-[11px] sm:text-xs font-semibold shadow-2xs">
               <Link href="/" className="text-[#0AADA8] hover:underline">
                 Home
               </Link>
@@ -118,18 +119,18 @@ export function ContactHero() {
           </div>
 
           {/* Eyebrow Label */}
-          <div className="text-xs sm:text-[13px] font-bold uppercase tracking-[0.18em] text-[#0AADA8] mb-2 sm:mb-2.5">
+          <div className="text-[11px] sm:text-[13px] font-bold uppercase tracking-[0.18em] text-[#0AADA8] mb-1.5 sm:mb-2.5">
             GET IN TOUCH
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-3xl sm:text-4xl lg:text-[50px] xl:text-[56px] font-extrabold tracking-tight leading-[1.1] mb-4 sm:mb-5">
+          <h1 className="text-2xl sm:text-4xl lg:text-[50px] xl:text-[56px] font-extrabold tracking-tight leading-[1.1] mb-2.5 sm:mb-5">
             <span className="text-[#083258] block">We&apos;re Here to</span>
             <span className="text-[#0AADA8] block">Help You</span>
           </h1>
 
           {/* Subtitle / Description */}
-          <p className="text-xs sm:text-sm lg:text-[15px] text-[#426480] leading-relaxed max-w-[450px]">
+          <p className="text-[11.5px] sm:text-sm lg:text-[15px] text-[#426480] leading-relaxed max-w-[450px]">
             Have a question, need an appointment, or want to know more about our services? We&apos;re just a message or call away.
             <span className="block mt-1 sm:mt-0.5">Your smile is our priority!</span>
           </p>

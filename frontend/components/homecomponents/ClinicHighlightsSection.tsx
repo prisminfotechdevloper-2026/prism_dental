@@ -7,7 +7,7 @@ import { ClinicGalleryPreview } from "../highlightscomponents/ClinicGalleryPrevi
 
 export function ClinicHighlightsSection() {
   return (
-    <section className="w-full bg-[#FFFFFF] border-b border-[#E8F3F6] py-12 sm:py-16">
+    <section className="w-full bg-[#FFFFFF] border-b border-[#E8F3F6] py-4 sm:py-5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* 3-Column Responsive Grid matching Reference Design */}

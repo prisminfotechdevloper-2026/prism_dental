@@ -96,12 +96,13 @@ export function GalleryHero() {
           fill
           priority
           sizes="(max-width: 1024px) 100vw, 65vw"
-          className="object-cover object-[center_right] lg:object-right"
+          className="object-cover object-center lg:object-right"
         />
-        {/* Soft horizontal gradient blend into the solid left-column background */}
-        <div className="absolute inset-y-0 left-0 w-32 sm:w-44 lg:w-56 bg-gradient-to-r from-[#E8F6F8] via-[#E8F6F8]/80 to-transparent z-1" />
-        {/* Mobile vertical gradient overlay for clean contrast */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#E8F6F8] via-[#E8F6F8]/65 to-transparent lg:hidden z-1" />
+        {/* Left smooth gradient blend (Desktop only) */}
+        <div className="hidden lg:block absolute inset-y-0 left-0 w-44 sm:w-60 lg:w-56 bg-gradient-to-r from-[#E8F6F8] via-[#E8F6F8]/85 to-transparent z-1" />
+        {/* Top/bottom edge softening (Desktop only) */}
+        <div className="hidden lg:block absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-[#E8F6F8]/60 to-transparent z-1" />
+        <div className="hidden lg:block absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-[#E8F6F8]/80 to-transparent z-1" />
       </div>
 
       {/* ─────────────────────────────────────────────────────────────
@@ -134,13 +135,13 @@ export function GalleryHero() {
       {/* ─────────────────────────────────────────────────────────────
           FOREGROUND CONTENT WRAPPER
           ───────────────────────────────────────────────────────────── */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 py-10 sm:py-12">
-        <div className="w-full lg:max-w-[540px] xl:max-w-[580px]">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 py-8 sm:py-12">
+        <div className="w-full max-w-xl lg:max-w-[540px] xl:max-w-[580px]">
           
           {/* Breadcrumb Navigation */}
           <nav
             aria-label="Breadcrumb"
-            className="flex items-center gap-1.5 text-xs sm:text-[13px] font-medium text-[#0AADA8] mb-2.5"
+            className="flex items-center gap-1.5 text-xs sm:text-[13px] font-medium text-[#0AADA8] mb-2 sm:mb-2.5"
           >
             <Link href="/" className="hover:underline transition-colors opacity-80 hover:opacity-100">
               Home
@@ -150,25 +151,25 @@ export function GalleryHero() {
           </nav>
 
           {/* Pill Tag: Our Gallery */}
-          <div className="mb-2.5">
-            <span className="inline-block px-3 py-1 rounded-full bg-[#DDF4F6] border border-[#0AADA8]/25 text-[#0AADA8] text-xs font-bold tracking-wide shadow-2xs">
+          <div className="mb-2 sm:mb-2.5">
+            <span className="inline-block px-3 py-0.5 sm:py-1 rounded-full bg-[#DDF4F6] border border-[#0AADA8]/25 text-[#0AADA8] text-[11px] sm:text-xs font-bold tracking-wide shadow-2xs">
               Our Gallery
             </span>
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-extrabold tracking-tight leading-[1.1] mb-2.5">
+          <h1 className="text-2xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-extrabold tracking-tight leading-[1.1] mb-2 sm:mb-2.5">
             <span className="text-[#083258]">Smile Moments </span>
             <span className="block text-[#0AADA8]">Gallery</span>
           </h1>
 
           {/* Subtitle */}
-          <h2 className="text-sm sm:text-base lg:text-[17px] font-bold text-[#083258] tracking-tight mb-3">
+          <h2 className="text-xs sm:text-base lg:text-[17px] font-bold text-[#083258] tracking-tight mb-2 sm:mb-3">
             Real People. Real Smiles. Real Transformations.
           </h2>
 
           {/* Description Paragraph */}
-          <p className="text-xs sm:text-sm lg:text-[14px] text-[#426480] leading-relaxed max-w-lg mb-6">
+          <p className="text-[11.5px] sm:text-sm lg:text-[14px] text-[#426480] leading-relaxed max-w-lg mb-5 sm:mb-6">
             Explore our gallery to see the beautiful smiles we&apos;ve created and the happy patients who trust SmileCare Dental Clinic.
           </p>
 

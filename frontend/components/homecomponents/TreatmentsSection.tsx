@@ -1,197 +1,72 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 
 // ─────────────────────────────────────────────
-// DENTAL SVG ICONS  (all teal, outlined style)
-// ─────────────────────────────────────────────
-
-function ImplantIcon() {
-  return (
-    <svg viewBox="0 0 40 40" fill="none" className="w-7 h-7" stroke="#0AADA8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      {/* tooth body */}
-      <path d="M14 6c-3 0-5 2-5 5 0 4 2 6 4 9l1.5 8h11L27 20c2-3 4-5 4-9 0-3-2-5-5-5-1.5 0-3 .8-4 2-1-.8-2.5-2-4-2z" />
-      {/* implant pin */}
-      <line x1="20" y1="28" x2="20" y2="36" />
-      <line x1="17" y1="32" x2="23" y2="32" />
-    </svg>
-  );
-}
-
-function RootCanalIcon() {
-  return (
-    <svg viewBox="0 0 40 40" fill="none" className="w-7 h-7" stroke="#0AADA8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M14 6c-3 0-5 2-5 5 0 4 2 6 4 9l1.5 8h11L27 20c2-3 4-5 4-9 0-3-2-5-5-5-1.5 0-3 .8-4 2-1-.8-2.5-2-4-2z" />
-      {/* root lines */}
-      <line x1="17" y1="22" x2="15" y2="34" />
-      <line x1="23" y1="22" x2="25" y2="34" />
-      <line x1="20" y1="23" x2="20" y2="35" />
-    </svg>
-  );
-}
-
-function WhiteningIcon() {
-  return (
-    <svg viewBox="0 0 40 40" fill="none" className="w-7 h-7" stroke="#0AADA8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M14 6c-3 0-5 2-5 5 0 4 2 6 4 9l1.5 8h11L27 20c2-3 4-5 4-9 0-3-2-5-5-5-1.5 0-3 .8-4 2-1-.8-2.5-2-4-2z" />
-      {/* sparkle */}
-      <line x1="28" y1="7" x2="28" y2="11" />
-      <line x1="26" y1="9" x2="30" y2="9" />
-      <line x1="33" y1="4" x2="33" y2="7" />
-      <line x1="31.5" y1="5.5" x2="34.5" y2="5.5" />
-    </svg>
-  );
-}
-
-function AlignersIcon() {
-  return (
-    <svg viewBox="0 0 40 40" fill="none" className="w-7 h-7" stroke="#0AADA8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      {/* aligner tray top */}
-      <path d="M7 15 Q20 8 33 15" />
-      <path d="M7 15 Q8 22 20 23 Q32 22 33 15" />
-      {/* aligner tray bottom */}
-      <path d="M7 25 Q20 18 33 25" />
-      <path d="M7 25 Q8 32 20 33 Q32 32 33 25" />
-      {/* bracket markers */}
-      <rect x="11" y="12" width="4" height="5" rx="1" />
-      <rect x="18" y="11" width="4" height="5" rx="1" />
-      <rect x="25" y="12" width="4" height="5" rx="1" />
-    </svg>
-  );
-}
-
-function CrownIcon() {
-  return (
-    <svg viewBox="0 0 40 40" fill="none" className="w-7 h-7" stroke="#0AADA8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      {/* crown shape */}
-      <path d="M10 28 L10 16 L16 21 L20 12 L24 21 L30 16 L30 28 Z" />
-      {/* crown base */}
-      <line x1="8" y1="28" x2="32" y2="28" />
-      <line x1="10" y1="31" x2="30" y2="31" />
-    </svg>
-  );
-}
-
-function ExtractionIcon() {
-  return (
-    <svg viewBox="0 0 40 40" fill="none" className="w-7 h-7" stroke="#0AADA8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M14 8c-3 0-5 2-5 5 0 4 2 6 4 9l1.5 7h11L27 22c2-3 4-5 4-9 0-3-2-5-5-5-1.5 0-3 .8-4 2-1-.8-2.5-2-4-2z" />
-      {/* extraction arrow up */}
-      <line x1="30" y1="32" x2="30" y2="22" />
-      <polyline points="27,25 30,22 33,25" />
-    </svg>
-  );
-}
-
-function PediatricIcon() {
-  return (
-    <svg viewBox="0 0 40 40" fill="none" className="w-7 h-7" stroke="#0AADA8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      {/* child face */}
-      <circle cx="20" cy="17" r="9" />
-      {/* eyes */}
-      <circle cx="16.5" cy="15.5" r="1.2" fill="#0AADA8" stroke="none" />
-      <circle cx="23.5" cy="15.5" r="1.2" fill="#0AADA8" stroke="none" />
-      {/* smile */}
-      <path d="M15.5 20 Q20 24 24.5 20" />
-      {/* hair */}
-      <path d="M11.5 13 Q15 8 20 8 Q25 8 28.5 13" />
-      {/* small tooth */}
-      <path d="M17 30 Q17 35 20 35 Q23 35 23 30" />
-    </svg>
-  );
-}
-
-function CosmeticIcon() {
-  return (
-    <svg viewBox="0 0 40 40" fill="none" className="w-7 h-7" stroke="#0AADA8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      {/* lips */}
-      <path d="M10 20 Q20 14 30 20 Q20 30 10 20Z" />
-      {/* upper lip curve */}
-      <path d="M10 20 Q15 17 20 18 Q25 17 30 20" />
-      {/* smile highlight */}
-      <path d="M15 21 Q20 24 25 21" />
-    </svg>
-  );
-}
-
-function GumTreatmentIcon() {
-  return (
-    <svg viewBox="0 0 40 40" fill="none" className="w-7 h-7" stroke="#0AADA8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      {/* gum line */}
-      <path d="M8 22 Q14 14 20 18 Q26 14 32 22" />
-      {/* teeth */}
-      <rect x="13" y="18" width="5" height="8" rx="2" />
-      <rect x="22" y="18" width="5" height="8" rx="2" />
-      {/* gum fill hint */}
-      <path d="M8 22 Q14 28 20 27 Q26 28 32 22" strokeDasharray="2 2" />
-    </svg>
-  );
-}
-
-// ─────────────────────────────────────────────
-// TREATMENT DATA
+// TREATMENT DATA (PNG LOGOS FROM images/teeth_home)
 // ─────────────────────────────────────────────
 const treatments = [
   {
     id: 1,
-    icon: <ImplantIcon />,
+    image: "/images/teeth_home/teeth1.png",
     title: "Dental Implants",
     subtitle: "Permanent solution for missing teeth",
     href: "/treatments#dental-implants",
   },
   {
     id: 2,
-    icon: <RootCanalIcon />,
+    image: "/images/teeth_home/teeth1.png",
     title: "Root Canal Treatment",
     subtitle: "Save your natural tooth",
     href: "/treatments#root-canal",
   },
   {
     id: 3,
-    icon: <WhiteningIcon />,
+    image: "/images/teeth_home/teeth_whiting.png",
     title: "Teeth Whitening",
     subtitle: "Brighter & whiter smile",
     href: "/treatments#teeth-whitening",
   },
   {
     id: 4,
-    icon: <AlignersIcon />,
+    image: "/images/teeth_home/braces_dental.png",
     title: "Braces & Aligners",
     subtitle: "Straighten your teeth",
     href: "/treatments#braces-aligners",
   },
   {
     id: 5,
-    icon: <CrownIcon />,
+    image: "/images/teeth_home/teeth1.png",
     title: "Dental Crowns & Bridges",
     subtitle: "Restore your smile",
     href: "/treatments#crowns-bridges",
   },
   {
     id: 6,
-    icon: <ExtractionIcon />,
+    image: "/images/teeth_home/teeth1.png",
     title: "Tooth Extraction",
     subtitle: "Safe & painless procedure",
     href: "/treatments#tooth-extraction",
   },
   {
     id: 7,
-    icon: <PediatricIcon />,
+    image: "/images/teeth_home/pediatrics.png",
     title: "Pediatric Dentistry",
     subtitle: "Special care for kids",
     href: "/treatments#pediatric",
   },
   {
     id: 8,
-    icon: <CosmeticIcon />,
+    image: "/images/teeth_home/teeth_whiting.png",
     title: "Cosmetic Dentistry",
     subtitle: "Enhance your natural beauty",
     href: "/treatments#cosmetic",
   },
   {
     id: 9,
-    icon: <GumTreatmentIcon />,
+    image: "/images/teeth_home/gum_treatment.png",
     title: "Gum Treatment",
     subtitle: "Healthy gums, healthy smile",
     href: "/treatments#gum-treatment",
@@ -199,15 +74,15 @@ const treatments = [
 ];
 
 // ─────────────────────────────────────────────
-// TREATMENT CARD
+// TREATMENT CARD (SAME ORIGINAL SIZING & WIDTH)
 // ─────────────────────────────────────────────
 function TreatmentCard({
-  icon,
+  image,
   title,
   subtitle,
   href,
 }: {
-  icon: React.ReactNode;
+  image: string;
   title: string;
   subtitle: string;
   href: string;
@@ -215,11 +90,17 @@ function TreatmentCard({
   return (
     <Link
       href={href}
-      className="group flex flex-col gap-3 bg-white border border-[#E4EEF2] rounded-2xl p-4 sm:p-5 transition-all duration-200 hover:border-[#0AADA8]/40 hover:shadow-[0_6px_24px_rgba(10,173,168,0.10)] hover:-translate-y-0.5 cursor-pointer"
+      className="group flex flex-col gap-3 bg-white border border-[#E4EEF2] rounded-2xl p-4 sm:p-5 transition-all duration-200 hover:border-[#0AADA8]/40 hover:shadow-[0_6px_24px_rgba(10,173,168,0.10)] hover:-translate-y-0.5 cursor-pointer h-full"
     >
-      {/* Icon Badge */}
-      <div className="w-12 h-12 rounded-xl bg-[#E8F8F8] flex items-center justify-center shrink-0 transition-colors duration-200 group-hover:bg-[#D6F3F2]">
-        {icon}
+      {/* Icon Badge with PNG Logo */}
+      <div className="w-12 h-12 rounded-xl bg-[#E8F8F8] flex items-center justify-center shrink-0 transition-colors duration-200 group-hover:bg-[#D6F3F2] p-2">
+        <Image
+          src={image}
+          alt={title}
+          width={36}
+          height={36}
+          className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-200"
+        />
       </div>
 
       {/* Text */}
@@ -239,15 +120,12 @@ function TreatmentCard({
 // MAIN SECTION EXPORT
 // ─────────────────────────────────────────────
 export const TreatmentsSection = () => {
-  const row1 = treatments.slice(0, 5);
-  const row2 = treatments.slice(5, 9);
-
   return (
-    <section className="w-full bg-[#F8FDFF] py-10 sm:py-12 lg:py-14 border-t border-[#E4EEF2]">
+    <section className="w-full bg-[#F8FDFF] py-4 sm:py-6 lg:py-8 border-t border-[#E4EEF2]">
       <div className="mx-auto max-w-[1180px] px-4 sm:px-6 lg:px-8">
 
         {/* ── Section Header ── */}
-        <div className="flex items-start justify-between gap-4 mb-7 sm:mb-8">
+        <div className="flex items-start justify-between gap-4 mb-6 sm:mb-7">
           <div>
             {/* Eyebrow label */}
             <p className="text-xs sm:text-[13px] font-semibold uppercase tracking-widest text-[#0AADA8] mb-1.5">
@@ -276,25 +154,12 @@ export const TreatmentsSection = () => {
           </Link>
         </div>
 
-        {/* ── Row 1: 5 cards ── */}
+        {/* ── Grid with original column widths: grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 ── */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
-          {row1.map((t) => (
+          {treatments.map((t) => (
             <TreatmentCard
               key={t.id}
-              icon={t.icon}
-              title={t.title}
-              subtitle={t.subtitle}
-              href={t.href}
-            />
-          ))}
-        </div>
-
-        {/* ── Row 2: 4 cards (left-aligned) ── */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 mt-3 sm:mt-4">
-          {row2.map((t) => (
-            <TreatmentCard
-              key={t.id}
-              icon={t.icon}
+              image={t.image}
               title={t.title}
               subtitle={t.subtitle}
               href={t.href}

@@ -136,7 +136,7 @@ export function GalleryBeforeAfterStudio() {
                 />
                 {/* Floating "After" Badge */}
                 <div className="absolute top-4 right-4 z-10 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md text-[#083258] text-xs font-black shadow-md border border-[#D5ECF0] pointer-events-none">
-                  After Result ✨
+                  After Result
                 </div>
               </div>
 

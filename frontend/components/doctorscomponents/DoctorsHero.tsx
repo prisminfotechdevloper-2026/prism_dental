@@ -105,12 +105,13 @@ export function DoctorsHero() {
           fill
           priority
           sizes="(max-width: 1024px) 100vw, 48vw"
-          className="object-cover object-[70%_center] lg:object-left"
+          className="object-cover object-center lg:object-left"
         />
-        {/* Soft horizontal gradient fade into the left text background */}
-        <div className="absolute inset-y-0 left-0 w-20 sm:w-28 lg:w-32 bg-gradient-to-r from-[#E8F6F8] via-[#E8F6F8]/70 to-transparent" />
-        {/* Mobile vertical gradient overlay for clean readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#E8F6F8] via-[#E8F6F8]/60 to-transparent lg:hidden" />
+        {/* Left smooth gradient blend (Desktop only) */}
+        <div className="hidden lg:block absolute inset-y-0 left-0 w-20 sm:w-28 lg:w-32 bg-gradient-to-r from-[#E8F6F8] via-[#E8F6F8]/85 to-transparent z-1" />
+        {/* Top/bottom edge softening (Desktop only) */}
+        <div className="hidden lg:block absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-[#E8F6F8]/60 to-transparent z-1" />
+        <div className="hidden lg:block absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-[#E8F6F8]/80 to-transparent z-1" />
       </div>
 
       {/* ─────────────────────────────────────────────────────────────
@@ -134,29 +135,29 @@ export function DoctorsHero() {
       {/* ─────────────────────────────────────────────────────────────
           FOREGROUND CONTENT WRAPPER
           ───────────────────────────────────────────────────────────── */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 py-10 sm:py-12">
-        <div className="w-full lg:max-w-[520px] xl:max-w-[560px]">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 py-8 sm:py-12">
+        <div className="w-full max-w-xl lg:max-w-[520px] xl:max-w-[560px]">
           
           {/* Pill Tag: Our Doctors */}
-          <div className="mb-2.5">
-            <span className="inline-block px-3 py-1 rounded-full bg-[#DDF4F6] border border-[#0AADA8]/25 text-[#0AADA8] text-xs font-bold tracking-wide shadow-2xs">
+          <div className="mb-2 sm:mb-2.5">
+            <span className="inline-block px-3 py-0.5 sm:py-1 rounded-full bg-[#DDF4F6] border border-[#0AADA8]/25 text-[#0AADA8] text-[11px] sm:text-xs font-bold tracking-wide shadow-2xs">
               Our Doctors
             </span>
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-extrabold tracking-tight leading-[1.1] mb-2.5">
+          <h1 className="text-2xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-extrabold tracking-tight leading-[1.1] mb-2 sm:mb-2.5">
             <span className="text-[#083258]">Meet Our Expert </span>
             <span className="block text-[#0AADA8]">Dental Team</span>
           </h1>
 
           {/* Subtitle */}
-          <h2 className="text-sm sm:text-base lg:text-[17px] font-bold text-[#083258] tracking-tight mb-3">
+          <h2 className="text-xs sm:text-base lg:text-[17px] font-bold text-[#083258] tracking-tight mb-2 sm:mb-3">
             Skilled. Compassionate. Dedicated to Your Smile.
           </h2>
 
           {/* Description Paragraph */}
-          <p className="text-xs sm:text-sm lg:text-[14px] text-[#426480] leading-relaxed max-w-lg mb-6">
+          <p className="text-[11.5px] sm:text-sm lg:text-[14px] text-[#426480] leading-relaxed max-w-lg mb-5 sm:mb-6">
             At SmileCare Dental Clinic, our team of experienced and certified dentists is committed to providing you with the best possible care. We combine advanced technology with a personal touch to ensure you get healthy, beautiful smiles.
           </p>
 

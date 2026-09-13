@@ -198,8 +198,7 @@ function DoctorCard({ doctor }: { doctor: Doctor }) {
         {/* Specialty pill */}
         <div className="mb-2">
           <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#0AADA8] text-white text-[10px] font-black tracking-wide uppercase">
-            <span className="w-1.5 h-1.5 rounded-full bg-white/70" />
-            {doctor.specialty}
+             {doctor.specialty}
           </span>
         </div>
 

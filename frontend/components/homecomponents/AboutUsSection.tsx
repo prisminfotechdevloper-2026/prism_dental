@@ -183,7 +183,7 @@ export const AboutUsSection = () => {
   ];
 
   return (
-    <section className="w-full bg-white py-12 sm:py-16 lg:py-20 border-t border-[#E8F1F5]">
+    <section className="w-full bg-white py-3 sm:py-5 lg:py-8 border-t border-[#E8F1F5]">
       <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           
@@ -241,10 +241,16 @@ export const AboutUsSection = () => {
           {/* 2. MIDDLE: ABOUT TEXT + STATS + BUTTON     */}
           {/* ─────────────────────────────────────────── */}
           <div className="lg:col-span-4 flex flex-col justify-center">
-            {/* Small Eyebrow */}
-            <p className="text-xs sm:text-[13px] font-bold uppercase tracking-widest text-[#0AADA8] mb-2">
-              ABOUT US
-            </p>
+            {/* Small Eyebrow with Creative Left-to-Right Animated Border */}
+            <div className="w-fit mb-4 group/eyebrow cursor-pointer select-none">
+              <p className="relative inline-block text-xs sm:text-[13px] font-bold uppercase tracking-widest text-[#0AADA8] pb-1.5 transition-colors duration-200 group-hover/eyebrow:text-[#083258]">
+                ABOUT US
+                {/* Base subtle track border */}
+                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#0AADA8]/25 rounded-full" />
+                {/* Creative glowing gradient border animating from left to right on hover */}
+                <span className="absolute bottom-0 left-0 w-full h-[2.5px] bg-gradient-to-r from-[#0AADA8] via-[#2DD4BF] to-[#026EB9] rounded-full origin-left scale-x-0 group-hover/eyebrow:scale-x-100 transition-transform duration-500 ease-out shadow-[0_0_10px_rgba(10,173,168,0.7)]" />
+              </p>
+            </div>
 
             {/* Main Heading */}
             <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-extrabold text-[#083258] leading-[1.2] tracking-tight">

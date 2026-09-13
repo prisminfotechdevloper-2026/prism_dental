@@ -23,7 +23,11 @@ export function BlogSearchWidget({
     <div className="bg-white rounded-2xl p-5 border border-[#E5F2F5] shadow-[0_2px_12px_rgba(8,50,88,0.03)]">
       <h3 className="text-base font-bold text-[#083258] mb-3">Search Blog</h3>
       <form onSubmit={handleSubmit} className="relative flex items-center">
+        <label htmlFor="blog-search-input" className="sr-only">
+          Search Blog
+        </label>
         <input
+          id="blog-search-input"
           type="text"
           value={searchQuery}
           onChange={(e) => onSearchChange(e.target.value)}

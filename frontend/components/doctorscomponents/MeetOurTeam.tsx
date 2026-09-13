@@ -111,7 +111,7 @@ const teamMembers: DoctorMember[] = [
 
 export function MeetOurTeam() {
   return (
-    <section className="w-full bg-[#FFFFFF] py-12 sm:py-16 border-b border-[#E8F1F5]">
+    <section className="w-full bg-[#FFFFFF] py-4 sm:py-5 border-b border-[#E8F1F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
           

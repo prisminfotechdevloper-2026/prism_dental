@@ -82,12 +82,13 @@ export function TestimonialsHero() {
           fill
           priority
           sizes="(max-width: 1024px) 100vw, 60vw"
-          className="object-cover object-[center_top]"
+          className="object-cover object-center lg:object-[center_top]"
         />
-        {/* Horizontal gradient: blends image into the teal background on the left */}
-        <div className="absolute inset-y-0 left-0 w-44 sm:w-56 lg:w-72 xl:w-80 bg-gradient-to-r from-[#E8F6F8] via-[#E8F6F8]/80 to-transparent z-10" />
-        {/* Mobile: vertical bottom-up fade */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#E8F6F8] via-[#E8F6F8]/55 to-transparent lg:hidden z-10" />
+        {/* Left smooth gradient blend (Desktop only) */}
+        <div className="hidden lg:block absolute inset-y-0 left-0 w-44 sm:w-60 lg:w-72 xl:w-80 bg-gradient-to-r from-[#E8F6F8] via-[#E8F6F8]/85 to-transparent z-1" />
+        {/* Edge softening (Desktop only) */}
+        <div className="hidden lg:block absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-[#E8F6F8]/60 to-transparent z-1" />
+        <div className="hidden lg:block absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-[#E8F6F8]/80 to-transparent z-1" />
       </div>
 
       {/* ─────────────────────────────────────────────────────────────────────
@@ -136,25 +137,25 @@ export function TestimonialsHero() {
       {/* ─────────────────────────────────────────────────────────────────────
           FOREGROUND CONTENT — left-aligned text column
           ───────────────────────────────────────────────────────────────────── */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 py-9 sm:py-11 lg:py-12">
-        <div className="w-full lg:max-w-[480px] xl:max-w-[520px]">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 py-8 sm:py-11 lg:py-12">
+        <div className="w-full max-w-xl lg:max-w-[480px] xl:max-w-[520px]">
 
           {/* Pill tag */}
-          <div className="mb-3">
-            <span className="inline-block px-3 py-[5px] rounded-full bg-white/80 border border-[#0AADA8]/30 text-[#0AADA8] text-[11px] sm:text-[12px] font-semibold tracking-wide shadow-sm">
+          <div className="mb-2 sm:mb-3">
+            <span className="inline-block px-3 py-0.5 sm:py-[5px] rounded-full bg-white/80 border border-[#0AADA8]/30 text-[#0AADA8] text-[11px] sm:text-[12px] font-semibold tracking-wide shadow-sm">
               Real Stories, Real Smiles
             </span>
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-[28px] sm:text-[36px] lg:text-[40px] xl:text-[44px] font-extrabold tracking-tight leading-[1.1] mb-3">
+          <h1 className="text-2xl sm:text-[36px] lg:text-[40px] xl:text-[44px] font-extrabold tracking-tight leading-[1.1] mb-2 sm:mb-3">
             <span className="text-[#083258]">What Our Patients</span>
             <br />
             <span className="text-[#0AADA8]">Say About Us</span>
           </h1>
 
           {/* Description */}
-          <p className="text-[12px] sm:text-[13px] lg:text-sm text-[#426480] leading-relaxed max-w-[400px] mb-4">
+          <p className="text-[11.5px] sm:text-[13px] lg:text-sm text-[#426480] leading-relaxed max-w-[400px] mb-4">
             Your smile means everything to us. Here&apos;s what our patients
             have to say about their experience at SmileCare Dental Clinic.
           </p>

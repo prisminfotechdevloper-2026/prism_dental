@@ -109,10 +109,11 @@ export function ContactBookingAndLocation() {
                 {/* Row 1: Full Name & Phone Number */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                   <div>
-                    <label className="block text-xs font-semibold text-[#083258] mb-1.5">
+                    <label htmlFor="contact-full-name" className="block text-xs font-semibold text-[#083258] mb-1.5">
                       Full Name <span className="text-[#0AADA8]">*</span>
                     </label>
                     <input
+                      id="contact-full-name"
                       type="text"
                       required
                       placeholder="Enter your name"
@@ -123,10 +124,11 @@ export function ContactBookingAndLocation() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-[#083258] mb-1.5">
+                    <label htmlFor="contact-phone" className="block text-xs font-semibold text-[#083258] mb-1.5">
                       Phone Number <span className="text-[#0AADA8]">*</span>
                     </label>
                     <input
+                      id="contact-phone"
                       type="tel"
                       required
                       placeholder="+91 98765 43210"
@@ -140,10 +142,11 @@ export function ContactBookingAndLocation() {
                 {/* Row 2: Email Address & Select Service */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                   <div>
-                    <label className="block text-xs font-semibold text-[#083258] mb-1.5">
+                    <label htmlFor="contact-email" className="block text-xs font-semibold text-[#083258] mb-1.5">
                       Email Address <span className="text-[#0AADA8]">*</span>
                     </label>
                     <input
+                      id="contact-email"
                       type="email"
                       required
                       placeholder="Enter your email"
@@ -154,11 +157,12 @@ export function ContactBookingAndLocation() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-[#083258] mb-1.5">
+                    <label htmlFor="contact-service" className="block text-xs font-semibold text-[#083258] mb-1.5">
                       Select Service
                     </label>
                     <div className="relative">
                       <select
+                        id="contact-service"
                         value={formData.service}
                         onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                         className="w-full px-4 py-2.5 sm:py-3 rounded-xl border border-[#D5ECF0] text-sm text-[#083258] focus:outline-none focus:ring-2 focus:ring-[#0AADA8] focus:border-transparent bg-white appearance-none pr-10 cursor-pointer transition-all"
@@ -177,10 +181,11 @@ export function ContactBookingAndLocation() {
 
                 {/* Row 3: Message */}
                 <div>
-                  <label className="block text-xs font-semibold text-[#083258] mb-1.5">
+                  <label htmlFor="contact-message" className="block text-xs font-semibold text-[#083258] mb-1.5">
                     Message <span className="text-[#0AADA8]">*</span>
                   </label>
                   <textarea
+                    id="contact-message"
                     rows={4}
                     required
                     placeholder="Tell us about your concern..."

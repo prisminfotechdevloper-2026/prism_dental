@@ -101,15 +101,13 @@ export function AboutHero() {
           fill
           priority
           sizes="(max-width: 1024px) 100vw, 78vw"
-          className="object-cover object-[center_right] lg:object-right"
+          className="object-cover object-center lg:object-right"
         />
-        {/* Wide multi-layer soft gradient fade into the left text background */}
-        <div className="absolute inset-y-0 left-0 w-44 sm:w-60 lg:w-96 xl:w-[460px] bg-gradient-to-r from-[#E8F6F8] via-[#E8F6F8]/85 to-transparent z-1" />
-        {/* Edge softening */}
-        <div className="absolute inset-x-0 top-0 h-4 bg-gradient-to-b from-[#E8F6F8]/40 to-transparent z-1" />
-        <div className="absolute inset-x-0 bottom-0 h-4 bg-gradient-to-t from-[#E8F6F8]/40 to-transparent z-1" />
-        {/* Mobile vertical gradient overlay for clean readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#E8F6F8] via-[#E8F6F8]/65 to-transparent lg:hidden z-1" />
+        {/* Left smooth gradient blend (Desktop only) */}
+        <div className="hidden lg:block absolute inset-y-0 left-0 w-44 sm:w-60 lg:w-96 xl:w-[460px] bg-gradient-to-r from-[#E8F6F8] via-[#E8F6F8]/85 to-transparent z-1" />
+        {/* Edge softening (Desktop only) */}
+        <div className="hidden lg:block absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-[#E8F6F8]/60 to-transparent z-1" />
+        <div className="hidden lg:block absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-[#E8F6F8]/80 to-transparent z-1" />
       </div>
 
       {/* ─────────────────────────────────────────────────────────────
@@ -134,7 +132,7 @@ export function AboutHero() {
           FOREGROUND CONTENT WRAPPER
           ───────────────────────────────────────────────────────────── */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 py-10 sm:py-12">
-        <div className="w-full lg:max-w-[540px] xl:max-w-[580px]">
+        <div className="w-full max-w-xl lg:max-w-[540px] xl:max-w-[580px]">
           
           {/* Breadcrumb Navigation */}
           <nav

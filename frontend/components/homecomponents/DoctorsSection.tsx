@@ -157,7 +157,7 @@ function DoctorCard({ doctor }: { doctor: Doctor }) {
 // ─────────────────────────────────────────────
 export const DoctorsSection = () => {
   return (
-    <section className="w-full bg-[#FAFDFF] py-12 sm:py-14 lg:py-16 border-t border-[#E8F1F5]">
+    <section className="w-full bg-[#FAFDFF] py-3 sm:py-4 lg:py-5 border-t border-[#E8F1F5]">
       <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
         
         {/* ── Section Header ── */}

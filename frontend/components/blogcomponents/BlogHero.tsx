@@ -111,12 +111,13 @@ export function BlogHero() {
           fill
           priority
           sizes="(max-width: 1024px) 100vw, 55vw"
-          className="object-cover object-[78%_center] lg:object-[82%_center]"
+          className="object-cover object-center lg:object-[82%_center]"
         />
-        {/* Soft horizontal gradient blend into solid left-column background */}
-        <div className="absolute inset-y-0 left-0 w-36 sm:w-48 lg:w-64 xl:w-72 bg-gradient-to-r from-[#E8F6F8] via-[#E8F6F8]/85 to-transparent z-1" />
-        {/* Mobile vertical gradient overlay for clean contrast */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#E8F6F8] via-[#E8F6F8]/65 to-transparent lg:hidden z-1" />
+        {/* Left smooth gradient blend (Desktop only) */}
+        <div className="hidden lg:block absolute inset-y-0 left-0 w-44 sm:w-60 lg:w-64 xl:w-72 bg-gradient-to-r from-[#E8F6F8] via-[#E8F6F8]/85 to-transparent z-1" />
+        {/* Edge softening (Desktop only) */}
+        <div className="hidden lg:block absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-[#E8F6F8]/60 to-transparent z-1" />
+        <div className="hidden lg:block absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-[#E8F6F8]/80 to-transparent z-1" />
       </div>
 
       {/* ─────────────────────────────────────────────────────────────
@@ -164,49 +165,53 @@ export function BlogHero() {
       {/* ─────────────────────────────────────────────────────────────
           FOREGROUND CONTENT WRAPPER (LEFT COLUMN - ENRICHED & BALANCED)
           ───────────────────────────────────────────────────────────── */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 py-10 sm:py-12 lg:py-14">
-        <div className="w-full lg:max-w-[560px] xl:max-w-[600px]">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 py-8 sm:py-12 lg:py-14">
+        <div className="w-full max-w-xl lg:max-w-[560px] xl:max-w-[600px]">
           
           {/* Top Pill Badges Row */}
-          <div className="flex flex-wrap items-center gap-2.5 mb-3.5 sm:mb-4">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 mb-2.5 sm:mb-4">
             {/* Breadcrumb Pill */}
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#D7F2F6] border border-[#0AADA8]/25 text-xs font-semibold shadow-2xs">
+            <span className="inline-flex items-center gap-1.5 px-3 py-0.5 sm:px-3.5 sm:py-1 rounded-full bg-[#D7F2F6] border border-[#0AADA8]/25 text-[11px] sm:text-xs font-semibold shadow-2xs">
               <Link href="/" className="text-[#0AADA8] hover:underline">
                 Home
               </Link>
-              <span className="text-[#0AADA8]/60 text-[11px]">&gt;</span>
+              <span className="text-[#0AADA8]/60 text-[10px]">&gt;</span>
               <span className="text-[#0AADA8] font-bold">Blog</span>
             </span>
 
             {/* Editorial Trust Badge */}
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/80 border border-[#D5ECF0] text-[11px] font-semibold text-[#426480] shadow-2xs">
+            <span className="inline-flex items-center gap-1.5 px-3 py-0.5 sm:py-1 rounded-full bg-white/80 border border-[#D5ECF0] text-[10.5px] sm:text-[11px] font-semibold text-[#426480] shadow-2xs">
                Doctor-Reviewed Articles
             </span>
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-3xl sm:text-4xl lg:text-[44px] xl:text-[48px] font-extrabold tracking-tight leading-[1.12] mb-3">
+          <h1 className="text-2xl sm:text-4xl lg:text-[44px] xl:text-[48px] font-extrabold tracking-tight leading-[1.12] mb-2 sm:mb-3">
             <span className="text-[#083258]">Our Dental </span>
             <span className="text-[#0AADA8]">Blog</span>
           </h1>
 
           {/* Subtitle */}
-          <h2 className="text-sm sm:text-base lg:text-[17px] font-bold text-[#083258] tracking-tight mb-2.5">
+          <h2 className="text-xs sm:text-base lg:text-[17px] font-bold text-[#083258] tracking-tight mb-2 sm:mb-2.5">
             Tips, Insights &amp; Expert Advice for a Healthier Smile.
           </h2>
 
           {/* Description Paragraph */}
-          <p className="text-xs sm:text-sm lg:text-[14.5px] text-[#426480] leading-relaxed max-w-[500px] mb-5 sm:mb-6">
+          <p className="text-[11.5px] sm:text-sm lg:text-[14.5px] text-[#426480] leading-relaxed max-w-[500px] mb-4 sm:mb-6">
             Stay informed with the latest dental care tips, treatment guides, oral health advice and updates from our dental experts. Because a healthy smile is always in style!
           </p>
 
           {/* Quick Search Bar to make left side interactive and purposeful */}
           <form onSubmit={handleSearch} className="relative max-w-[460px] mb-6">
+            <label htmlFor="blog-hero-search-input" className="sr-only">
+              Search dental tips, guides, treatments
+            </label>
             <div className="flex items-center bg-white border border-[#D5ECF0] rounded-xl shadow-xs overflow-hidden focus-within:border-[#0AADA8] focus-within:ring-2 focus-within:ring-[#0AADA8]/20 transition-all">
               <div className="pl-3.5 pr-2">
                 <SearchIcon />
               </div>
               <input
+                id="blog-hero-search-input"
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}

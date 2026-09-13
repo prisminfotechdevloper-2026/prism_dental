@@ -179,7 +179,7 @@ function EmergencyDentalIcon() {
 
 export function WhyChooseUs() {
   return (
-    <section className="w-full bg-[#F4F9FB] border-b border-[#E2EFF2] py-10 sm:py-12 lg:py-14">
+    <section className="w-full bg-[#F4F9FB] border-b border-[#E2EFF2] py-3 sm:py-4 lg:py-5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-10">
         <div className="flex flex-col lg:flex-row items-stretch gap-8 lg:gap-0">
           
