@@ -21,8 +21,9 @@ export function ContactHero() {
           fill
           priority
           sizes="(max-width: 1024px) 100vw, 58vw"
-          className="object-cover object-center lg:object-[64%_center]"
+          className="object-cover object-center lg:object-[64%_center] opacity-25 sm:opacity-35 lg:opacity-100 transition-opacity duration-300"
         />
+
         {/* Left smooth gradient blend (Desktop only) */}
         <div className="hidden lg:block absolute inset-y-0 left-0 w-28 sm:w-36 lg:w-44 bg-gradient-to-r from-[#E8F6F8] via-[#E8F6F8]/85 to-transparent z-1" />
         {/* Edge softening (Desktop only) */}

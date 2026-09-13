@@ -116,10 +116,9 @@ function FooterBrandCol() {
           <Image
             src="/images/logo.png"
             alt="SmileCare Dental Clinic Logo"
-            width={38}
-            height={38}
-            style={{ width: "auto", height: "auto" }}
-            className="max-w-full max-h-full object-contain"
+            width={32}
+            height={28}
+            className="w-auto h-7 object-contain"
           />
         </div>
         <div className="flex flex-col">

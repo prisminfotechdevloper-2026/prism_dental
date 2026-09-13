@@ -8,8 +8,8 @@ import Link from "next/link";
 // CUSTOM SVG ICONS MATCHING DESIGN SYSTEM (Crisp Outline Style)
 // ─────────────────────────────────────────────────────────────────────────────
 
-// 1. Trusted Care (Shield with checkmark)
-function TrustedCareIcon() {
+// 1. Instant Confirmation (Calendar with checkmark)
+function InstantConfirmationIcon() {
   return (
     <svg
       className="w-4 h-4 text-[#0AADA8]"
@@ -21,14 +21,17 @@ function TrustedCareIcon() {
       strokeLinejoin="round"
       aria-hidden="true"
     >
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-      <path d="m9 12 2 2 4-4" />
+      <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+      <line x1="16" y1="2" x2="16" y2="6" />
+      <line x1="8" y1="2" x2="8" y2="6" />
+      <line x1="3" y1="10" x2="21" y2="10" />
+      <path d="m9 16 2 2 4-4" />
     </svg>
   );
 }
 
-// 2. Modern Clinic (Operatory Suite / Building)
-function ModernSuiteIcon() {
+// 2. Zero Wait Time (Speedy Clock / Lightning Priority)
+function ZeroWaitTimeIcon() {
   return (
     <svg
       className="w-4 h-4 text-[#0AADA8]"
@@ -40,15 +43,14 @@ function ModernSuiteIcon() {
       strokeLinejoin="round"
       aria-hidden="true"
     >
-      <rect x="3" y="3" width="18" height="18" rx="2" />
-      <path d="M3 9h18" />
-      <path d="M9 21V9" />
+      <circle cx="12" cy="12" r="9" />
+      <polyline points="12 6 12 12 16 14" />
     </svg>
   );
 }
 
-// 3. Expert Doctors (Clipboard with cross)
-function CertifiedExpertsIcon() {
+// 3. Senior Specialists (Doctor Stethoscope / Clipboard)
+function SeniorSpecialistsIcon() {
   return (
     <svg
       className="w-4 h-4 text-[#0AADA8]"
@@ -68,8 +70,8 @@ function CertifiedExpertsIcon() {
   );
 }
 
-// 4. Patient-First Approach (Care Heart)
-function CompassionateCareIcon() {
+// 4. Gentle & Pain-Free Care (Shield with Heart / Tooth)
+function PainFreeCareIcon() {
   return (
     <svg
       className="w-4 h-4 text-[#0AADA8]"
@@ -81,140 +83,145 @@ function CompassionateCareIcon() {
       strokeLinejoin="round"
       aria-hidden="true"
     >
-      <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      <path d="m9 12 2 2 4-4" />
     </svg>
   );
 }
 
-export function AboutHero() {
+export function AppointmentHero() {
   return (
     <section className="relative w-full overflow-hidden bg-[#E8F6F8] border-b border-[#D5ECF0] min-h-[400px] sm:min-h-[420px] lg:min-h-[440px] flex items-center">
-      
       {/* ─────────────────────────────────────────────────────────────
-          PANORAMIC BACKGROUND IMAGE (Clinic Operatory Suite)
-          Generous width spanning 74%-82% across with smooth luxury fade
+          PANORAMIC BACKGROUND HERO IMAGE (Reception & Scheduling Desk)
+          Spans across the center and right side matching reference UI
           ───────────────────────────────────────────────────────────── */}
-      <div className="absolute inset-y-0 right-0 w-full lg:w-[74%] xl:w-[78%] 2xl:w-[82%] h-full pointer-events-none z-0">
+      <div className="absolute inset-y-0 right-0 w-full lg:w-[65%] xl:w-[62%] 2xl:w-[60%] h-full pointer-events-none z-0">
         <Image
-          src="/images/about-hero.jpg"
-          alt="Modern dental clinic operatory suite with state-of-the-art equipment"
+          src="/images/appointment/hero.jpg"
+          alt="Modern dental clinic reception desk with care coordinator scheduling patient appointments"
           fill
           priority
-          sizes="(max-width: 1024px) 100vw, 78vw"
+          sizes="(max-width: 1024px) 100vw, 65vw"
           className="object-cover object-center lg:object-right opacity-25 sm:opacity-35 lg:opacity-100 transition-opacity duration-300"
         />
 
         {/* Left smooth gradient blend (Desktop only) */}
-        <div className="hidden lg:block absolute inset-y-0 left-0 w-44 sm:w-60 lg:w-96 xl:w-[460px] bg-gradient-to-r from-[#E8F6F8] via-[#E8F6F8]/85 to-transparent z-1" />
+        <div className="hidden lg:block absolute inset-y-0 left-0 w-44 sm:w-60 lg:w-72 xl:w-80 bg-gradient-to-r from-[#E8F6F8] via-[#E8F6F8]/85 to-transparent z-[1]" />
         {/* Edge softening (Desktop only) */}
-        <div className="hidden lg:block absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-[#E8F6F8]/60 to-transparent z-1" />
-        <div className="hidden lg:block absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-[#E8F6F8]/80 to-transparent z-1" />
+        <div className="hidden lg:block absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-[#E8F6F8]/60 to-transparent z-[1]" />
+        <div className="hidden lg:block absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-[#E8F6F8]/80 to-transparent z-[1]" />
       </div>
 
       {/* ─────────────────────────────────────────────────────────────
-          FLOATING HANDWRITTEN SLOGAN ON THE FAR RIGHT
-          "Caring for Your Smile :)"
+          FLOATING HANDWRITTEN SLOGAN (Center-Middle Gap)
+          "Easy Booking \n Healthy Smiles \n :)"
           ───────────────────────────────────────────────────────────── */}
-      <div className="hidden lg:block absolute right-8 xl:right-14 top-10 xl:top-12 z-20 pointer-events-none rotate-3 select-none text-right">
+      <div className="hidden lg:block absolute left-[43%] xl:left-[46%] top-9 xl:top-12 z-20 pointer-events-none -rotate-6 select-none text-center">
         <p className="font-handwriting text-xl xl:text-2xl font-bold text-[#083258] leading-tight drop-shadow-xs">
-          Caring for
+          Easy Booking
         </p>
         <p className="font-handwriting text-xl xl:text-2xl font-bold text-[#083258] leading-tight drop-shadow-xs">
-          Your Smile
+          Healthy Smiles
         </p>
-        <div className="flex justify-end pr-2 pt-1">
-          <span className="font-handwriting text-2xl xl:text-3xl font-bold text-[#0AADA8]">
-            :)
-          </span>
+        {/* Cute hand-drawn smiley face */}
+        <div className="flex justify-center mt-1">
+          <svg className="w-8 h-6 text-[#083258] rotate-3" viewBox="0 0 36 28" fill="currentColor">
+            <circle cx="11" cy="8" r="2.2" />
+            <circle cx="23" cy="8" r="2.2" />
+            <path
+              d="M 8 14 C 12 25, 22 25, 26 14"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+            />
+          </svg>
         </div>
       </div>
 
       {/* ─────────────────────────────────────────────────────────────
           FOREGROUND CONTENT WRAPPER
           ───────────────────────────────────────────────────────────── */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 py-10 sm:py-12">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 py-8 sm:py-12">
         <div className="w-full max-w-xl lg:max-w-[540px] xl:max-w-[580px]">
-          
           {/* Breadcrumb Navigation */}
           <nav
             aria-label="Breadcrumb"
-            className="flex items-center gap-1.5 text-xs sm:text-[13px] font-medium text-[#0AADA8] mb-2.5"
+            className="flex items-center gap-1.5 text-xs sm:text-[13px] font-medium text-[#0AADA8] mb-2 sm:mb-2.5"
           >
             <Link href="/" className="hover:underline transition-colors opacity-80 hover:opacity-100">
               Home
             </Link>
             <span className="text-[#0AADA8] font-normal opacity-60">&gt;</span>
-            <span className="text-[#0AADA8] font-semibold">About Us</span>
+            <span className="text-[#0AADA8] font-semibold">Appointment</span>
           </nav>
 
-          {/* Pill Tag: About SmileCare */}
-          <div className="mb-2.5">
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white/90 backdrop-blur-sm border border-[#0AADA8]/30 text-[#0AADA8] text-xs font-bold tracking-wide shadow-2xs">
-               About SmileCare
+          {/* Pill Tag: Easy Online Booking */}
+          <div className="mb-2 sm:mb-2.5">
+            <span className="inline-block px-3 py-0.5 sm:py-1 rounded-full bg-[#DDF4F6] border border-[#0AADA8]/25 text-[#0AADA8] text-[11px] sm:text-xs font-bold tracking-wide shadow-2xs">
+              Easy Online Booking
             </span>
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-3xl sm:text-4xl lg:text-[44px] xl:text-[48px] font-extrabold tracking-tight leading-[1.1] mb-2.5">
-            <span className="text-[#083258]">About </span>
-            <span className="text-[#0AADA8]">Us</span>
+          <h1 className="text-2xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-extrabold tracking-tight leading-[1.1] mb-2 sm:mb-2.5">
+            <span className="text-[#083258]">Book Your </span>
+            <span className="block sm:inline text-[#0AADA8]">Appointment</span>
           </h1>
 
           {/* Subtitle */}
-          <h2 className="text-sm sm:text-base lg:text-[17px] xl:text-[18px] font-bold text-[#083258] tracking-tight mb-3">
-            Healthy Smiles. Happier Lives. Compassionate Care.
+          <h2 className="text-xs sm:text-base lg:text-[17px] font-bold text-[#083258] tracking-tight mb-2 sm:mb-3">
+            Quick Scheduling. Zero Wait Time. Gentle Specialists.
           </h2>
 
           {/* Description Paragraph */}
-          <p className="text-xs sm:text-sm lg:text-[14px] text-[#426480] leading-relaxed max-w-lg mb-6">
-            At SmileCare Dental Clinic, we believe that a healthy smile is not just about appearance—it&apos;s about confidence, well-being and a better quality of life. We are committed to providing world-class dental care with compassion, expertise and modern technology.
+          <p className="text-[11.5px] sm:text-sm lg:text-[14px] text-[#426480] leading-relaxed max-w-lg mb-5 sm:mb-6">
+            Book your priority consultation with our senior dental specialists in under a minute. Zero waiting time, pain-free diagnosis, and upfront transparent pricing.
           </p>
 
           {/* 4 Feature Badges (Single Horizontal Row) */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3.5 xl:gap-4 pt-1">
-            
-            {/* 1. Trusted Care */}
+            {/* 1. Instant Confirmation */}
             <div className="flex items-center gap-2.5 bg-white/70 sm:bg-transparent backdrop-blur-xs sm:backdrop-blur-none p-2 sm:p-0 rounded-xl border border-white/80 sm:border-transparent shadow-xs sm:shadow-none">
               <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white border border-[#0AADA8]/30 flex items-center justify-center shrink-0 shadow-2xs transition-transform duration-200 hover:scale-105">
-                <TrustedCareIcon />
+                <InstantConfirmationIcon />
               </div>
               <span className="text-[11px] sm:text-[11.5px] font-bold text-[#083258] leading-tight">
-                Trusted<br />Care
+                Instant<br />Confirmation
               </span>
             </div>
 
-            {/* 2. Modern Clinic */}
+            {/* 2. Zero Wait Time */}
             <div className="flex items-center gap-2.5 bg-white/70 sm:bg-transparent backdrop-blur-xs sm:backdrop-blur-none p-2 sm:p-0 rounded-xl border border-white/80 sm:border-transparent shadow-xs sm:shadow-none">
               <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white border border-[#0AADA8]/30 flex items-center justify-center shrink-0 shadow-2xs transition-transform duration-200 hover:scale-105">
-                <ModernSuiteIcon />
+                <ZeroWaitTimeIcon />
               </div>
               <span className="text-[11px] sm:text-[11.5px] font-bold text-[#083258] leading-tight">
-                Modern<br />Clinic
+                Zero Wait<br />Time
               </span>
             </div>
 
-            {/* 3. Expert Doctors */}
+            {/* 3. Expert Specialists */}
             <div className="flex items-center gap-2.5 bg-white/70 sm:bg-transparent backdrop-blur-xs sm:backdrop-blur-none p-2 sm:p-0 rounded-xl border border-white/80 sm:border-transparent shadow-xs sm:shadow-none">
               <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white border border-[#0AADA8]/30 flex items-center justify-center shrink-0 shadow-2xs transition-transform duration-200 hover:scale-105">
-                <CertifiedExpertsIcon />
+                <SeniorSpecialistsIcon />
               </div>
               <span className="text-[11px] sm:text-[11.5px] font-bold text-[#083258] leading-tight">
-                Expert<br />Doctors
+                Certified<br />Doctors
               </span>
             </div>
 
-            {/* 4. Patient-First */}
+            {/* 4. Gentle & Pain-Free Care */}
             <div className="flex items-center gap-2.5 bg-white/70 sm:bg-transparent backdrop-blur-xs sm:backdrop-blur-none p-2 sm:p-0 rounded-xl border border-white/80 sm:border-transparent shadow-xs sm:shadow-none">
               <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white border border-[#0AADA8]/30 flex items-center justify-center shrink-0 shadow-2xs transition-transform duration-200 hover:scale-105">
-                <CompassionateCareIcon />
+                <PainFreeCareIcon />
               </div>
               <span className="text-[11px] sm:text-[11.5px] font-bold text-[#083258] leading-tight">
-                Patient-First<br />Care
+                100% Gentle<br />Care
               </span>
             </div>
-
           </div>
-
         </div>
       </div>
     </section>

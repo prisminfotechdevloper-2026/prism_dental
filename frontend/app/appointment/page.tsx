@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import {
   CalendarDays,
   Clock,
@@ -13,6 +14,7 @@ import {
   MapPin,
   HeartPulse,
 } from "lucide-react";
+import { AppointmentHero } from "@/components/appointmentcomponents/AppointmentHero";
 
 const TREATMENTS = [
   "General Dental Checkup & Consultation",
@@ -56,26 +58,6 @@ interface AppointmentFormData {
 }
 
 /* ─────────────────────────────────────────────
-   HEADER COMPONENT
-   ───────────────────────────────────────────── */
-function AppointmentHeader() {
-  return (
-    <div className="text-center max-w-3xl mx-auto mb-12">
-      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E8F8F8] text-[#0AADA8] text-xs font-semibold uppercase tracking-wider mb-3">
-        <CalendarDays className="w-3.5 h-3.5" />
-        Easy Online Booking
-      </span>
-      <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#083258] tracking-tight">
-        Schedule Your Dental Appointment
-      </h1>
-      <p className="mt-3 text-sm sm:text-base text-[#426480]">
-        Book a convenient consultation with our senior dental specialists. Zero waiting time, pain-free diagnosis, and upfront pricing.
-      </p>
-    </div>
-  );
-}
-
-/* ─────────────────────────────────────────────
    BOOKING CONFIRMATION VIEW
    ───────────────────────────────────────────── */
 function BookingConfirmationView({
@@ -86,7 +68,7 @@ function BookingConfirmationView({
   onReset: () => void;
 }) {
   return (
-    <div className="py-12 text-center space-y-5 animate-in fade-in zoom-in-95 duration-300">
+    <div className="py-4 text-center space-y-5 animate-in fade-in zoom-in-95 duration-300">
       <div className="w-16 h-16 bg-[#E8F8F8] text-[#0AADA8] rounded-2xl flex items-center justify-center mx-auto ring-4 ring-[#BCEBE9]">
         <CheckCircle2 className="w-9 h-9" />
       </div>
@@ -140,6 +122,15 @@ function AppointmentForm({
 }) {
   return (
     <form onSubmit={onSubmit} className="space-y-6">
+      <div className="border-b border-[#D5ECF0]/70 pb-4 mb-2">
+        <h3 className="text-lg sm:text-xl font-bold text-[#083258] tracking-tight">
+          Enter Patient Details &amp; Preferred Time
+        </h3>
+        <p className="text-xs sm:text-sm text-[#426480] mt-0.5">
+          Please provide accurate contact details so we can send your appointment pass instantly.
+        </p>
+      </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         {/* Full Name */}
         <div>
@@ -391,9 +382,11 @@ function AppointmentSidebar() {
 }
 
 /* ─────────────────────────────────────────────
-   MAIN PAGE COMPONENT
+   BOOKING CONTENT (WITH SEARCH PARAMS HANDLING)
    ───────────────────────────────────────────── */
-export default function AppointmentPage() {
+function AppointmentBookingContent() {
+  const searchParams = useSearchParams();
+
   const [formData, setFormData] = useState<AppointmentFormData>({
     name: "",
     phone: "",
@@ -407,6 +400,44 @@ export default function AppointmentPage() {
 
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  // Read URL params (e.g. from TreatmentsHero "Book Your Consultation" card)
+  useEffect(() => {
+    const urlTreatment = searchParams.get("treatment");
+    const urlDoctor = searchParams.get("doctor");
+    const urlDate = searchParams.get("date");
+
+    if (urlTreatment || urlDoctor || urlDate) {
+      setFormData((prev) => {
+        let matchedTreatment = prev.treatment;
+        if (urlTreatment) {
+          const directMatch = TREATMENTS.find(
+            (t) => t.toLowerCase() === urlTreatment.toLowerCase()
+          );
+          const fuzzyMatch = TREATMENTS.find((t) =>
+            t.toLowerCase().includes(urlTreatment.toLowerCase())
+          );
+          if (directMatch) matchedTreatment = directMatch;
+          else if (fuzzyMatch) matchedTreatment = fuzzyMatch;
+        }
+
+        let matchedDoctor = prev.doctor;
+        if (urlDoctor) {
+          const docMatch = DOCTORS.find((d) =>
+            d.toLowerCase().includes(urlDoctor.toLowerCase())
+          );
+          if (docMatch) matchedDoctor = docMatch;
+        }
+
+        return {
+          ...prev,
+          treatment: matchedTreatment,
+          doctor: matchedDoctor,
+          date: urlDate || prev.date,
+        };
+      });
+    }
+  }, [searchParams]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -432,10 +463,8 @@ export default function AppointmentPage() {
   };
 
   return (
-    <div className="w-full bg-[#F8FDFF] min-h-screen py-10 lg:py-16">
+    <div className="w-full bg-[#F8FDFF] py-12 lg:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <AppointmentHeader />
-
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           <div className="lg:col-span-8 bg-white rounded-3xl border border-[#D5ECF0] p-6 sm:p-10 shadow-[0_10px_35px_rgba(8,50,88,0.06)]">
             {submitted ? (
@@ -454,5 +483,28 @@ export default function AppointmentPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+/* ─────────────────────────────────────────────
+   MAIN PAGE COMPONENT
+   ───────────────────────────────────────────── */
+export default function AppointmentPage() {
+  return (
+    <main className="w-full bg-[#FFFFFF] min-h-screen">
+      {/* 1. APPOINTMENT HERO BANNER */}
+      <AppointmentHero />
+
+      {/* 2. BOOKING FORM & CLINIC SIDEBAR */}
+      <Suspense
+        fallback={
+          <div className="w-full py-20 text-center text-xs text-[#6B8BA2]">
+            Loading booking schedule...
+          </div>
+        }
+      >
+        <AppointmentBookingContent />
+      </Suspense>
+    </main>
   );
 }

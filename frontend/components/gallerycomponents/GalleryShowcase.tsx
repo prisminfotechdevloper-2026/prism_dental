@@ -58,7 +58,7 @@ export function GalleryShowcase() {
   }, [activeCategory, searchQuery]);
 
   return (
-    <section className="w-full bg-[#FFFFFF] py-10 sm:py-14 lg:py-16 border-b border-[#D5ECF0] relative">
+    <section className="w-full bg-[#FFFFFF] py-3 sm:py-4 lg:py-5 border-b border-[#D5ECF0] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-10">
         
         {/* ── TOP CONTROLS BAR: CATEGORY TABS, SEARCH & VIEW SWITCHER ── */}
@@ -68,8 +68,7 @@ export function GalleryShowcase() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E0F5F6] border border-[#0AADA8]/30 text-[#0AADA8] text-xs font-black tracking-wide uppercase shadow-2xs mb-2">
-                <span className="w-2 h-2 rounded-full bg-[#0AADA8]" />
-                Curated Clinical Portfolio
+                 Curated Clinical Portfolio
               </div>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#083258] tracking-tight">
                 Explore Our Smile <span className="text-[#0AADA8]">Masterpieces</span>

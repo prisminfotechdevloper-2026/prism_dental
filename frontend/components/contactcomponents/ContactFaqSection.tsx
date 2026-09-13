@@ -97,11 +97,10 @@ export function ContactFaqSection() {
               <div className="flex items-center gap-2 mb-2.5">
                 <Image
                   src="/images/logo.png"
-                  alt="Prism Dental Logo"
+                  alt="SmileCare Dental Clinic Logo"
                   width={28}
-                  height={28}
-                  style={{ width: "auto", height: "auto" }}
-                  className="object-contain shrink-0"
+                  height={25}
+                  className="w-7 h-auto object-contain shrink-0"
                 />
                 <h3 className="text-[16.5px] sm:text-[17.5px] font-extrabold text-[#083258] leading-tight tracking-tight">
                   Your Smile <br />
@@ -195,11 +194,10 @@ export function ContactFaqSection() {
             <div className="mb-2 sm:mb-2.5 transform group-hover:scale-105 transition-transform duration-300">
               <Image
                 src="/images/logo.png"
-                alt="Prism Dental Logo"
+                alt="SmileCare Dental Clinic Logo"
                 width={80}
-                height={80}
-                style={{ width: "auto", height: "auto" }}
-                className="object-contain"
+                height={70}
+                className="w-20 h-auto object-contain"
               />
             </div>
 

@@ -127,15 +127,15 @@ function FeatureItem({
   sub: string;
 }) {
   return (
-    <div className="flex items-center gap-3 group">
-      <div className="w-10 h-10 rounded-full bg-white/90 sm:bg-[#D6F0F1] shadow-2xs border border-[#008489]/20 flex items-center justify-center shrink-0 transition-transform duration-200 group-hover:scale-105">
+    <div className="flex items-center gap-3 group bg-white/70 sm:bg-transparent backdrop-blur-xs sm:backdrop-blur-none px-3 py-2 sm:p-0 rounded-xl border border-white/80 sm:border-transparent shadow-xs sm:shadow-none transition-all duration-200">
+      <div className="w-10 h-10 rounded-full bg-white sm:bg-[#D6F0F1] shadow-2xs border border-[#008489]/20 flex items-center justify-center shrink-0 transition-transform duration-200 group-hover:scale-105">
         {icon}
       </div>
       <div>
-        <h4 className="text-[13px] font-bold text-[#083258] leading-tight drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)]">
+        <h4 className="text-[13px] font-bold text-[#083258] leading-tight">
           {title}
         </h4>
-        <p className="text-[11px] text-[#083258]/85 sm:text-[#62778A] mt-0.5 leading-tight font-semibold sm:font-medium drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)]">
+        <p className="text-[11px] text-[#426480] sm:text-[#62778A] mt-0.5 leading-tight font-medium">
           {sub}
         </p>
       </div>
@@ -163,7 +163,7 @@ export const LandingHero = () => {
           fill
           priority
           sizes="(max-width: 768px) 100vw, (max-width: 1280px) 65vw, 60vw"
-          className="object-cover object-center md:object-[68%_center] lg:object-[64%_center]"
+          className="object-cover object-center md:object-[68%_center] lg:object-[64%_center] opacity-25 sm:opacity-35 md:opacity-100 transition-opacity duration-300"
         />
 
         {/* Left smooth gradient blend into the section background (Desktop only) */}
@@ -230,7 +230,7 @@ export const LandingHero = () => {
           </h1>
 
           {/* Subtitle / Description */}
-          <p className="text-xs sm:text-sm lg:text-[14.5px] text-[#244662] sm:text-[#526880] font-medium sm:font-normal drop-shadow-[0_1px_2px_rgba(255,255,255,0.85)] leading-relaxed max-w-[430px] mb-5 sm:mb-7">
+          <p className="text-xs sm:text-sm lg:text-[14.5px] text-[#335572] sm:text-[#526880] font-medium sm:font-normal leading-relaxed max-w-[430px] mb-5 sm:mb-7">
             We provide advanced &amp; affordable dental care with modern
             technology and expert doctors. Get the best care for a healthier,
             brighter smile.

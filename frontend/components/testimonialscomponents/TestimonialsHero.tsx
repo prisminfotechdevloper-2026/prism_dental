@@ -82,8 +82,9 @@ export function TestimonialsHero() {
           fill
           priority
           sizes="(max-width: 1024px) 100vw, 60vw"
-          className="object-cover object-center lg:object-[center_top]"
+          className="object-cover object-center lg:object-[center_top] opacity-25 sm:opacity-35 lg:opacity-100 transition-opacity duration-300"
         />
+
         {/* Left smooth gradient blend (Desktop only) */}
         <div className="hidden lg:block absolute inset-y-0 left-0 w-44 sm:w-60 lg:w-72 xl:w-80 bg-gradient-to-r from-[#E8F6F8] via-[#E8F6F8]/85 to-transparent z-1" />
         {/* Edge softening (Desktop only) */}

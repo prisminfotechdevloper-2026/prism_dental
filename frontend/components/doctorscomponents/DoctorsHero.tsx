@@ -105,8 +105,9 @@ export function DoctorsHero() {
           fill
           priority
           sizes="(max-width: 1024px) 100vw, 48vw"
-          className="object-cover object-center lg:object-left"
+          className="object-cover object-center lg:object-left opacity-25 sm:opacity-35 lg:opacity-100 transition-opacity duration-300"
         />
+
         {/* Left smooth gradient blend (Desktop only) */}
         <div className="hidden lg:block absolute inset-y-0 left-0 w-20 sm:w-28 lg:w-32 bg-gradient-to-r from-[#E8F6F8] via-[#E8F6F8]/85 to-transparent z-1" />
         {/* Top/bottom edge softening (Desktop only) */}
@@ -162,10 +163,10 @@ export function DoctorsHero() {
           </p>
 
           {/* 4 Feature Badges (Single Horizontal Row) */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-3.5 xl:gap-4 pt-1">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3.5 xl:gap-4 pt-1">
             
             {/* 1. Experienced Specialists */}
-            <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-2.5 bg-white/70 sm:bg-transparent backdrop-blur-xs sm:backdrop-blur-none p-2 sm:p-0 rounded-xl border border-white/80 sm:border-transparent shadow-xs sm:shadow-none">
               <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white border border-[#0AADA8]/30 flex items-center justify-center shrink-0 shadow-2xs transition-transform duration-200 hover:scale-105">
                 <SpecialistsIcon />
               </div>
@@ -175,7 +176,7 @@ export function DoctorsHero() {
             </div>
 
             {/* 2. Modern Technology */}
-            <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-2.5 bg-white/70 sm:bg-transparent backdrop-blur-xs sm:backdrop-blur-none p-2 sm:p-0 rounded-xl border border-white/80 sm:border-transparent shadow-xs sm:shadow-none">
               <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white border border-[#0AADA8]/30 flex items-center justify-center shrink-0 shadow-2xs transition-transform duration-200 hover:scale-105">
                 <ModernTechIcon />
               </div>
@@ -185,7 +186,7 @@ export function DoctorsHero() {
             </div>
 
             {/* 3. Personalized Treatment Plans */}
-            <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-2.5 bg-white/70 sm:bg-transparent backdrop-blur-xs sm:backdrop-blur-none p-2 sm:p-0 rounded-xl border border-white/80 sm:border-transparent shadow-xs sm:shadow-none">
               <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white border border-[#0AADA8]/30 flex items-center justify-center shrink-0 shadow-2xs transition-transform duration-200 hover:scale-105">
                 <TreatmentPlansIcon />
               </div>
@@ -195,7 +196,7 @@ export function DoctorsHero() {
             </div>
 
             {/* 4. Patient-Centric Care */}
-            <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-2.5 bg-white/70 sm:bg-transparent backdrop-blur-xs sm:backdrop-blur-none p-2 sm:p-0 rounded-xl border border-white/80 sm:border-transparent shadow-xs sm:shadow-none">
               <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white border border-[#0AADA8]/30 flex items-center justify-center shrink-0 shadow-2xs transition-transform duration-200 hover:scale-105">
                 <PatientCareIcon />
               </div>

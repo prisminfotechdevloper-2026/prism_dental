@@ -96,8 +96,9 @@ export function GalleryHero() {
           fill
           priority
           sizes="(max-width: 1024px) 100vw, 65vw"
-          className="object-cover object-center lg:object-right"
+          className="object-cover object-center lg:object-right opacity-25 sm:opacity-35 lg:opacity-100 transition-opacity duration-300"
         />
+
         {/* Left smooth gradient blend (Desktop only) */}
         <div className="hidden lg:block absolute inset-y-0 left-0 w-44 sm:w-60 lg:w-56 bg-gradient-to-r from-[#E8F6F8] via-[#E8F6F8]/85 to-transparent z-1" />
         {/* Top/bottom edge softening (Desktop only) */}
@@ -174,10 +175,10 @@ export function GalleryHero() {
           </p>
 
           {/* 4 Feature Badges (Single Horizontal Row) */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-3.5 xl:gap-4 pt-1">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3.5 xl:gap-4 pt-1">
             
             {/* 1. Real Patient Stories */}
-            <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-2.5 bg-white/70 sm:bg-transparent backdrop-blur-xs sm:backdrop-blur-none p-2 sm:p-0 rounded-xl border border-white/80 sm:border-transparent shadow-xs sm:shadow-none">
               <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white border border-[#0AADA8]/30 flex items-center justify-center shrink-0 shadow-2xs transition-transform duration-200 hover:scale-105">
                 <CameraIcon />
               </div>
@@ -187,7 +188,7 @@ export function GalleryHero() {
             </div>
 
             {/* 2. Before & After Transformations */}
-            <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-2.5 bg-white/70 sm:bg-transparent backdrop-blur-xs sm:backdrop-blur-none p-2 sm:p-0 rounded-xl border border-white/80 sm:border-transparent shadow-xs sm:shadow-none">
               <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white border border-[#0AADA8]/30 flex items-center justify-center shrink-0 shadow-2xs transition-transform duration-200 hover:scale-105">
                 <TransformationsIcon />
               </div>
@@ -197,7 +198,7 @@ export function GalleryHero() {
             </div>
 
             {/* 3. Modern Technology & Facilities */}
-            <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-2.5 bg-white/70 sm:bg-transparent backdrop-blur-xs sm:backdrop-blur-none p-2 sm:p-0 rounded-xl border border-white/80 sm:border-transparent shadow-xs sm:shadow-none">
               <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white border border-[#0AADA8]/30 flex items-center justify-center shrink-0 shadow-2xs transition-transform duration-200 hover:scale-105">
                 <ModernTechFacilitiesIcon />
               </div>
@@ -207,7 +208,7 @@ export function GalleryHero() {
             </div>
 
             {/* 4. Healthy Smiles Everyday */}
-            <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-2.5 bg-white/70 sm:bg-transparent backdrop-blur-xs sm:backdrop-blur-none p-2 sm:p-0 rounded-xl border border-white/80 sm:border-transparent shadow-xs sm:shadow-none">
               <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white border border-[#0AADA8]/30 flex items-center justify-center shrink-0 shadow-2xs transition-transform duration-200 hover:scale-105">
                 <HealthySmilesIcon />
               </div>

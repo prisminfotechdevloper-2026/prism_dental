@@ -11,7 +11,7 @@ export function GalleryClinicTour() {
   const activeSpace: ClinicSpace = CLINIC_SPACES[activeSpaceIndex];
 
   return (
-    <section className="w-full bg-white py-12 sm:py-16 lg:py-20 border-b border-[#D5ECF0] relative overflow-hidden">
+    <section className="w-full bg-white py-3 sm:py-4 lg:py-5 border-b border-[#D5ECF0] relative overflow-hidden">
       
       {/* Background Decorative Pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(#0AADA8_1px,transparent_1px)] [background-size:24px_24px] opacity-15 pointer-events-none" />
@@ -22,8 +22,7 @@ export function GalleryClinicTour() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-4">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E0F5F6] border border-[#0AADA8]/30 text-[#0AADA8] text-xs font-extrabold tracking-wide uppercase shadow-2xs mb-2.5">
-              <span className="w-2 h-2 rounded-full bg-[#0AADA8]" />
-              Virtual Clinic Ambience &amp; Facilities
+               Virtual Clinic Ambience &amp; Facilities
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#083258] tracking-tight leading-tight">
               Hospital-Grade Standards. <span className="text-[#0AADA8]">Spa-Like Comfort.</span>

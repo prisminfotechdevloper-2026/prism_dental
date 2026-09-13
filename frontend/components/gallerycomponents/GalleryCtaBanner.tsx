@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export function GalleryCtaBanner() {
   return (
-    <section className="w-full bg-[#083258] py-14 sm:py-16 lg:py-20 relative overflow-hidden text-white">
+    <section className="w-full bg-[#083258] py-3 sm:py-4 lg:py-5 relative overflow-hidden text-white">
       
       {/* Background Ambient Glows & Accents */}
       <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-[#0AADA8]/25 blur-3xl pointer-events-none" />
@@ -24,8 +24,7 @@ export function GalleryCtaBanner() {
             
             {/* Tag Badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0AADA8]/20 border border-[#0AADA8]/40 text-[#65F4F0] text-xs font-black tracking-wider uppercase mb-4">
-              <span className="w-2 h-2 rounded-full bg-[#65F4F0]" />
-              Start Your Smile Journey
+               Start Your Smile Journey
             </div>
 
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-tight mb-3">

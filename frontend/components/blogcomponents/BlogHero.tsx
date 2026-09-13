@@ -111,8 +111,9 @@ export function BlogHero() {
           fill
           priority
           sizes="(max-width: 1024px) 100vw, 55vw"
-          className="object-cover object-center lg:object-[82%_center]"
+          className="object-cover object-center lg:object-[82%_center] opacity-25 sm:opacity-35 lg:opacity-100 transition-opacity duration-300"
         />
+
         {/* Left smooth gradient blend (Desktop only) */}
         <div className="hidden lg:block absolute inset-y-0 left-0 w-44 sm:w-60 lg:w-64 xl:w-72 bg-gradient-to-r from-[#E8F6F8] via-[#E8F6F8]/85 to-transparent z-1" />
         {/* Edge softening (Desktop only) */}
@@ -228,10 +229,10 @@ export function BlogHero() {
           </form>
 
           {/* 3 Feature Badges in a well-spaced, prominent row */}
-          <div className="flex flex-wrap sm:flex-nowrap items-center gap-4 sm:gap-5 xl:gap-6 pt-1">
+          <div className="grid grid-cols-1 sm:flex sm:flex-nowrap items-center gap-2.5 sm:gap-5 xl:gap-6 pt-1">
             
             {/* 1. Expert Dental Advice */}
-            <div className="flex items-center gap-2.5 group">
+            <div className="flex items-center gap-2.5 group bg-white/70 sm:bg-transparent backdrop-blur-xs sm:backdrop-blur-none p-2 sm:p-0 rounded-xl border border-white/80 sm:border-transparent shadow-xs sm:shadow-none">
               <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white border-2 border-[#0AADA8]/35 flex items-center justify-center shrink-0 shadow-2xs transition-transform duration-200 group-hover:scale-105">
                 <ToothAdviceIcon />
               </div>
@@ -241,7 +242,7 @@ export function BlogHero() {
             </div>
 
             {/* 2. Better Oral Health */}
-            <div className="flex items-center gap-2.5 group">
+            <div className="flex items-center gap-2.5 group bg-white/70 sm:bg-transparent backdrop-blur-xs sm:backdrop-blur-none p-2 sm:p-0 rounded-xl border border-white/80 sm:border-transparent shadow-xs sm:shadow-none">
               <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white border-2 border-[#0AADA8]/35 flex items-center justify-center shrink-0 shadow-2xs transition-transform duration-200 group-hover:scale-105">
                 <BetterOralHealthIcon />
               </div>
@@ -251,7 +252,7 @@ export function BlogHero() {
             </div>
 
             {/* 3. Healthy Smiles for Life */}
-            <div className="flex items-center gap-2.5 group">
+            <div className="flex items-center gap-2.5 group bg-white/70 sm:bg-transparent backdrop-blur-xs sm:backdrop-blur-none p-2 sm:p-0 rounded-xl border border-white/80 sm:border-transparent shadow-xs sm:shadow-none">
               <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white border-2 border-[#0AADA8]/35 flex items-center justify-center shrink-0 shadow-2xs transition-transform duration-200 group-hover:scale-105">
                 <HealthySmilesForLifeIcon />
               </div>

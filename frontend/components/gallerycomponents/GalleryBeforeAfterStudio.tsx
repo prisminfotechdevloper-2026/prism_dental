@@ -51,7 +51,7 @@ export function GalleryBeforeAfterStudio() {
   };
 
   return (
-    <section className="w-full bg-[#F5FBFC] py-12 sm:py-16 lg:py-20 border-b border-[#D5ECF0] relative overflow-hidden">
+    <section className="w-full bg-[#F5FBFC] py-3 sm:py-4 lg:py-5 border-b border-[#D5ECF0] relative overflow-hidden">
       
       {/* Background Accent Subtle Glows */}
       <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-[#0AADA8]/10 blur-3xl pointer-events-none" />
@@ -62,8 +62,7 @@ export function GalleryBeforeAfterStudio() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E0F5F6] border border-[#0AADA8]/30 text-[#0AADA8] text-xs font-extrabold tracking-wide uppercase shadow-2xs mb-3">
-            <span className="w-2 h-2 rounded-full bg-[#0AADA8]" />
-            Interactive Smile Studio
+             Interactive Smile Studio
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#083258] tracking-tight leading-tight mb-3">
             Slide to Reveal Real Patient <span className="text-[#0AADA8]">Transformations</span>

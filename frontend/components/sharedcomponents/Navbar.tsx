@@ -127,10 +127,9 @@ export function Navbar() {
                 src="/images/logo.png"
                 alt="SmileCare Dental Clinic Logo"
                 width={40}
-                height={40}
+                height={35}
                 priority
-                style={{ width: "auto", height: "auto" }}
-                className="w-10 h-10 object-contain transition-transform group-hover:scale-105"
+                className="w-10 h-auto object-contain transition-transform group-hover:scale-105"
               />
             </div>
 

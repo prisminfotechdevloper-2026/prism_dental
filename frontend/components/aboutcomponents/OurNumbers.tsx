@@ -139,20 +139,27 @@ export function OurNumbers() {
   ];
 
   return (
-    <section className="relative w-full overflow-hidden bg-gradient-to-r from-[#01506D] via-[#026284] to-[#014B67] py4 sm:py-5">
+    <section className="relative w-full overflow-hidden bg-gradient-to-r from-[#01506D] via-[#026284] to-[#014B67] py-7 sm:py-6 lg:py-5 border-y border-white/10">
       {/* Subtle background ambient light */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(33,210,204,0.12),_transparent_70%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(33,210,204,0.15),_transparent_70%)] pointer-events-none" />
+      {/* Ambient background glows for mobile depth */}
+      <div className="sm:hidden absolute -top-12 -left-12 w-40 h-40 bg-[#21D2CC]/15 rounded-full blur-2xl pointer-events-none" />
+      <div className="sm:hidden absolute -bottom-12 -right-12 w-40 h-40 bg-[#026284]/30 rounded-full blur-2xl pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-0">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-5 sm:gap-6 lg:gap-0">
           
           {/* ─────────────────────────────────────────────────────────────
               LEFT TITLE: "Our Numbers Speak for Themselves"
               ───────────────────────────────────────────────────────────── */}
           <div className="shrink-0 text-center lg:text-left lg:pr-8 xl:pr-10">
+            {/* Track Record Pill for Mobile */}
+            <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-white/10 border border-[#21D2CC]/30 text-[#21D2CC] text-[10.5px] font-bold tracking-wider uppercase mb-1.5 lg:hidden shadow-2xs">
+              <span> Track Record </span>
+            </div>
             <h2 className="text-xl sm:text-[22px] lg:text-2xl font-bold text-white tracking-tight leading-tight">
               Our Numbers
-              <span className="block font-bold text-white">
+              <span className="block font-bold text-[#21D2CC] lg:text-white">
                 Speak for Themselves
               </span>
             </h2>
@@ -164,17 +171,17 @@ export function OurNumbers() {
           {/* ─────────────────────────────────────────────────────────────
               4 STATS ITEMS (With Dividers)
               ───────────────────────────────────────────────────────────── */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:flex lg:flex-1 lg:items-center lg:justify-around gap-6 sm:gap-4 lg:gap-0 w-full lg:w-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:flex lg:flex-1 lg:items-center lg:justify-around gap-3 sm:gap-4 lg:gap-0 w-full lg:w-auto">
             {stats.map((stat, idx) => (
               <React.Fragment key={stat.id}>
-                <div className="flex flex-col items-center text-center px-3 sm:px-4 group">
-                  <div className="mb-2 transition-transform duration-200 group-hover:scale-110">
+                <div className="flex flex-col items-center text-center p-3.5 sm:p-0 rounded-2xl bg-white/[0.08] sm:bg-transparent backdrop-blur-xs sm:backdrop-blur-none border border-white/12 sm:border-transparent shadow-[0_4px_20px_rgba(0,0,0,0.15)] sm:shadow-none group transition-all duration-200 hover:bg-white/[0.12]">
+                  <div className="w-11 h-11 sm:w-auto sm:h-auto rounded-xl bg-white/10 sm:bg-transparent border border-white/15 sm:border-transparent flex items-center justify-center mb-2 sm:mb-2 transition-transform duration-200 group-hover:scale-110 shadow-inner sm:shadow-none">
                     {stat.icon}
                   </div>
-                  <div className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-none mb-1">
+                  <div className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-none mb-1 drop-shadow-xs">
                     {stat.value}
                   </div>
-                  <div className="text-[11px] sm:text-xs text-[#A6E9E8] font-normal whitespace-nowrap">
+                  <div className="text-[11px] sm:text-xs text-[#C6F6F5] sm:text-[#A6E9E8] font-medium sm:font-normal text-center leading-tight">
                     {stat.label}
                   </div>
                 </div>

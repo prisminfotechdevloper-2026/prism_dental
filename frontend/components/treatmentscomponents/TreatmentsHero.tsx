@@ -303,8 +303,9 @@ export function TreatmentsHero() {
           fill
           priority
           sizes="(max-width: 1024px) 100vw, 70vw"
-          className="object-cover object-center lg:object-left"
+          className="object-cover object-[35%_center] lg:object-left opacity-25 sm:opacity-35 lg:opacity-100 transition-opacity duration-300"
         />
+
         {/* Soft horizontal gradient blend into the solid left-column background (Desktop only) */}
         <div className="hidden lg:block absolute inset-y-0 left-0 w-28 sm:w-36 lg:w-48 bg-gradient-to-r from-[#E8F6F8] via-[#E8F6F8]/80 to-transparent" />
       </div>
@@ -381,9 +382,9 @@ export function TreatmentsHero() {
             </p>
 
             {/* 4 Feature Badges in Single Row */}
-            <div className="flex flex-wrap sm:flex-nowrap items-center gap-3 sm:gap-4 xl:gap-5 pt-1">
+            <div className="grid grid-cols-2 sm:flex sm:flex-nowrap items-center gap-2.5 sm:gap-4 xl:gap-5 pt-1">
               {/* 1. Better Alignment */}
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 bg-white/70 sm:bg-transparent backdrop-blur-xs sm:backdrop-blur-none p-2 sm:p-0 rounded-xl border border-white/80 sm:border-transparent shadow-xs sm:shadow-none">
                 <div className="w-8 h-8 sm:w-8.5 sm:h-8.5 rounded-full bg-white border border-[#0AADA8]/30 flex items-center justify-center shrink-0 shadow-2xs">
                   <BetterAlignmentIcon />
                 </div>
@@ -393,7 +394,7 @@ export function TreatmentsHero() {
               </div>
 
               {/* 2. Improved Bite */}
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 bg-white/70 sm:bg-transparent backdrop-blur-xs sm:backdrop-blur-none p-2 sm:p-0 rounded-xl border border-white/80 sm:border-transparent shadow-xs sm:shadow-none">
                 <div className="w-8 h-8 sm:w-8.5 sm:h-8.5 rounded-full bg-white border border-[#0AADA8]/30 flex items-center justify-center shrink-0 shadow-2xs">
                   <ImprovedBiteIcon />
                 </div>
@@ -403,7 +404,7 @@ export function TreatmentsHero() {
               </div>
 
               {/* 3. Enhanced Oral Health */}
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 bg-white/70 sm:bg-transparent backdrop-blur-xs sm:backdrop-blur-none p-2 sm:p-0 rounded-xl border border-white/80 sm:border-transparent shadow-xs sm:shadow-none">
                 <div className="w-8 h-8 sm:w-8.5 sm:h-8.5 rounded-full bg-white border border-[#0AADA8]/30 flex items-center justify-center shrink-0 shadow-2xs">
                   <EnhancedHealthIcon />
                 </div>
@@ -413,7 +414,7 @@ export function TreatmentsHero() {
               </div>
 
               {/* 4. Boosts Confidence */}
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 bg-white/70 sm:bg-transparent backdrop-blur-xs sm:backdrop-blur-none p-2 sm:p-0 rounded-xl border border-white/80 sm:border-transparent shadow-xs sm:shadow-none">
                 <div className="w-8 h-8 sm:w-8.5 sm:h-8.5 rounded-full bg-white border border-[#0AADA8]/30 flex items-center justify-center shrink-0 shadow-2xs">
                   <BoostsConfidenceIcon />
                 </div>
