@@ -372,8 +372,7 @@ function FooterContactCol() {
 
         <div className="py-2 px-3 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-between text-xs">
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse shrink-0" />
-            <span className="font-semibold text-red-400">Emergency:</span>
+             <span className="font-semibold text-red-400">Emergency:</span>
           </div>
           <span className="text-[10px] sm:text-[11px] font-bold text-red-300 bg-red-500/25 px-2 py-0.5 rounded-md">24/7 On-Call</span>
         </div>
