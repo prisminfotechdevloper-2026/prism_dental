@@ -15,6 +15,7 @@ import {
   HeartPulse,
 } from "lucide-react";
 import { AppointmentHero } from "@/components/appointmentcomponents/AppointmentHero";
+import { COMPANY_DETAILS } from "@/data/companyDetails";
 
 const TREATMENTS = [
   "General Dental Checkup & Consultation",
@@ -328,18 +329,18 @@ function AppointmentSidebar() {
           Do not wait for form confirmation. Call our emergency response team directly for immediate same-day relief.
         </p>
         <a
-          href="tel:+919876543210"
+          href={`tel:+91${COMPANY_DETAILS.phone}`}
           className="mt-4 flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#EF4444] hover:bg-[#DC2626] text-white text-xs font-bold transition-all shadow-sm"
         >
           <Phone className="w-4 h-4" />
-          <span>Call +91 98765 43210</span>
+          <span>Call {COMPANY_DETAILS.phoneFormatted}</span>
         </a>
       </div>
 
       {/* Why Book Online */}
       <div className="rounded-3xl border border-[#D5ECF0] bg-white p-6 shadow-sm space-y-4">
         <h3 className="text-sm font-bold uppercase tracking-wider text-[#083258]">
-          SmileCare Assurance
+          Prism Dental Assurance
         </h3>
 
         <div className="space-y-3 text-xs text-[#426480]">
@@ -364,7 +365,7 @@ function AppointmentSidebar() {
           <MapPin className="w-4 h-4 text-[#026EB9] shrink-0 mt-0.5" />
           <div>
             <strong className="text-[#083258] block">Clinic Address:</strong>
-            104, Healthcare Towers, Opp. City Central Park, Medical Enclave
+            {COMPANY_DETAILS.address} ({COMPANY_DETAILS.addressLandmark})
           </div>
         </div>
 
@@ -372,8 +373,8 @@ function AppointmentSidebar() {
           <Clock className="w-4 h-4 text-[#026EB9] shrink-0 mt-0.5" />
           <div>
             <strong className="text-[#083258] block">Clinic Working Hours:</strong>
-            Mon – Sat: 9:00 AM – 8:00 PM<br />
-            Sunday: 10:00 AM – 2:00 PM
+            {COMPANY_DETAILS.workingHoursWeekday}<br />
+            {COMPANY_DETAILS.workingHoursSunday}
           </div>
         </div>
       </div>

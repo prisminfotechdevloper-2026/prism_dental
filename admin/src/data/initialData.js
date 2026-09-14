@@ -486,15 +486,16 @@ export const INITIAL_BLOG_POSTS = [
 ];
 
 export const INITIAL_CLINIC_SETTINGS = {
-  clinicName: "SmileCare Dental Clinic",
+  clinicName: "Prism Dental Clinic",
   tagline: "Healthy Smile, Happy Life",
-  phone: "+91 98765 43210",
-  whatsapp: "+91 98765 43210",
-  emergencyHelpline: "+91 98765 43210",
-  email: "care@smilecaredental.com",
-  address: "104, Healthcare Towers, Opp. City Central Park, Medical Enclave",
+  phone: "+91 82392 39249",
+  whatsapp: "8239239249",
+  emergencyHelpline: "+91 82392 39249",
+  email: "contact.prisminfotech@gmail.com",
+  address: "Ramganjmandi, Kota, Rajasthan",
   workingHoursWeekday: "09:00 AM - 08:00 PM (Mon - Sat)",
   workingHoursSunday: "10:00 AM - 02:00 PM (Sun)",
-  whatsappBookingTemplate: "Hello {PATIENT_NAME}, thank you for choosing SmileCare Dental Clinic! Your appointment for {TREATMENT} with {DOCTOR} is confirmed for {DATE} at {TIME_SLOT}. Location: 104 Healthcare Towers. Please arrive 10 minutes prior.",
-  whatsappReminderTemplate: "Reminder from SmileCare Dental: Hi {PATIENT_NAME}, you have an upcoming consultation tomorrow ({DATE}) at {TIME_SLOT} with {DOCTOR}. If you need to reschedule, reply to this message.",
+  whatsappBookingTemplate: "Hello {PATIENT_NAME}, thank you for choosing Prism Dental Clinic! Your appointment for {TREATMENT} with {DOCTOR} is confirmed for {DATE} at {TIME_SLOT}. Location: Ramganjmandi, Kota, Rajasthan. Please arrive 10 minutes prior.",
+  whatsappReminderTemplate: "Reminder from Prism Dental Clinic: Hi {PATIENT_NAME}, you have an upcoming consultation tomorrow ({DATE}) at {TIME_SLOT} with {DOCTOR}. If you need to reschedule, reply to this message.",
 };
+

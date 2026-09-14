@@ -59,7 +59,7 @@ export function Header({ setMobileOpen, onOpenNewAppointment }) {
       default:
         return {
           title: "Admin Dashboard",
-          subtitle: "SmileCare Dental Clinic",
+          subtitle: "Prism Dental Clinic",
         };
     }
   };

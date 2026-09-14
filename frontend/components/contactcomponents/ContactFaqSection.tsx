@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import { COMPANY_DETAILS } from "@/data/companyDetails";
 
 
 // Phone Icon for "Call Us Now" Button
@@ -97,7 +98,7 @@ export function ContactFaqSection() {
               <div className="flex items-center gap-2 mb-2.5">
                 <Image
                   src="/images/logo.png"
-                  alt="SmileCare Dental Clinic Logo"
+                  alt="Prism Dental Clinic Logo"
                   width={28}
                   height={25}
                   className="w-7 h-auto object-contain shrink-0"
@@ -194,7 +195,7 @@ export function ContactFaqSection() {
             <div className="mb-2 sm:mb-2.5 transform group-hover:scale-105 transition-transform duration-300">
               <Image
                 src="/images/logo.png"
-                alt="SmileCare Dental Clinic Logo"
+                alt="Prism Dental Clinic Logo"
                 width={80}
                 height={70}
                 className="w-20 h-auto object-contain"
@@ -213,7 +214,7 @@ export function ContactFaqSection() {
 
             {/* Call Us Now Action Button */}
             <a
-              href="tel:+919876543210"
+              href={`tel:+91${COMPANY_DETAILS.phone}`}
               className="inline-flex items-center justify-center gap-2 px-5 py-2 sm:py-2.5 rounded-full bg-[#0AADA8] hover:bg-[#089691] text-white font-bold text-xs sm:text-[13px] shadow-[0_3px_12px_rgba(10,173,168,0.25)] hover:shadow-[0_5px_18px_rgba(10,173,168,0.35)] active:scale-[0.98] transition-all duration-200"
             >
               <span>Call Us Now</span>
@@ -222,10 +223,10 @@ export function ContactFaqSection() {
 
             {/* Telephone Number Display */}
             <a
-              href="tel:+919876543210"
+              href={`tel:+91${COMPANY_DETAILS.phone}`}
               className="text-[#083258] font-extrabold text-xs sm:text-[13.5px] mt-2.5 sm:mt-3 hover:text-[#0AADA8] tracking-wide transition-colors"
             >
-              +91 98765 43210
+              {COMPANY_DETAILS.phoneFormatted}
             </a>
           </div>
 

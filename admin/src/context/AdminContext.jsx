@@ -46,9 +46,20 @@ export function AdminProvider({ children }) {
   const [blogPosts, setBlogPosts] = useState(() =>
     getLocalData("sc_admin_blogs", INITIAL_BLOG_POSTS)
   );
-  const [settings, setSettings] = useState(() =>
-    getLocalData("sc_admin_settings", INITIAL_CLINIC_SETTINGS)
-  );
+  const [settings, setSettings] = useState(() => {
+    const saved = getLocalData("sc_admin_settings", INITIAL_CLINIC_SETTINGS);
+    if (
+      !saved.email ||
+      saved.email === "care@smilecaredental.com" ||
+      saved.phone === "+91 98765 43210"
+    ) {
+      return {
+        ...saved,
+        ...INITIAL_CLINIC_SETTINGS,
+      };
+    }
+    return saved;
+  });
 
   // Active navigation tab
   const [currentTab, setCurrentTab] = useState("dashboard");

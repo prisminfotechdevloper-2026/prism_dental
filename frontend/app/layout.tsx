@@ -33,8 +33,8 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
-  title: "SmileCare Dental Clinic | Healthy Smile, Happy Life",
-  description: "SmileCare Dental Clinic provides advanced, gentle and affordable dental care with modern 3D technology and expert specialist doctors.",
+  title: "Prism Dental Clinic | Healthy Smile, Happy Life",
+  description: "Prism Dental Clinic provides advanced, gentle and affordable dental care with modern 3D technology and expert specialist doctors in Ramganj Mandi, Kota, Rajasthan.",
   icons: {
     icon: [
       { url: "/images/logo.png", type: "image/png" },

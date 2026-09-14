@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { COMPANY_DETAILS } from "@/data/companyDetails";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // CUSTOM CRISP SVG ICONS MATCHING REFERENCE UI
@@ -89,13 +90,13 @@ export function ContactInfoBar() {
                   Call Us
                 </h3>
                 <a
-                  href="tel:+919876543210"
+                  href={`tel:+91${COMPANY_DETAILS.phone}`}
                   className="block text-sm sm:text-base font-bold text-[#083258] hover:text-[#0AADA8] transition-colors truncate"
                 >
-                  +91 98765 43210
+                  {COMPANY_DETAILS.phoneFormatted}
                 </a>
                 <p className="text-[11.5px] sm:text-xs text-[#426480]">
-                  Mon - Sat: 9:00 AM - 8:00 PM
+                  {COMPANY_DETAILS.workingHoursWeekday}
                 </p>
               </div>
             </div>
@@ -110,10 +111,10 @@ export function ContactInfoBar() {
                   Email Us
                 </h3>
                 <a
-                  href="mailto:contact@smilecare.com"
+                  href={`mailto:${COMPANY_DETAILS.email}`}
                   className="block text-sm sm:text-base font-bold text-[#083258] hover:text-[#0AADA8] transition-colors truncate"
                 >
-                  contact@smilecare.com
+                  {COMPANY_DETAILS.email}
                 </a>
                 <p className="text-[11.5px] sm:text-xs text-[#426480]">
                   We reply within 24 hours
@@ -131,11 +132,11 @@ export function ContactInfoBar() {
                   Visit Us
                 </h3>
                 <div className="text-xs sm:text-[13px] font-bold text-[#083258] leading-tight">
-                  <p>Near Bus Stand, Ramganj Mandi,</p>
-                  <p className="mt-0.5">Kota, Raj - 326519</p>
+                  <p>{COMPANY_DETAILS.addressLine1},</p>
+                  <p className="mt-0.5">{COMPANY_DETAILS.addressLine2}</p>
                 </div>
                 <p className="text-[11px] sm:text-[11.5px] text-[#426480]">
-                  (Opp. Main Bus Stand)
+                  {COMPANY_DETAILS.addressLandmark}
                 </p>
               </div>
             </div>
@@ -150,10 +151,10 @@ export function ContactInfoBar() {
                   Emergency
                 </h3>
                 <a
-                  href="tel:+919876543210"
+                  href={`tel:+91${COMPANY_DETAILS.phone}`}
                   className="block text-sm sm:text-base font-bold text-[#083258] hover:text-[#EF4444] transition-colors truncate"
                 >
-                  +91 98765 43210
+                  {COMPANY_DETAILS.phoneFormatted}
                 </a>
                 <p className="text-[11.5px] sm:text-xs text-[#426480]">
                   24/7 Available

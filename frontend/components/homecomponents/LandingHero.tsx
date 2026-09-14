@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { COMPANY_DETAILS } from "@/data/companyDetails";
 
 /* ─────────────────────────────────────────────
    CUSTOM SVG ICONS MATCHING UI REFERENCE
@@ -256,7 +257,7 @@ export const LandingHero = () => {
 
             {/* Chat on WhatsApp CTA */}
             <a
-              href="https://wa.me/919876543210?text=Hi,%20I%20would%20like%20to%20inquire%20about%20dental%20treatments%20and%20book%20an%20appointment."
+              href={COMPANY_DETAILS.whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2

@@ -10,11 +10,15 @@ import {
   Settings,
   ExternalLink,
   RotateCcw,
+  Phone,
+  MessageSquare,
+  MapPin,
 } from "lucide-react";
 import { useAdmin } from "../../context/AdminContext";
 
 export function Sidebar({ mobileOpen, setMobileOpen }) {
-  const { currentTab, setCurrentTab, stats, resetToFactoryData } = useAdmin();
+  const { currentTab, setCurrentTab, stats, settings, resetToFactoryData } =
+    useAdmin();
 
   const NAV_ITEMS = [
     {
@@ -73,6 +77,13 @@ export function Sidebar({ mobileOpen, setMobileOpen }) {
     if (setMobileOpen) setMobileOpen(false);
   };
 
+  const rawPhone = (settings.whatsapp || settings.phone || "8239239249").replace(
+    /[^0-9]/g,
+    ""
+  );
+  const cleanWaNumber =
+    rawPhone.length === 10 ? `91${rawPhone}` : rawPhone;
+
   return (
     <>
       {/* Mobile overlay */}
@@ -94,7 +105,7 @@ export function Sidebar({ mobileOpen, setMobileOpen }) {
             <div className="w-10 h-10 rounded-2xl bg-[#E8F8F8] border border-[#BCEBE9] flex items-center justify-center p-1.5 shadow-xs">
               <img
                 src="/logo.png"
-                alt="SmileCare Dental"
+                alt="Prism Dental"
                 className="w-full h-full object-contain"
                 onError={(e) => {
                   e.currentTarget.style.display = "none";
@@ -104,7 +115,7 @@ export function Sidebar({ mobileOpen, setMobileOpen }) {
             <div>
               <div className="flex items-center gap-1.5">
                 <span className="font-extrabold text-[15px] text-[#083258] tracking-tight">
-                  SmileCare
+                  Prism Dental
                 </span>
                 <span className="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-md bg-[#E8F8F8] text-[#0AADA8]">
                   Admin
@@ -116,8 +127,44 @@ export function Sidebar({ mobileOpen, setMobileOpen }) {
             </div>
           </div>
 
+          {/* Direct Company Contact Bar */}
+          <div className="px-4 py-2.5 bg-[#F5FBFC] border-b border-[#E8F1F5] text-[11px] space-y-1.5">
+            <div className="flex items-center justify-between text-[#426480]">
+              <span className="font-semibold text-[#083258] flex items-center gap-1">
+                <Phone className="w-3 h-3 text-[#0AADA8]" />
+                Call Helpline:
+              </span>
+              <a
+                href={`tel:${settings.phone || "8239239249"}`}
+                className="font-bold text-[#026EB9] hover:underline"
+              >
+                {settings.phone || "8239239249"}
+              </a>
+            </div>
+
+            <div className="flex items-center justify-between text-[#426480]">
+              <span className="font-semibold text-[#083258] flex items-center gap-1">
+                <MessageSquare className="w-3 h-3 text-emerald-600" />
+                WhatsApp:
+              </span>
+              <a
+                href={`https://wa.me/${cleanWaNumber}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-emerald-700 hover:underline flex items-center gap-0.5"
+              >
+                {settings.whatsapp || "8239239249"}
+              </a>
+            </div>
+
+            <div className="flex items-start gap-1 text-[10px] text-[#6B8BA2] pt-0.5 border-t border-[#E8F1F5]/80">
+              <MapPin className="w-3 h-3 text-[#0AADA8] shrink-0 mt-0.5" />
+              <span className="truncate">{settings.address || "Ramganjmandi, Kota, Rajasthan"}</span>
+            </div>
+          </div>
+
           {/* Navigation Items */}
-          <nav className="p-3 space-y-1 overflow-y-auto max-h-[calc(100vh-220px)]">
+          <nav className="p-3 space-y-1 overflow-y-auto max-h-[calc(100vh-320px)]">
             <div className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-[#6B8BA2]">
               Main Menu
             </div>

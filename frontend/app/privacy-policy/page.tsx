@@ -1,10 +1,11 @@
 import React from "react";
 import Link from "next/link";
 import { ShieldCheck, ArrowLeft } from "lucide-react";
+import { COMPANY_DETAILS } from "@/data/companyDetails";
 
 export const metadata = {
-  title: "Privacy Policy | SmileCare Dental Clinic",
-  description: "SmileCare Dental Clinic's patient privacy and data protection policy.",
+  title: "Privacy Policy | Prism Dental Clinic",
+  description: "Prism Dental Clinic's patient privacy and data protection policy.",
 };
 
 export default function PrivacyPolicyPage() {
@@ -32,7 +33,7 @@ export default function PrivacyPolicyPage() {
 
           <div className="space-y-4 text-xs sm:text-sm text-[#426480] leading-relaxed">
             <p>
-              At <strong>SmileCare Dental Clinic</strong>, your privacy and health data confidentiality are of paramount importance. This document outlines how patient personal information and dental diagnostic records are collected, utilized, and safeguarded.
+              At <strong>Prism Dental Clinic</strong>, your privacy and health data confidentiality are of paramount importance. This document outlines how patient personal information and dental diagnostic records are collected, utilized, and safeguarded.
             </p>
 
             <h2 className="text-base font-bold text-[#083258] pt-2">1. Health Records & Diagnostics</h2>
@@ -52,7 +53,7 @@ export default function PrivacyPolicyPage() {
 
             <h2 className="text-base font-bold text-[#083258] pt-2">4. Contacting Our Data Officer</h2>
             <p>
-              If you have queries regarding your stored records or wish to update your contact preferences, please write to our privacy officer at <a href="mailto:privacy@smilecaredental.com" className="text-[#0AADA8] font-semibold underline">privacy@smilecaredental.com</a>.
+              If you have queries regarding your stored records or wish to update your contact preferences, please write to our privacy officer at <a href={`mailto:${COMPANY_DETAILS.email}`} className="text-[#0AADA8] font-semibold underline">{COMPANY_DETAILS.email}</a>.
             </p>
           </div>
         </div>

@@ -220,7 +220,7 @@ export function ContactBookingAndLocation() {
             <div className="relative h-40 sm:h-44 lg:h-48 w-full overflow-hidden shrink-0">
               <Image
                 src="/images/about-clinic.jpg"
-                alt="Modern SmileCare Clinic operatory suite in Ramganj Mandi, Kota"
+                alt="Modern Prism Dental Clinic operatory suite in Ramganj Mandi, Kota"
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 42vw"
@@ -291,7 +291,7 @@ export function ContactBookingAndLocation() {
               {/* Interactive Google Map Embed (Fills available space evenly) */}
               <div className="relative w-full flex-1 min-h-[140px] rounded-2xl overflow-hidden border border-[#D5ECF0] shadow-2xs">
                 <iframe
-                  title="SmileCare Dental Clinic Ramganj Mandi Kota Map"
+                  title="Prism Dental Clinic Ramganj Mandi Kota Map"
                   src="https://maps.google.com/maps?q=Bus+Stand+Ramganj+Mandi+Kota+Rajasthan&t=&z=15&ie=UTF8&iwloc=&output=embed"
                   className="w-full h-full border-0 absolute inset-0"
                   loading="lazy"

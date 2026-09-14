@@ -15,6 +15,7 @@ import {
   CalendarDays,
   HeartPulse,
 } from "lucide-react";
+import { COMPANY_DETAILS } from "@/data/companyDetails";
 
 // Social Icons
 function FacebookIcon({ className = "w-4 h-4" }: { className?: string }) {
@@ -115,7 +116,7 @@ function FooterBrandCol() {
         <div className="w-11 h-11 rounded-xl bg-white flex items-center justify-center p-1.5 shadow-md">
           <Image
             src="/images/logo.png"
-            alt="SmileCare Dental Clinic Logo"
+            alt="Prism Dental Clinic Logo"
             width={32}
             height={28}
             className="w-auto h-7 object-contain"
@@ -123,7 +124,7 @@ function FooterBrandCol() {
         </div>
         <div className="flex flex-col">
           <span className="text-2xl font-bold tracking-tight text-white leading-none">
-            Smile<span className="text-[#0AADA8]">Care</span>
+            Prism<span className="text-[#0AADA8]">Dental</span>
           </span>
           <span className="text-xs font-medium text-slate-300 tracking-wider mt-1">
             Advanced Dental Clinic
@@ -313,8 +314,8 @@ function FooterContactCol() {
         <div className="flex items-start gap-2.5">
           <Phone className="w-4 h-4 text-[#0AADA8] shrink-0 mt-0.5" />
           <div>
-            <a href="tel:+919876543210" className="hover:text-white font-medium block">
-              +91 98765 43210
+            <a href={`tel:+91${COMPANY_DETAILS.phone}`} className="hover:text-white font-medium block">
+              {COMPANY_DETAILS.phoneFormatted}
             </a>
             <span className="text-[11px] text-slate-400">Toll Free Consultation</span>
           </div>
@@ -324,12 +325,12 @@ function FooterContactCol() {
           <WhatsAppIcon className="w-4 h-4 text-[#25D366] shrink-0 mt-0.5" />
           <div>
             <a
-              href="https://wa.me/919876543210"
+              href={COMPANY_DETAILS.whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-white font-medium block"
             >
-              +91 98765 43210
+              {COMPANY_DETAILS.whatsappFormatted}
             </a>
             <span className="text-[11px] text-slate-400">WhatsApp Appointment Desk</span>
           </div>
@@ -338,18 +339,28 @@ function FooterContactCol() {
         <div className="flex items-start gap-2.5">
           <Mail className="w-4 h-4 text-[#0AADA8] shrink-0 mt-0.5" />
           <div>
-            <a href="mailto:care@smilecaredental.com" className="hover:text-white font-medium block">
-              care@smilecaredental.com
+            <a href={`mailto:${COMPANY_DETAILS.email}`} className="hover:text-white font-medium block">
+              {COMPANY_DETAILS.email}
             </a>
             <span className="text-[11px] text-slate-400">General Enquiries</span>
           </div>
         </div>
 
         <div className="flex items-start gap-2.5">
+          <MapPin className="w-4 h-4 text-[#0AADA8] shrink-0 mt-0.5" />
+          <div>
+            <span className="text-slate-200 block font-medium leading-snug">
+              {COMPANY_DETAILS.address}
+            </span>
+            <span className="text-[11px] text-slate-400">{COMPANY_DETAILS.addressLandmark}</span>
+          </div>
+        </div>
+
+        <div className="flex items-start gap-2.5">
           <Clock className="w-4 h-4 text-[#0AADA8] shrink-0 mt-0.5" />
           <div className="space-y-0.5">
-            <span className="block font-medium">Mon - Sat: 9:00 AM - 8:00 PM</span>
-            <span className="block text-[11px] text-slate-400">Sunday: 10:00 AM - 2:00 PM</span>
+            <span className="block font-medium">{COMPANY_DETAILS.workingHoursWeekday}</span>
+            <span className="block text-[11px] text-slate-400">{COMPANY_DETAILS.workingHoursSunday}</span>
           </div>
         </div>
 
@@ -374,7 +385,7 @@ function FooterBottomBar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <p>
-            © {new Date().getFullYear()} SmileCare Dental Clinic. All Rights Reserved.
+            © {new Date().getFullYear()} Prism Dental Clinic. All Rights Reserved.
           </p>
           <div className="flex items-center gap-6">
             <Link href="/privacy-policy" className="hover:text-[#0AADA8] transition-colors">

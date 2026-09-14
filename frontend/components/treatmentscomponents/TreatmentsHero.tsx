@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { COMPANY_DETAILS } from "@/data/companyDetails";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // CUSTOM SVG ICONS MATCHING UI REFERENCE (Crisp Outline Style)
@@ -268,7 +269,7 @@ function ConsultationBookingCard() {
         {/* WhatsApp Quick Chat */}
         <div className="mt-2.5 text-center">
           <a
-            href="https://wa.me/919876543210?text=Hi%20SmileCare,%20I%20would%20like%20to%20consult%20about%20Braces%20and%20Aligners"
+            href={`https://wa.me/91${COMPANY_DETAILS.whatsapp}?text=Hi%20Prism%20Dental,%20I%20would%20like%20to%20consult%20about%20Braces%20and%20Aligners`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-1.5 text-[11px] text-[#083258] hover:text-[#0AADA8] font-semibold transition-colors"

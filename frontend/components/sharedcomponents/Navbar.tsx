@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { COMPANY_DETAILS } from "@/data/companyDetails";
 
 // Chevron Down Icon for "Treatments" dropdown
 function ChevronDownIcon({ className = "w-3.5 h-3.5" }: { className?: string }) {
@@ -119,13 +120,13 @@ export function Navbar() {
           <Link
             href="/"
             className="flex items-center gap-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0AADA8] rounded-xl group transition-transform hover:opacity-95"
-            aria-label="SmileCare Dental Clinic Home"
+            aria-label="Prism Dental Clinic Home"
           >
             {/* Logo Icon */}
             <div className="w-10 h-10 flex items-center justify-center shrink-0">
               <Image
                 src="/images/logo.png"
-                alt="SmileCare Dental Clinic Logo"
+                alt="Prism Dental Clinic Logo"
                 width={40}
                 height={35}
                 priority
@@ -136,7 +137,7 @@ export function Navbar() {
             {/* Logo Text */}
             <div className="flex flex-col justify-center select-none">
               <div className="text-[21px] font-bold tracking-tight leading-none text-[#083258]">
-                Smile<span className="text-[#0AADA8]">Care</span>
+                Prism<span className="text-[#0AADA8]">Dental</span>
               </div>
               <span className="text-[11px] font-medium text-[#6B8BA2] tracking-normal mt-[3px] leading-none">
                 Dental Clinic
@@ -243,9 +244,9 @@ export function Navbar() {
             
             {/* Div 1: Contact Info (Blue Icon + Mobile Number + Emergency 24/7) */}
             <a
-              href="tel:+919876543210"
+              href={`tel:+91${COMPANY_DETAILS.phone}`}
               className="flex items-center gap-2.5 group focus:outline-none"
-              title="Call SmileCare Dental Helpline"
+              title="Call Dental Helpline"
             >
               <div className="w-8 h-8 flex items-center justify-center text-[#026EB9] group-hover:scale-110 transition-transform shrink-0">
                 <PhoneCallIcon className="w-[22px] h-[22px]" />
@@ -253,7 +254,7 @@ export function Navbar() {
 
               <div className="flex flex-col text-left leading-tight">
                 <span className="text-[13px] font-bold text-[#083258] tracking-tight group-hover:text-[#026EB9] transition-colors">
-                  +91 98765 43210
+                  {COMPANY_DETAILS.phoneFormatted}
                 </span>
                 <span className="text-[10.5px] font-semibold text-[#EF4444] tracking-wide mt-0.5">
                   Emergency 24/7
@@ -330,12 +331,12 @@ export function Navbar() {
 
           <div className="pt-3 border-t border-[#D5ECF0] space-y-3">
             <a
-              href="tel:+919876543210"
+              href={`tel:+91${COMPANY_DETAILS.phone}`}
               className="flex items-center gap-3 py-2.5 px-3 rounded-xl bg-[#F5FBFC] text-[#083258]"
             >
               <PhoneCallIcon className="w-5 h-5 text-[#026EB9]" />
               <div className="flex flex-col text-left">
-                <span className="text-xs font-bold">+91 98765 43210</span>
+                <span className="text-xs font-bold">{COMPANY_DETAILS.phoneFormatted}</span>
                 <span className="text-[10px] font-semibold text-[#EF4444]">Emergency 24/7 Helpline</span>
               </div>
             </a>
