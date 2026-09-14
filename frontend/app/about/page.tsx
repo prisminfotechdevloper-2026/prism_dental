@@ -16,16 +16,15 @@ export default function AboutPage() {
     <div className="w-full bg-[#FFFFFF] min-h-screen">
       {/* 1. ABOUT US HERO BANNER */}
       <AboutHero />
-
+      {/* 3. OUR NUMBERS STATS BANNER */}
+      <OurNumbers />
+      {/* 4. MEET OUR DEDICATED TEAM */}
+      <MeetOurTeam />
       {/* 2. WHY CHOOSE US / MISSION & VISION */}
       <WhyChooseUs />
 
-      {/* 3. OUR NUMBERS STATS BANNER */}
-      <OurNumbers />
 
-      {/* 4. MEET OUR DEDICATED TEAM */}
-      <MeetOurTeam />
-
+ 
       {/* 5. OUR TECHNOLOGY FOR BETTER DENTAL CARE */}
       <OurTechnology />
     </div>

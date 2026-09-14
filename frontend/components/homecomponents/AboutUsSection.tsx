@@ -391,7 +391,7 @@ export const AboutUsSection = () => {
             <div className="relative aspect-video w-full bg-black flex items-center justify-center">
               <iframe
                 className="w-full h-full"
-                src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?autoplay=1"
+                src="https://www.youtube-nocookie.com/embed/IE1P9O3myWw?autoplay=1"
                 title="SmileCare Dental Clinic Tour"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
