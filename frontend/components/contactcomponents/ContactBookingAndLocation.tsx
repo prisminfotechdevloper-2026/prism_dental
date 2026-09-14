@@ -55,7 +55,7 @@ export function ContactBookingAndLocation() {
   ];
 
   return (
-    <section className="w-full bg-[#F8FDFF] pb-14 sm:pb-18 lg:pb-20">
+    <section className="w-full bg-[#F8FDFF] pb-3 sm:pb-4 lg:pb-5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
           

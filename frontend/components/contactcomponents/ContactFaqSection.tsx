@@ -71,10 +71,10 @@ export function ContactFaqSection() {
   };
 
   return (
-    <section className="w-full bg-[#F8FDFF] pb-10 sm:pb-14 lg:pb-16">
+    <section className="w-full bg-[#F8FDFF] pb-3 sm:pb-4 lg:pb-5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-5 items-stretch">
-          
+
           {/* ─────────────────────────────────────────────────────────
               CARD 1 (LEFT): "Your Smile Our Priority" (4 cols on lg)
               Split container: Operatory image on left + message on right
@@ -145,11 +145,10 @@ export function ContactFaqSection() {
                   return (
                     <div
                       key={faq.id}
-                      className={`rounded-xl border transition-all duration-200 overflow-hidden ${
-                        isOpen
+                      className={`rounded-xl border transition-all duration-200 overflow-hidden ${isOpen
                           ? "border-[#0AADA8] bg-white shadow-[0_2px_12px_rgba(10,173,168,0.1)]"
                           : "border-[#E5F2F5] bg-[#F8FDFF] hover:border-[#0AADA8]/40 hover:bg-white"
-                      }`}
+                        }`}
                     >
                       {/* Accordion Trigger */}
                       <button
@@ -162,9 +161,8 @@ export function ContactFaqSection() {
                           {faq.question}
                         </span>
                         <span
-                          className={`w-4 h-4 flex items-center justify-center shrink-0 text-base font-bold text-[#0AADA8] transition-transform duration-200 ${
-                            isOpen ? "rotate-45" : ""
-                          }`}
+                          className={`w-4 h-4 flex items-center justify-center shrink-0 text-base font-bold text-[#0AADA8] transition-transform duration-200 ${isOpen ? "rotate-45" : ""
+                            }`}
                         >
                           +
                         </span>

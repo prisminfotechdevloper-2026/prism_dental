@@ -24,7 +24,7 @@ export default function AboutPage() {
       <WhyChooseUs />
 
 
- 
+
       {/* 5. OUR TECHNOLOGY FOR BETTER DENTAL CARE */}
       <OurTechnology />
     </div>
