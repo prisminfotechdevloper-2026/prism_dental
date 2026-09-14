@@ -13,23 +13,31 @@ import {
   Phone,
   MessageSquare,
   MapPin,
+  LogOut,
 } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useAdmin } from "../../context/AdminContext";
+import { useAuth } from "../../context/AuthContext";
 
 export function Sidebar({ mobileOpen, setMobileOpen }) {
   const { currentTab, setCurrentTab, stats, settings, resetToFactoryData } =
     useAdmin();
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const NAV_ITEMS = [
     {
       id: "dashboard",
       name: "Dashboard Overview",
       icon: LayoutDashboard,
+      path: "/",
     },
     {
       id: "appointments",
       name: "Appointments",
       icon: CalendarClock,
+      path: "/appointments",
       badge: stats.newAppointmentsCount > 0 ? stats.newAppointmentsCount : null,
       badgeColor: "bg-amber-500",
     },
@@ -37,16 +45,19 @@ export function Sidebar({ mobileOpen, setMobileOpen }) {
       id: "doctors",
       name: "Dental Doctors",
       icon: UserRoundCheck,
+      path: "/doctors",
     },
     {
       id: "treatments",
       name: "Treatments Catalog",
       icon: Stethoscope,
+      path: "/treatments",
     },
     {
       id: "enquiries",
       name: "Patient Messages",
       icon: MessageSquareText,
+      path: "/enquiries",
       badge: stats.newEnquiriesCount > 0 ? stats.newEnquiriesCount : null,
       badgeColor: "bg-[#026EB9]",
     },
@@ -54,27 +65,39 @@ export function Sidebar({ mobileOpen, setMobileOpen }) {
       id: "testimonials",
       name: "Patient Reviews",
       icon: Star,
+      path: "/testimonials",
     },
     {
       id: "gallery",
       name: "Before & After Gallery",
       icon: Images,
+      path: "/gallery",
     },
     {
       id: "blog",
       name: "Dental Tips Blog",
       icon: BookOpenText,
+      path: "/blog",
     },
     {
       id: "settings",
       name: "Clinic Settings",
       icon: Settings,
+      path: "/settings",
     },
   ];
 
-  const handleNavClick = (id) => {
-    setCurrentTab(id);
+  const handleNavClick = (item) => {
+    setCurrentTab(item.id);
+    navigate(item.path);
     if (setMobileOpen) setMobileOpen(false);
+  };
+
+  const isItemActive = (item) => {
+    if (item.path === "/") {
+      return location.pathname === "/" || location.pathname === "/dashboard";
+    }
+    return location.pathname === item.path;
   };
 
   const rawPhone = (settings.whatsapp || settings.phone || "8239239249").replace(
@@ -164,19 +187,19 @@ export function Sidebar({ mobileOpen, setMobileOpen }) {
           </div>
 
           {/* Navigation Items */}
-          <nav className="p-3 space-y-1 overflow-y-auto max-h-[calc(100vh-320px)]">
+          <nav className="p-3 space-y-1 overflow-y-auto max-h-[calc(100vh-360px)]">
             <div className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-[#6B8BA2]">
               Main Menu
             </div>
             {NAV_ITEMS.map((item) => {
               const Icon = item.icon;
-              const isActive = currentTab === item.id;
+              const active = isItemActive(item);
               return (
                 <button
                   key={item.id}
-                  onClick={() => handleNavClick(item.id)}
+                  onClick={() => handleNavClick(item)}
                   className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold transition-all duration-150 cursor-pointer ${
-                    isActive
+                    active
                       ? "bg-[#0AADA8] text-white shadow-[0_4px_12px_rgba(10,173,168,0.25)]"
                       : "text-[#426480] hover:bg-[#F5FBFC] hover:text-[#083258]"
                   }`}
@@ -184,7 +207,7 @@ export function Sidebar({ mobileOpen, setMobileOpen }) {
                   <div className="flex items-center gap-3">
                     <Icon
                       className={`w-4 h-4 ${
-                        isActive ? "text-white" : "text-[#6B8BA2]"
+                        active ? "text-white" : "text-[#6B8BA2]"
                       }`}
                     />
                     <span>{item.name}</span>
@@ -233,14 +256,23 @@ export function Sidebar({ mobileOpen, setMobileOpen }) {
                 resetToFactoryData();
               }
             }}
-            className="w-full flex items-center gap-2 px-3 py-2 text-[11px] font-medium text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-xl transition-colors cursor-pointer"
+            className="w-full flex items-center gap-2 px-3 py-1.5 text-[11px] font-medium text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-xl transition-colors cursor-pointer"
           >
             <RotateCcw className="w-3.5 h-3.5" />
             Restore Sample Data
           </button>
 
+          {/* Sign Out Action Button */}
+          <button
+            onClick={logout}
+            className="w-full flex items-center justify-center gap-2 px-3 py-2 text-xs font-bold text-rose-600 hover:bg-rose-50 border border-rose-100 rounded-xl transition-colors cursor-pointer shadow-xs"
+          >
+            <LogOut className="w-3.5 h-3.5" />
+            <span>Sign Out Admin</span>
+          </button>
+
           {/* Clinic status indicator */}
-          <div className="p-2.5 rounded-xl bg-white border border-[#D5ECF0] text-[11px] flex items-center gap-2">
+          <div className="p-2 rounded-xl bg-white border border-[#D5ECF0] text-[11px] flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
             <div className="truncate">
               <p className="font-semibold text-[#083258] leading-tight">

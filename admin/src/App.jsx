@@ -1,5 +1,15 @@
 import { useState } from "react";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
 import { AdminProvider, useAdmin } from "./context/AdminContext";
+import { ProtectedRoute } from "./components/auth/ProtectedRoute";
+import { PublicRoute } from "./components/auth/PublicRoute";
+import { LoginPage } from "./components/auth/LoginPage";
 import { Sidebar } from "./components/layout/Sidebar";
 import { Header } from "./components/layout/Header";
 import { Toast } from "./components/common/Toast";
@@ -17,7 +27,7 @@ import { BlogManager } from "./components/blog/BlogManager";
 import { ClinicSettings } from "./components/settings/ClinicSettings";
 
 function AdminPortal() {
-  const { currentTab, toast } = useAdmin();
+  const { toast } = useAdmin();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   // Modals state
@@ -44,50 +54,6 @@ function AdminPortal() {
     setWhatsAppAppointment(apt);
   };
 
-  const renderActiveTab = () => {
-    switch (currentTab) {
-      case "dashboard":
-        return (
-          <DashboardOverview
-            onOpenNewAppointment={handleOpenNewAppointment}
-            onOpenDetail={handleOpenDetail}
-            onOpenWhatsApp={handleOpenWhatsApp}
-          />
-        );
-      case "appointments":
-        return (
-          <AppointmentsList
-            onOpenNewAppointment={handleOpenNewAppointment}
-            onOpenDetail={handleOpenDetail}
-            onOpenEdit={handleOpenEdit}
-            onOpenWhatsApp={handleOpenWhatsApp}
-          />
-        );
-      case "doctors":
-        return <DoctorsManager />;
-      case "treatments":
-        return <TreatmentsManager />;
-      case "enquiries":
-        return <ContactEnquiries />;
-      case "testimonials":
-        return <TestimonialsManager />;
-      case "gallery":
-        return <GalleryManager />;
-      case "blog":
-        return <BlogManager />;
-      case "settings":
-        return <ClinicSettings />;
-      default:
-        return (
-          <DashboardOverview
-            onOpenNewAppointment={handleOpenNewAppointment}
-            onOpenDetail={handleOpenDetail}
-            onOpenWhatsApp={handleOpenWhatsApp}
-          />
-        );
-    }
-  };
-
   return (
     <div className="min-h-screen bg-[#F5FBFC] flex text-[#083258]">
       {/* Navigation Sidebar */}
@@ -101,9 +67,40 @@ function AdminPortal() {
           onOpenNewAppointment={handleOpenNewAppointment}
         />
 
-        {/* Dynamic Page View */}
+        {/* Dynamic Page View Routes */}
         <main className="flex-1 p-4 sm:p-6 lg:p-8 max-w-7xl w-full mx-auto">
-          {renderActiveTab()}
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <DashboardOverview
+                  onOpenNewAppointment={handleOpenNewAppointment}
+                  onOpenDetail={handleOpenDetail}
+                  onOpenWhatsApp={handleOpenWhatsApp}
+                />
+              }
+            />
+            <Route path="/dashboard" element={<Navigate to="/" replace />} />
+            <Route
+              path="/appointments"
+              element={
+                <AppointmentsList
+                  onOpenNewAppointment={handleOpenNewAppointment}
+                  onOpenDetail={handleOpenDetail}
+                  onOpenEdit={handleOpenEdit}
+                  onOpenWhatsApp={handleOpenWhatsApp}
+                />
+              }
+            />
+            <Route path="/doctors" element={<DoctorsManager />} />
+            <Route path="/treatments" element={<TreatmentsManager />} />
+            <Route path="/enquiries" element={<ContactEnquiries />} />
+            <Route path="/testimonials" element={<TestimonialsManager />} />
+            <Route path="/gallery" element={<GalleryManager />} />
+            <Route path="/blog" element={<BlogManager />} />
+            <Route path="/settings" element={<ClinicSettings />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
         </main>
       </div>
 
@@ -141,8 +138,32 @@ function AdminPortal() {
 
 export default function App() {
   return (
-    <AdminProvider>
-      <AdminPortal />
-    </AdminProvider>
+    <BrowserRouter>
+      <AuthProvider>
+        <AdminProvider>
+          <Routes>
+            {/* Public Login Route */}
+            <Route
+              path="/login"
+              element={
+                <PublicRoute>
+                  <LoginPage />
+                </PublicRoute>
+              }
+            />
+
+            {/* Guarded Admin Dashboard Routes */}
+            <Route
+              path="/*"
+              element={
+                <ProtectedRoute>
+                  <AdminPortal />
+                </ProtectedRoute>
+              }
+            />
+          </Routes>
+        </AdminProvider>
+      </AuthProvider>
+    </BrowserRouter>
   );
 }

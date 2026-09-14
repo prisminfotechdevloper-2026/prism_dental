@@ -3,14 +3,20 @@ import {
   Search,
   Plus,
   Bell,
+  LogOut,
 } from "lucide-react";
+import { useLocation } from "react-router-dom";
 import { useAdmin } from "../../context/AdminContext";
+import { useAuth } from "../../context/AuthContext";
 
 export function Header({ setMobileOpen, onOpenNewAppointment }) {
-  const { currentTab, searchQuery, setSearchQuery, stats } = useAdmin();
+  const { searchQuery, setSearchQuery, stats } = useAdmin();
+  const { user, logout } = useAuth();
+  const location = useLocation();
 
   const getTabTitle = () => {
-    switch (currentTab) {
+    const path = location.pathname.replace(/^\//, "") || "dashboard";
+    switch (path) {
       case "dashboard":
         return {
           title: "Clinic Operations & Analytics",
@@ -48,7 +54,7 @@ export function Header({ setMobileOpen, onOpenNewAppointment }) {
         };
       case "blog":
         return {
-          title: "Dental Care Blog & Tips",
+          title: "Dental Tips Blog & Tips",
           subtitle: "Publish patient education articles and oral health guides",
         };
       case "settings":
@@ -121,15 +127,29 @@ export function Header({ setMobileOpen, onOpenNewAppointment }) {
           </div>
         </div>
 
-        {/* User avatar badge */}
+        {/* User avatar badge & sign out */}
         <div className="flex items-center gap-2 pl-2 border-l border-[#D5ECF0]">
           <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#083258] to-[#0AADA8] text-white flex items-center justify-center font-bold text-xs shadow-xs">
-            AD
+            {user?.avatarInitials || "AD"}
           </div>
           <div className="hidden xl:block text-left">
-            <p className="text-xs font-bold text-[#083258] leading-tight">Admin Doctor</p>
-            <p className="text-[10px] text-[#0AADA8] font-medium">Chief Clinic Admin</p>
+            <p className="text-xs font-bold text-[#083258] leading-tight">
+              {user?.name || "Admin Doctor"}
+            </p>
+            <p className="text-[10px] text-[#0AADA8] font-medium">
+              {user?.role || "Chief Clinic Admin"}
+            </p>
           </div>
+
+          {/* Quick Sign Out Button */}
+          <button
+            onClick={logout}
+            title="Sign Out from Admin"
+            className="p-1.5 ml-1 rounded-xl text-gray-500 hover:text-rose-600 hover:bg-rose-50 transition-all cursor-pointer"
+            aria-label="Sign Out"
+          >
+            <LogOut className="w-4 h-4" />
+          </button>
         </div>
       </div>
     </header>
