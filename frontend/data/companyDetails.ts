@@ -8,7 +8,7 @@ export const COMPANY_DETAILS = {
   whatsapp: String(companydetails.whatsApp || "8239239249"),
   whatsappFormatted: "+91 82392 39249",
   whatsappLink: `https://wa.me/91${String(companydetails.whatsApp || "8239239249").replace(/[^0-9]/g, "")}`,
-  address: "Near Bus Stand, Ramganjmandi, Kota, Rajasthan - 326519",
+  address: "Jagpura, Ramganjmandi, Kota, Rajasthan - 326519",
   addressLine1: "Near Bus Stand, Ramganj Mandi",
   addressLine2: "Kota, Rajasthan - 326519",
   addressLandmark: "(Opp. Main Bus Stand)",
