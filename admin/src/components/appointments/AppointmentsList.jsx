@@ -193,7 +193,6 @@ export function AppointmentsList({
             </button>
 
             <div className="flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-[#083258] bg-[#E8F8F8] border border-[#BCEBE9] rounded-xl shadow-2xs">
-              <span className="w-2 h-2 rounded-full bg-[#0AADA8] animate-pulse"></span>
               <span>Website Bookings Live</span>
             </div>
           </div>
@@ -358,10 +357,10 @@ export function AppointmentsList({
                         }
                         className="text-xs font-semibold rounded-lg px-2 py-1 border border-[#D5ECF0] bg-white cursor-pointer focus:outline-none focus:ring-1 focus:ring-[#0AADA8]"
                       >
-                        <option value="New">🟡 New</option>
-                        <option value="Confirmed">🟢 Confirmed</option>
-                        <option value="Completed">🔵 Completed</option>
-                        <option value="Cancelled">🔴 Cancelled</option>
+                        <option value="New">New</option>
+                        <option value="Confirmed">Confirmed</option>
+                        <option value="Completed">Completed</option>
+                        <option value="Cancelled">Cancelled</option>
                       </select>
                     </td>
 

@@ -1,100 +1,100 @@
 # 🚀 Render Deployment Guide - Prism Dental Backend
 
-यह गाइड आपको Prism Dental Django Backend को **Render** पर step-by-step deploy करने के लिए सभी जरूरी settings, environment variables और commands प्रदान करती है।
+Complete step-by-step instructions, environment variables, build/start commands, and database configuration for deploying the Django backend to **Render**.
 
 ---
 
-## 📌 Important Repo Architecture Note
-आपका Git Repository Monorepo structure में है:
+## 📌 Repository Architecture Note
+This project uses a monorepo structure:
 ```text
 prism_dental/
 ├── admin/       (React Admin Panel)
-├── backend/     (Django API - Python)  <-- Hume ise deploy karna hai
+├── backend/     (Django REST API)  <-- Service to deploy
 └── frontend/    (Next.js / Client Web)
 ```
-> **महत्वपूर्ण**: Render पर Service बनाते समय **Root Directory** में `backend` डालना अनिवार्य है।
+> **CRITICAL**: When creating the Web Service on Render, set **Root Directory** to `backend`.
 
 ---
 
-## Step 1: Render पर PostgreSQL Database बनाएं
+## Step 1: Create PostgreSQL Database on Render
 
-1. Render Dashboard ([dashboard.render.com](https://dashboard.render.com)) में लॉगिन करें।
-2. **New +** बटन पर क्लिक करके **PostgreSQL** चुनें।
-3. डिटेल्स भरें:
+1. Log in to [dashboard.render.com](https://dashboard.render.com).
+2. Click **New +** -> **PostgreSQL**.
+3. Fill in the details:
    - **Name**: `prism-dental-db`
    - **Database**: `prism_dental`
-   - **User**: `postgres` (या default रहने दें)
-   - **Region**: `Singapore` (या जो आपके सबसे नज़दीक हो)
+   - **User**: `prism_dental_user` (or leave default)
+   - **Region**: `Singapore` (or nearest to your location)
    - **Plan**: `Free`
-4. **Create Database** पर क्लिक करें।
-5. Database बनने के बाद **Connections** सेक्शन में जाएं और:
-   - **Internal Database URL** कॉपी करें (अगर Web Service और DB एक ही Render account/region में हैं).
-   - या **External Database URL** कॉपी करें.
+4. Click **Create Database**.
+5. Once created, go to the **Connections** section:
+   - Copy **Internal Database URL** (recommended for Web Service in same account/region).
+   - Copy **External Database URL** (for local testing/access).
 
 ---
 
-## Step 2: Web Service बनाएं
+## Step 2: Create Web Service on Render
 
-1. Render Dashboard पर **New +** -> **Web Service** पर क्लिक करें।
-2. अपना GitHub Repository (`prism_dental`) connect करें।
-3. निम्नलिखित कॉन्फ़िगरेशन सेट करें:
+1. On Render Dashboard, click **New +** -> **Web Service**.
+2. Connect your GitHub repository: `prism_dental`.
+3. Configure the following fields:
 
 | Field | Value |
 |---|---|
 | **Name** | `prism-dental-backend` |
 | **Language / Runtime** | `Python 3` |
-| **Branch** | `main` (या आपकी active branch) |
-| **Region** | वही चुनें जो Database के लिए चुना था (e.g. `Singapore`) |
-| **Root Directory** | `backend` ⚠️ *(बहुत जरूरी)* |
+| **Branch** | `main` |
+| **Region** | Same as Database (e.g. `Singapore`) |
+| **Root Directory** | `backend` *(Mandatory)* |
 | **Build Command** | `pip install -r requirements.txt && python manage.py migrate && python manage.py collectstatic --noinput` |
 | **Start Command** | `gunicorn backend.wsgi:application` |
 | **Instance Type** | `Free` |
 
 ---
 
-## Step 3: Environment Variables (Render Dashboard)
+## Step 3: Set Environment Variables
 
-Web Service के **Environment** टैब में जाकर **Add Environment Variable** पर क्लिक करें और नीचे दी गई keys जोड़ें:
+Navigate to your Web Service -> **Environment** tab, click **Add Environment Variable**, and set:
 
-| Key | Value | Description |
+| Key | Value | Notes |
 |---|---|---|
-| `DATABASE_URL` | `postgresql://user:pass@host/prism_dental` | Step 1 में कॉपी किया गया Database URL |
-| `SECRET_KEY` | `django-insecure-generate-a-strong-random-key-here-12345` | Django Security Key |
-| `DEBUG` | `False` | Production में False रखें (या testing के लिए Temporary `True` रख सकते हैं) |
-| `PYTHON_VERSION` | `3.11.9` | Render का python version lock करने के लिए |
-| `RENDER_EXTERNAL_HOSTNAME` | Automatic (Render खुद सेट करता है) | ALLOWED_HOSTS के लिए |
-| `CORS_ALLOW_ALL_ORIGINS` | `True` | Frontend & Admin Panel se cross-origin requests allow karne ke liye |
+| `DATABASE_URL` | `postgresql://prism_dental_user:9titniHqUl6xlGNdQaSeZ3tTzvjldALC@dpg-dakk6t7qj5pc73bfsdug-a/prism_dental` | Render PostgreSQL Internal Database URL |
+| `SECRET_KEY` | `django-insecure-6c2eco1@*fy%77yu_+%$0r^jt7qwo^if%rv2nq6xrojw71n3v#` | Django Security Key |
+| `DEBUG` | `False` | Keep False for production |
+| `PYTHON_VERSION` | `3.12.8` | **Must be 3.12+** because Django 6.1.1 requires Python >= 3.12 |
+| `RENDER_EXTERNAL_HOSTNAME` | Set automatically by Render | Handled in settings.py |
+| `CORS_ALLOW_ALL_ORIGINS` | `True` | Allows requests from Frontend & Admin |
 
 ---
 
-## Step 4: Admin / Superuser Create करना
+## Step 4: Create Superuser / Admin
 
-Deploy पूरा होने के बाद Superuser बनाने के लिए:
+After deployment succeeds:
 
-1. Render Dashboard में अपनी Web Service (`prism-dental-backend`) खोलें।
-2. बायीं तरफ दिए गए **Shell** टैब पर क्लिक करें।
-3. नीचे दिया गया command चलाएं:
+1. Open your Web Service (`prism-dental-backend`) on Render.
+2. Go to the **Shell** tab on the left sidebar.
+3. Run the following command:
    ```bash
    python manage.py createsuperuser
    ```
-4. Email, Username और Password दर्ज करें:
-   - Email: `contact.prisminfotech@gmail.com`
-   - Password: `prism123` (या जो आप रखना चाहें)
+4. Enter your details:
+   - **Email**: `contact.prisminfotech@gmail.com`
+   - **Password**: `prism123` (or your preferred password)
 
 ---
 
-## Step 5: Test Your Deployment
+## Step 5: Verify Live Endpoints
 
-Deploy होने के बाद Render आपको एक URL देगा, जैसे:
+After deployment, your service URL will be available at:
 `https://prism-dental-backend.onrender.com`
 
-- **Admin Panel**: `https://prism-dental-backend.onrender.com/admin/`
-- **Swagger Documentation**: `https://prism-dental-backend.onrender.com/api/docs/`
+- **Django Admin**: `https://prism-dental-backend.onrender.com/admin/`
+- **Swagger Docs**: `https://prism-dental-backend.onrender.com/api/docs/`
 - **Alternative Docs**: `https://prism-dental-backend.onrender.com/api/swagger/`
 
 ---
 
-## 🛠️ Summary Quick Sheet for Render
+## 🛠️ Quick Reference Cheat Sheet
 
 ```bash
 # Build Command:
@@ -105,4 +105,7 @@ gunicorn backend.wsgi:application
 
 # Root Directory:
 backend
+
+# Python Version:
+3.12.8
 ```

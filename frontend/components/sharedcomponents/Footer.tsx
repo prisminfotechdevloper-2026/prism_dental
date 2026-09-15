@@ -12,8 +12,6 @@ import {
   Award,
   ArrowRight,
   CheckCircle2,
-  CalendarDays,
-  HeartPulse,
 } from "lucide-react";
 import { COMPANY_DETAILS } from "@/data/companyDetails";
 
@@ -74,13 +72,13 @@ function FooterNewsletter() {
   };
 
   return (
-    <div className="pt-2">
-      <label htmlFor="footer-newsletter-email" className="text-xs text-slate-400 block mb-2">
+    <div className="pt-2 lg:pt-1">
+      <label htmlFor="footer-newsletter-email" className="text-xs text-slate-400 block mb-1.5">
         Subscribe for dental health tips:
       </label>
       {subscribed ? (
-        <div className="flex items-center gap-2 text-xs text-[#0AADA8] bg-[#0AADA8]/10 p-2.5 rounded-xl">
-          <CheckCircle2 className="w-4 h-4 shrink-0" />
+        <div className="flex items-center gap-2 text-xs text-[#0AADA8] bg-[#0AADA8]/10 p-2 rounded-lg">
+          <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
           <span>Thank you! You have subscribed.</span>
         </div>
       ) : (
@@ -92,11 +90,11 @@ function FooterNewsletter() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email"
-            className="w-full px-3 py-2 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 text-xs focus:outline-none focus:ring-2 focus:ring-[#0AADA8]"
+            className="w-full px-3 py-1.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-slate-400 text-xs focus:outline-none focus:ring-2 focus:ring-[#0AADA8]"
           />
           <button
             type="submit"
-            className="px-3 py-2 rounded-xl bg-[#0AADA8] hover:bg-[#089692] text-white text-xs font-semibold transition-colors shrink-0 cursor-pointer"
+            className="px-3 py-1.5 rounded-lg bg-[#0AADA8] hover:bg-[#089692] text-white text-xs font-semibold transition-colors shrink-0 cursor-pointer"
           >
             Join
           </button>
@@ -111,85 +109,85 @@ function FooterNewsletter() {
    ───────────────────────────────────────────── */
 function FooterBrandCol() {
   return (
-    <div className="space-y-4 sm:space-y-5">
-      <Link href="/" className="inline-flex items-center gap-2.5 sm:gap-3 group">
-        <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white flex items-center justify-center p-1.5 shadow-md shrink-0">
+    <div className="space-y-3 sm:space-y-3.5">
+      <Link href="/" className="inline-flex items-center gap-2.5 group">
+        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white flex items-center justify-center p-1.5 shadow-md shrink-0">
           <Image
             src="/images/logo.png"
             alt="Prism Dental Clinic Logo"
             width={32}
             height={28}
-            className="w-auto h-6 sm:h-7 object-contain"
+            className="w-auto h-5 sm:h-6 object-contain"
           />
         </div>
         <div className="flex flex-col">
-          <span className="text-xl sm:text-2xl font-bold tracking-tight text-white leading-none">
+          <span className="text-lg sm:text-xl font-bold tracking-tight text-white leading-none">
             Prism<span className="text-[#0AADA8]">Dental</span>
           </span>
-          <span className="text-[11px] sm:text-xs font-medium text-slate-300 tracking-wider mt-1">
+          <span className="text-[11px] font-medium text-slate-300 tracking-wider mt-0.5">
             Advanced Dental Clinic
           </span>
         </div>
       </Link>
 
-      <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-sm">
+      <p className="text-xs text-slate-300 leading-relaxed max-w-sm">
         Providing modern, compassionate, and affordable dental care for patients of all ages. 
         Equipped with cutting-edge 3D diagnostic tools and sterile European-standard sterilization suites.
       </p>
 
       {/* Certifications & Badges */}
       <div className="flex flex-wrap gap-2 pt-0.5">
-        <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-[11px] sm:text-xs text-slate-300">
+        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-lg bg-white/5 border border-white/10 text-[11px] text-slate-300">
           <ShieldCheck className="w-3.5 h-3.5 text-[#0AADA8]" />
           ISO 9001:2015
         </span>
-        <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-[11px] sm:text-xs text-slate-300">
+        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-lg bg-white/5 border border-white/10 text-[11px] text-slate-300">
           <Award className="w-3.5 h-3.5 text-[#0AADA8]" />
           IDA Certified Clinic
         </span>
       </div>
 
       {/* Social Links */}
-      <div className="pt-1">
-        <span className="text-[11px] sm:text-xs uppercase font-bold tracking-wider text-slate-400 block mb-2 sm:mb-3">
+      <div className="pt-0.5">
+        <span className="text-[10px] sm:text-[11px] uppercase font-bold tracking-wider text-slate-400 block mb-1.5 sm:mb-2">
           Connect With Us
         </span>
-        <div className="flex items-center gap-2 sm:gap-2.5">
+        <div className="flex items-center gap-2">
           <a
             href="https://facebook.com"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Prism Dental on Facebook"
-            className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white/5 hover:bg-[#0AADA8] border border-white/10 text-white flex items-center justify-center transition-colors"
+            className="w-8 h-8 rounded-lg bg-white/5 hover:bg-[#0AADA8] border border-white/10 text-white flex items-center justify-center transition-colors"
           >
-            <FacebookIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+            <FacebookIcon className="w-3.5 h-3.5" />
           </a>
           <a
             href="https://instagram.com"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Prism Dental on Instagram"
-            className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white/5 hover:bg-[#0AADA8] border border-white/10 text-white flex items-center justify-center transition-colors"
+            className="w-8 h-8 rounded-lg bg-white/5 hover:bg-[#0AADA8] border border-white/10 text-white flex items-center justify-center transition-colors"
           >
-            <InstagramIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+            <InstagramIcon className="w-3.5 h-3.5" />
           </a>
           <a
             href="https://youtube.com"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Prism Dental on YouTube"
-            className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white/5 hover:bg-[#0AADA8] border border-white/10 text-white flex items-center justify-center transition-colors"
+            className="w-8 h-8 rounded-lg bg-white/5 hover:bg-[#0AADA8] border border-white/10 text-white flex items-center justify-center transition-colors"
           >
-            <YouTubeIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+            <YouTubeIcon className="w-3.5 h-3.5" />
           </a>
           <a
             href="https://linkedin.com"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Prism Dental on LinkedIn"
-            className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white/5 hover:bg-[#0AADA8] border border-white/10 text-white flex items-center justify-center transition-colors"
+            className="w-8 h-8 rounded-lg bg-white/5 hover:bg-[#0AADA8] border border-white/10 text-white flex items-center justify-center transition-colors"
           >
-            <LinkedInIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+            <LinkedInIcon className="w-3.5 h-3.5" />
           </a>
         </div>
       </div>
@@ -202,11 +200,11 @@ function FooterBrandCol() {
    ───────────────────────────────────────────── */
 function FooterQuickLinksCol() {
   return (
-    <div className="space-y-3 sm:space-y-4">
+    <div className="space-y-2.5 sm:space-y-3">
       <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white border-l-2 border-[#0AADA8] pl-2 sm:pl-2.5">
         Quick Links
       </h4>
-      <ul className="space-y-2 sm:space-y-2.5 text-xs sm:text-sm">
+      <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
         <li>
           <Link href="/" className="text-slate-300 hover:text-[#0AADA8] transition-colors inline-flex items-center gap-1.5 py-0.5">
             <ArrowRight className="w-3 h-3 text-[#0AADA8]/70 shrink-0" />
@@ -259,39 +257,39 @@ function FooterQuickLinksCol() {
    ───────────────────────────────────────────── */
 function FooterTreatmentsCol() {
   return (
-    <div className="space-y-3 sm:space-y-4">
+    <div className="space-y-2.5 sm:space-y-3">
       <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white border-l-2 border-[#0AADA8] pl-2 sm:pl-2.5">
         Dental Care
       </h4>
-      <ul className="space-y-2 sm:space-y-2.5 text-xs sm:text-sm">
+      <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
         <li>
-          <Link href="/treatments#whitening" className="text-slate-300 hover:text-[#0AADA8] transition-colors flex flex-col xl:flex-row xl:items-center xl:justify-between py-0.5 group">
+          <Link href="/treatments#whitening" className="text-slate-300 hover:text-[#0AADA8] transition-colors flex items-center justify-between py-0.5 group">
             <span className="leading-tight">Teeth Whitening</span>
-            <span className="text-[10px] sm:text-[11px] text-[#0AADA8] xl:text-slate-400 font-medium">Cosmetic</span>
+            <span className="text-[10px] text-[#0AADA8] sm:text-slate-400 font-medium">Cosmetic</span>
           </Link>
         </li>
         <li>
-          <Link href="/treatments#implants" className="text-slate-300 hover:text-[#0AADA8] transition-colors flex flex-col xl:flex-row xl:items-center xl:justify-between py-0.5 group">
+          <Link href="/treatments#implants" className="text-slate-300 hover:text-[#0AADA8] transition-colors flex items-center justify-between py-0.5 group">
             <span className="leading-tight">Dental Implants</span>
-            <span className="text-[10px] sm:text-[11px] text-[#0AADA8] xl:text-slate-400 font-medium">Titanium</span>
+            <span className="text-[10px] text-[#0AADA8] sm:text-slate-400 font-medium">Titanium</span>
           </Link>
         </li>
         <li>
-          <Link href="/treatments#root-canal" className="text-slate-300 hover:text-[#0AADA8] transition-colors flex flex-col xl:flex-row xl:items-center xl:justify-between py-0.5 group">
+          <Link href="/treatments#root-canal" className="text-slate-300 hover:text-[#0AADA8] transition-colors flex items-center justify-between py-0.5 group">
             <span className="leading-tight">Root Canal</span>
-            <span className="text-[10px] sm:text-[11px] text-[#0AADA8] xl:text-slate-400 font-medium">Single Visit</span>
+            <span className="text-[10px] text-[#0AADA8] sm:text-slate-400 font-medium">Single Visit</span>
           </Link>
         </li>
         <li>
-          <Link href="/treatments#orthodontics" className="text-slate-300 hover:text-[#0AADA8] transition-colors flex flex-col xl:flex-row xl:items-center xl:justify-between py-0.5 group">
+          <Link href="/treatments#orthodontics" className="text-slate-300 hover:text-[#0AADA8] transition-colors flex items-center justify-between py-0.5 group">
             <span className="leading-tight">Clear Aligners</span>
-            <span className="text-[10px] sm:text-[11px] text-[#0AADA8] xl:text-slate-400 font-medium">Invisalign</span>
+            <span className="text-[10px] text-[#0AADA8] sm:text-slate-400 font-medium">Invisalign</span>
           </Link>
         </li>
         <li>
-          <Link href="/treatments#cosmetic" className="text-slate-300 hover:text-[#0AADA8] transition-colors flex flex-col xl:flex-row xl:items-center xl:justify-between py-0.5 group">
+          <Link href="/treatments#cosmetic" className="text-slate-300 hover:text-[#0AADA8] transition-colors flex items-center justify-between py-0.5 group">
             <span className="leading-tight">Smile Design</span>
-            <span className="text-[10px] sm:text-[11px] text-[#0AADA8] xl:text-slate-400 font-medium">Aesthetic</span>
+            <span className="text-[10px] text-[#0AADA8] sm:text-slate-400 font-medium">Aesthetic</span>
           </Link>
         </li>
       </ul>
@@ -304,23 +302,23 @@ function FooterTreatmentsCol() {
    ───────────────────────────────────────────── */
 function FooterContactCol() {
   return (
-    <div className="space-y-4 sm:space-y-5">
+    <div className="space-y-3 sm:space-y-3.5">
       <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white border-l-2 border-[#0AADA8] pl-2 sm:pl-2.5">
         Contact &amp; Hours
       </h4>
 
-      {/* Quick Action Contact Cards on Mobile/Tablet */}
-      <div className="grid grid-cols-2 gap-2 sm:gap-2.5">
+      {/* Quick Action Contact Cards */}
+      <div className="grid grid-cols-2 gap-2">
         <a
           href={`tel:+91${COMPANY_DETAILS.phone}`}
-          className="flex items-center gap-2 p-2 sm:p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-colors"
+          className="flex items-center gap-2 p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-colors"
         >
-          <div className="w-7 h-7 rounded-lg bg-[#0AADA8]/15 flex items-center justify-center shrink-0">
-            <Phone className="w-3.5 h-3.5 text-[#0AADA8]" />
+          <div className="w-6 h-6 rounded-lg bg-[#0AADA8]/15 flex items-center justify-center shrink-0">
+            <Phone className="w-3 h-3 text-[#0AADA8]" />
           </div>
           <div className="min-w-0">
             <span className="text-[10px] text-slate-400 block leading-tight">Call Us</span>
-            <span className="text-xs font-semibold text-white truncate block">{COMPANY_DETAILS.phoneFormatted}</span>
+            <span className="text-[11px] font-semibold text-white truncate block">{COMPANY_DETAILS.phoneFormatted}</span>
           </div>
         </a>
 
@@ -328,53 +326,48 @@ function FooterContactCol() {
           href={COMPANY_DETAILS.whatsappLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 p-2 sm:p-2.5 rounded-xl bg-[#25D366]/10 hover:bg-[#25D366]/20 border border-[#25D366]/20 transition-colors"
+          className="flex items-center gap-2 p-2 rounded-xl bg-[#25D366]/10 hover:bg-[#25D366]/20 border border-[#25D366]/20 transition-colors"
         >
-          <div className="w-7 h-7 rounded-lg bg-[#25D366]/20 flex items-center justify-center shrink-0">
-            <WhatsAppIcon className="w-3.5 h-3.5 text-[#25D366]" />
+          <div className="w-6 h-6 rounded-lg bg-[#25D366]/20 flex items-center justify-center shrink-0">
+            <WhatsAppIcon className="w-3 h-3 text-[#25D366]" />
           </div>
           <div className="min-w-0">
             <span className="text-[10px] text-emerald-400 block leading-tight">WhatsApp</span>
-            <span className="text-xs font-semibold text-white truncate block">Instant Chat</span>
+            <span className="text-[11px] font-semibold text-white truncate block">Instant Chat</span>
           </div>
         </a>
       </div>
 
       {/* Detailed Info List */}
-      <div className="space-y-2.5 text-xs text-slate-300">
-        <div className="flex items-start gap-2.5">
-          <Mail className="w-4 h-4 text-[#0AADA8] shrink-0 mt-0.5" />
+      <div className="space-y-2 text-xs text-slate-300">
+        <div className="flex items-center gap-2.5">
+          <Mail className="w-3.5 h-3.5 text-[#0AADA8] shrink-0" />
           <div className="min-w-0">
             <a href={`mailto:${COMPANY_DETAILS.email}`} className="hover:text-white font-medium block truncate">
               {COMPANY_DETAILS.email}
             </a>
-            <span className="text-[11px] text-slate-400">General Enquiries</span>
           </div>
         </div>
 
         <div className="flex items-start gap-2.5">
-          <MapPin className="w-4 h-4 text-[#0AADA8] shrink-0 mt-0.5" />
-          <div>
-            <span className="text-slate-200 block font-medium leading-snug">
+          <MapPin className="w-3.5 h-3.5 text-[#0AADA8] shrink-0 mt-0.5" />
+          <div className="leading-snug">
+            <span className="text-slate-200 font-medium">
               {COMPANY_DETAILS.address}
-            </span>
+            </span>{" "}
             <span className="text-[11px] text-slate-400">{COMPANY_DETAILS.addressLandmark}</span>
           </div>
         </div>
 
         <div className="flex items-start gap-2.5">
-          <Clock className="w-4 h-4 text-[#0AADA8] shrink-0 mt-0.5" />
-          <div className="space-y-0.5">
-            <span className="block font-medium">{COMPANY_DETAILS.workingHoursWeekday}</span>
-            <span className="block text-[11px] text-slate-400">{COMPANY_DETAILS.workingHoursSunday}</span>
+          <Clock className="w-3.5 h-3.5 text-[#0AADA8] shrink-0 mt-0.5" />
+          <div className="leading-snug space-y-0.5">
+            <div className="flex items-center gap-1.5 flex-wrap">
+              <span className="font-medium text-slate-200">{COMPANY_DETAILS.workingHoursWeekday}</span>
+              <span className="text-[9px] font-bold text-red-300 bg-red-500/20 border border-red-500/30 px-1.5 py-0.2 rounded">24/7 Emergency</span>
+            </div>
+            <span className="text-[11px] text-slate-400 block">{COMPANY_DETAILS.workingHoursSunday}</span>
           </div>
-        </div>
-
-        <div className="py-2 px-3 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-between text-xs">
-          <div className="flex items-center gap-2">
-             <span className="font-semibold text-red-400">Emergency:</span>
-          </div>
-          <span className="text-[10px] sm:text-[11px] font-bold text-red-300 bg-red-500/25 px-2 py-0.5 rounded-md">24/7 On-Call</span>
         </div>
       </div>
 
@@ -390,8 +383,8 @@ function FooterContactCol() {
 function FooterBottomBar() {
   return (
     <div className="border-t border-white/10 bg-[#031527]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-5">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left text-xs text-slate-400">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 sm:py-4">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-2.5 text-center sm:text-left text-xs text-slate-400">
           <p>
             © {new Date().getFullYear()} Prism Dental Clinic. All Rights Reserved.
           </p>
@@ -419,27 +412,27 @@ export function Footer() {
   return (
     <footer className="w-full bg-[#051E36] text-white overflow-hidden relative">
       {/* Subtle Background Glows */}
-      <div className="pointer-events-none absolute -left-20 -top-20 h-72 w-72 rounded-full bg-[#0AADA8]/15 blur-3xl" />
-      <div className="pointer-events-none absolute right-0 bottom-0 h-96 w-96 rounded-full bg-[#026EB9]/15 blur-3xl" />
+      <div className="pointer-events-none absolute -left-20 -top-20 h-60 w-60 rounded-full bg-[#0AADA8]/15 blur-3xl" />
+      <div className="pointer-events-none absolute right-0 bottom-0 h-64 w-64 rounded-full bg-[#026EB9]/15 blur-3xl" />
 
       {/* ========================================================
           MAIN FOOTER CONTENT
          ======================================================== */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 sm:gap-8 lg:gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-7 sm:py-8 lg:py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-7 lg:gap-8 items-start">
           {/* Brand Info */}
-          <div className="lg:col-span-4 pb-6 lg:pb-0 border-b border-white/10 lg:border-none">
+          <div className="lg:col-span-4 pb-5 lg:pb-0 border-b border-white/10 lg:border-none">
             <FooterBrandCol />
           </div>
 
-          {/* Quick Links & Dental Treatments - Side by side 2-column grid on mobile & tablet */}
-          <div className="lg:col-span-5 grid grid-cols-2 gap-4 sm:gap-6 lg:gap-8 pb-6 lg:pb-0 border-b border-white/10 lg:border-none">
+          {/* Quick Links & Dental Treatments - Side by side 2-column grid */}
+          <div className="lg:col-span-4 grid grid-cols-2 gap-4 sm:gap-6 pb-5 lg:pb-0 border-b border-white/10 lg:border-none">
             <FooterQuickLinksCol />
             <FooterTreatmentsCol />
           </div>
 
           {/* Contact & Hours */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-4">
             <FooterContactCol />
           </div>
         </div>

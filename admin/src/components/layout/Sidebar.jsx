@@ -231,12 +231,11 @@ export function Sidebar({ mobileOpen, setMobileOpen }) {
                 </p>
               </div>
             </div>
-            <div className="w-2 h-2 rounded-full bg-emerald-400 shrink-0 shadow-[0_0_8px_#34d399]" title="Session active" />
           </div>
 
           {/* Action: View Public Website */}
           <a
-            href="http://localhost:3000"
+            href="https://prism-dental.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full flex items-center justify-between px-3 py-1.5 text-xs font-semibold text-[#16C4BE] hover:bg-white/10 rounded-xl transition-colors group"

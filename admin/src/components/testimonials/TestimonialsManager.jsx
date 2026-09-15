@@ -44,7 +44,6 @@ export function TestimonialsManager() {
 
         {/* Live sync indicator */}
         <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#F5FBFC] border border-[#D5ECF0] text-xs font-semibold text-[#083258] self-start sm:self-auto">
-          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
           <span>Website Live Stream Active</span>
         </div>
       </div>

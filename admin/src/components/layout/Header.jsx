@@ -125,7 +125,9 @@ export function Header({ setMobileOpen }) {
           <div className="p-2 rounded-xl border border-[#D5ECF0] text-gray-600 hover:bg-gray-50 transition-colors cursor-pointer">
             <Bell className="w-4 h-4 text-[#083258]" />
             {stats.newAppointmentsCount > 0 && (
-              <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-amber-500 animate-ping"></span>
+              <span className="absolute -top-1 -right-1 min-w-4 h-4 px-1 rounded-full bg-amber-500 text-white text-[9px] font-bold flex items-center justify-center">
+                {stats.newAppointmentsCount}
+              </span>
             )}
           </div>
         </div>

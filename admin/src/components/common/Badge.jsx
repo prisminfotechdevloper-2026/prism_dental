@@ -4,36 +4,31 @@ export function StatusBadge({ status }) {
   switch (normalized) {
     case "new":
       return (
-        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">
-          <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+        <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">
           New
         </span>
       );
     case "confirmed":
       return (
-        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-[#E8F8F8] text-[#0AADA8] border border-[#BCEBE9]">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#0AADA8]"></span>
+        <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-[#E8F8F8] text-[#0AADA8] border border-[#BCEBE9]">
           Confirmed
         </span>
       );
     case "completed":
       return (
-        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+        <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
           Completed
         </span>
       );
     case "cancelled":
       return (
-        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-rose-50 text-rose-700 border border-rose-200">
-          <span className="w-1.5 h-1.5 rounded-full bg-rose-400"></span>
+        <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-rose-50 text-rose-700 border border-rose-200">
           Cancelled
         </span>
       );
     case "responded":
       return (
-        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-[#EBF4FB] text-[#026EB9] border border-[#B9DAF3]">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#026EB9]"></span>
+        <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-[#EBF4FB] text-[#026EB9] border border-[#B9DAF3]">
           Responded
         </span>
       );

@@ -257,7 +257,6 @@ export function DashboardOverview({
             <div className="bg-white rounded-3xl border border-amber-200 p-5 shadow-xs space-y-3">
               <div className="flex items-center justify-between border-b border-amber-100 pb-3">
                 <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-amber-500 animate-ping"></span>
                   <h3 className="text-sm font-bold text-[#083258]">
                     New Enquiries Waiting for Confirmation ({pendingEnquiries.length})
                   </h3>
@@ -432,12 +431,11 @@ export function DashboardOverview({
                   </div>
                   <div className="shrink-0">
                     {doc.available ? (
-                      <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                      <span className="inline-flex items-center text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
                         On Duty
                       </span>
                     ) : (
-                      <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">
+                      <span className="inline-flex items-center text-[11px] font-semibold text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">
                         Off Duty
                       </span>
                     )}
