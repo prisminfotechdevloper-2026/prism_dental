@@ -39,22 +39,41 @@ const TESTIMONIALS: Testimonial[] = [
 ];
 
 export function PatientFeedbackCarousel() {
+  const [reviews, setReviews] = useState<Testimonial[]>(TESTIMONIALS);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-  const activeReview = TESTIMONIALS[activeIndex];
+  useEffect(() => {
+    fetch("/api/testimonials")
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data) && data.length > 0) {
+          const mapped: Testimonial[] = data.map((d: any) => ({
+            id: d.id,
+            author: d.patient_name || d.name,
+            treatment: d.treatment || "Dental Care",
+            quote: d.comment || d.quote,
+            rating: d.rating || 5,
+          }));
+          setReviews(mapped);
+        }
+      })
+      .catch((err) => console.warn(err));
+  }, []);
+
+  const activeReview = reviews[activeIndex] || reviews[0] || TESTIMONIALS[0];
 
   // Auto slide every 5 seconds unless hovered
   useEffect(() => {
-    if (isPaused) return;
+    if (isPaused || reviews.length <= 1) return;
     timerRef.current = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % TESTIMONIALS.length);
+      setActiveIndex((prev) => (prev + 1) % reviews.length);
     }, 5000);
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
-  }, [isPaused]);
+  }, [isPaused, reviews.length]);
 
   return (
     <div
@@ -114,11 +133,11 @@ export function PatientFeedbackCarousel() {
 
       {/* 3. Carousel Dots Navigation (Standardized Height: h-10) */}
       <div className="mt-4 h-10 flex items-center justify-center gap-1.5">
-        {TESTIMONIALS.map((t, idx) => {
+        {reviews.map((t, idx) => {
           const isActive = activeIndex === idx;
           return (
             <button
-              key={t.id}
+              key={t.id || idx}
               onClick={() => setActiveIndex(idx)}
               aria-label={`Go to slide ${idx + 1}`}
               className={`transition-all duration-300 rounded-full cursor-pointer ${

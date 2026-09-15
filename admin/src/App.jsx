@@ -36,11 +36,6 @@ function AdminPortal() {
   const [detailAppointment, setDetailAppointment] = useState(null);
   const [whatsAppAppointment, setWhatsAppAppointment] = useState(null);
 
-  const handleOpenNewAppointment = () => {
-    setEditingAppointment(null);
-    setIsFormModalOpen(true);
-  };
-
   const handleOpenEdit = (apt) => {
     setEditingAppointment(apt);
     setIsFormModalOpen(true);
@@ -62,10 +57,7 @@ function AdminPortal() {
       {/* Main Content Area */}
       <div className="flex-1 lg:pl-64 flex flex-col min-w-0">
         {/* Sticky Top Header */}
-        <Header
-          setMobileOpen={setMobileOpen}
-          onOpenNewAppointment={handleOpenNewAppointment}
-        />
+        <Header setMobileOpen={setMobileOpen} />
 
         {/* Dynamic Page View Routes */}
         <main className="flex-1 p-4 sm:p-6 lg:p-8 max-w-7xl w-full mx-auto">
@@ -74,7 +66,6 @@ function AdminPortal() {
               path="/"
               element={
                 <DashboardOverview
-                  onOpenNewAppointment={handleOpenNewAppointment}
                   onOpenDetail={handleOpenDetail}
                   onOpenWhatsApp={handleOpenWhatsApp}
                 />
@@ -85,7 +76,6 @@ function AdminPortal() {
               path="/appointments"
               element={
                 <AppointmentsList
-                  onOpenNewAppointment={handleOpenNewAppointment}
                   onOpenDetail={handleOpenDetail}
                   onOpenEdit={handleOpenEdit}
                   onOpenWhatsApp={handleOpenWhatsApp}

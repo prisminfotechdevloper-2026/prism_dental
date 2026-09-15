@@ -1,7 +1,6 @@
-"use client";
-
 import React from "react";
 import Image from "next/image";
+import { Star } from "lucide-react";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // STAT BADGE ICONS — teal outline circle style matching reference UI
@@ -66,7 +65,11 @@ function ShieldIcon() {
 // TESTIMONIALS HERO COMPONENT
 // ─────────────────────────────────────────────────────────────────────────────
 
-export function TestimonialsHero() {
+export function TestimonialsHero({
+  onOpenShareModal,
+}: {
+  onOpenShareModal?: () => void;
+}) {
   return (
     <section
       className="relative w-full overflow-hidden bg-[#E8F6F8] border-b border-[#D5ECF0] min-h-[380px] sm:min-h-[400px] lg:min-h-[400px] flex items-center"
@@ -195,6 +198,16 @@ export function TestimonialsHero() {
             <span className="text-[11px] sm:text-[12px] text-[#426480] font-medium">
               <strong className="text-[#083258]">4.8</strong> on Google · 200+ reviews
             </span>
+
+            {onOpenShareModal && (
+              <button
+                onClick={onOpenShareModal}
+                className="ml-auto inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#0AADA8] hover:bg-[#089692] text-white text-xs font-bold shadow-xs hover:shadow-md transition-all cursor-pointer"
+              >
+                <Star className="w-3.5 h-3.5 fill-white" />
+                <span>Write a Review</span>
+              </button>
+            )}
           </div>
 
           {/* ───────────────────────────────────────────────────────────────

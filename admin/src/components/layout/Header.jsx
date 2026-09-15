@@ -1,15 +1,15 @@
 import {
   Menu,
   Search,
-  Plus,
   Bell,
   LogOut,
+  CalendarClock,
 } from "lucide-react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { useAdmin } from "../../context/AdminContext";
 import { useAuth } from "../../context/AuthContext";
 
-export function Header({ setMobileOpen, onOpenNewAppointment }) {
+export function Header({ setMobileOpen }) {
   const { searchQuery, setSearchQuery, stats } = useAdmin();
   const { user, logout } = useAuth();
   const location = useLocation();
@@ -108,14 +108,17 @@ export function Header({ setMobileOpen, onOpenNewAppointment }) {
           />
         </div>
 
-        {/* Quick New Appointment Button */}
-        <button
-          onClick={onOpenNewAppointment}
-          className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#0AADA8] hover:bg-[#089692] text-white text-xs font-semibold shadow-xs transition-all cursor-pointer"
+        {/* Quick Website Bookings Link & Count */}
+        <Link
+          to="/appointments"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#E8F8F8] hover:bg-[#D5ECF0] text-[#083258] text-xs font-semibold border border-[#BCEBE9] transition-all"
         >
-          <Plus className="w-4 h-4" />
-          <span className="hidden sm:inline">New Appointment</span>
-        </button>
+          <CalendarClock className="w-3.5 h-3.5 text-[#0AADA8]" />
+          <span className="hidden sm:inline">Online Bookings</span>
+          <span className="px-1.5 py-0.2 text-[10px] font-bold rounded-full bg-[#0AADA8] text-white">
+            {stats.newAppointmentsCount}
+          </span>
+        </Link>
 
         {/* Notification indicator */}
         <div className="relative">

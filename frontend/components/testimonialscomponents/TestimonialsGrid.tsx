@@ -1,6 +1,4 @@
-"use client";
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -14,7 +12,7 @@ import {
 } from "lucide-react";
 
 interface TestimonialItem {
-  id: number;
+  id: string | number;
   name: string;
   image: string;
   rating: number;
@@ -149,14 +147,21 @@ function ReviewCard({ item }: { item: TestimonialItem }) {
         <div className="flex items-start gap-3.5 mb-4 relative z-10">
           {/* Avatar with verified badge */}
           <div className="relative shrink-0">
-            <div className="relative w-13 h-13 sm:w-14 sm:h-14 rounded-full overflow-hidden ring-2 ring-[#0AADA8]/25 group-hover:ring-[#0AADA8] transition-all shadow-xs">
-              <Image
-                src={item.image}
-                alt={`${item.name} - verified patient review`}
-                fill
-                sizes="56px"
-                className="object-cover object-top group-hover:scale-105 transition-transform duration-300"
-              />
+            <div className="relative w-13 h-13 sm:w-14 sm:h-14 rounded-full overflow-hidden ring-2 ring-[#0AADA8]/25 group-hover:ring-[#0AADA8] transition-all shadow-xs bg-[#E8F8F8] flex items-center justify-center">
+              {item.image ? (
+                <img
+                  src={item.image}
+                  alt={`${item.name} - verified patient review`}
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
+                  onError={(e) => {
+                    e.currentTarget.style.display = "none";
+                  }}
+                />
+              ) : (
+                <span className="text-base font-extrabold text-[#0AADA8]">
+                  {item.name?.charAt(0) || "P"}
+                </span>
+              )}
             </div>
             {/* Verified Patient Check Badge */}
             <div className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-[#0AADA8] text-white flex items-center justify-center shadow-xs">
@@ -215,13 +220,51 @@ function ReviewCard({ item }: { item: TestimonialItem }) {
 // ─────────────────────────────────────────────────────────────────────────────
 // MAIN TESTIMONIALS GRID COMPONENT
 // ─────────────────────────────────────────────────────────────────────────────
-export function TestimonialsGrid() {
+export function TestimonialsGrid({
+  onOpenShareModal,
+}: {
+  onOpenShareModal?: () => void;
+}) {
   const [activeCategory, setActiveCategory] = useState("All Stories");
+  const [allReviews, setAllReviews] = useState<TestimonialItem[]>(TESTIMONIALS);
+
+  useEffect(() => {
+    fetch("/api/testimonials")
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data) && data.length > 0) {
+          const backendItems: TestimonialItem[] = data.map((d: any) => ({
+            id: d.id,
+            name: d.patient_name || d.name,
+            image: d.image_url || d.image || "",
+            rating: d.rating || 5,
+            treatment: d.treatment || "General Dental Care",
+            category: d.category || "General",
+            quote: d.comment || d.quote || "",
+            date: d.review_date || d.date || "Recent",
+            doctor: d.doctor || "Prism Dental Specialists",
+            highlight: d.highlight || "Verified Patient Feedback",
+          }));
+
+          setAllReviews((prev) => {
+            const backendIds = new Set(backendItems.map((b) => String(b.id)));
+            const remaining = prev.filter((p) => !backendIds.has(String(p.id)));
+            return [...backendItems, ...remaining];
+          });
+        }
+      })
+      .catch((err) => console.warn("Failed to load testimonials:", err));
+  }, []);
 
   const filteredTestimonials =
     activeCategory === "All Stories"
-      ? TESTIMONIALS
-      : TESTIMONIALS.filter((item) => item.category === activeCategory);
+      ? allReviews
+      : allReviews.filter((item) =>
+          activeCategory === "General"
+            ? item.category === "General" || !item.category
+            : item.category === activeCategory ||
+              item.treatment?.toLowerCase().includes(activeCategory.toLowerCase())
+        );
 
   return (
     <section className="w-full bg-gradient-to-b from-[#F8FDFF] via-white to-[#F2FAFC] py-6 sm:py-8 lg:py-12 relative overflow-hidden" aria-label="Patient testimonials">
@@ -250,8 +293,8 @@ export function TestimonialsGrid() {
             </p>
           </div>
 
-          {/* Right: Google & Clinical Trust Scorecard */}
-          <div className="flex-shrink-0">
+          {/* Right: Google & Clinical Trust Scorecard + Write Review Button */}
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 shrink-0">
             <div className="flex items-center gap-4 bg-white border border-[#D5ECF0] rounded-2xl p-4 shadow-[0_4px_20px_rgba(8,50,88,0.05)]">
               {/* Rating Big Number */}
               <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#083258] to-[#0AADA8] text-white flex flex-col items-center justify-center shrink-0 shadow-sm">
@@ -274,6 +317,16 @@ export function TestimonialsGrid() {
                 </span>
               </div>
             </div>
+
+            {onOpenShareModal && (
+              <button
+                onClick={onOpenShareModal}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl bg-gradient-to-r from-[#083258] to-[#0AADA8] hover:from-[#0AADA8] hover:to-[#083258] text-white text-xs font-bold shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer"
+              >
+                <Sparkles className="w-4 h-4 text-[#16C4BE]" />
+                <span>Share Your Experience</span>
+              </button>
+            )}
           </div>
 
         </div>
@@ -283,8 +336,8 @@ export function TestimonialsGrid() {
           {CATEGORIES.map((category) => {
             const count =
               category === "All Stories"
-                ? TESTIMONIALS.length
-                : TESTIMONIALS.filter((t) => t.category === category).length;
+                ? allReviews.length
+                : allReviews.filter((t) => t.category === category).length;
 
             const isActive = activeCategory === category;
 

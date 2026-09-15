@@ -108,6 +108,42 @@ export function AdminProvider({ children }) {
     localStorage.setItem("sc_admin_settings", JSON.stringify(settings));
   }, [settings]);
 
+  // Sync testimonials from backend API if available
+  useEffect(() => {
+    fetch("http://127.0.0.1:8000/api/testimonials/")
+      .then((res) => {
+        if (res.ok) return res.json();
+        throw new Error("Failed to fetch backend testimonials");
+      })
+      .then((data) => {
+        if (Array.isArray(data) && data.length > 0) {
+          const mapped = data.map((t) => ({
+            id: t.id,
+            patientName: t.patient_name || t.patientName || "Verified Patient",
+            treatment: t.treatment || "Dental Treatment",
+            rating: t.rating || 5,
+            comment: t.comment || "",
+            date:
+              t.review_date ||
+              t.date ||
+              new Date(t.created_at || Date.now()).toLocaleDateString("en-GB", {
+                day: "numeric",
+                month: "short",
+                year: "numeric",
+              }),
+            image: t.image_url || t.image || "",
+            verified: t.verified ?? true,
+            featured: t.featured ?? false,
+            highlight: t.highlight || "",
+          }));
+          setTestimonials(mapped);
+        }
+      })
+      .catch((err) => {
+        console.info("Using local admin testimonials storage:", err?.message);
+      });
+  }, []);
+
   // Appointment operations
   const addAppointment = (newApt) => {
     const id = `APT-${Math.floor(1000 + Math.random() * 9000)}`;
@@ -264,9 +300,24 @@ export function AdminProvider({ children }) {
     showToast("Verification status updated");
   };
 
-  const deleteTestimonial = (id) => {
-    setTestimonials((prev) => prev.filter((t) => t.id !== id));
-    showToast("Review removed", "info");
+  const deleteTestimonial = async (id) => {
+    try {
+      const token =
+        localStorage.getItem("prism_admin_token") ||
+        sessionStorage.getItem("prism_admin_token");
+      const headers = {};
+      if (token && !token.startsWith("mock-")) {
+        headers["Authorization"] = `Bearer ${token}`;
+      }
+      await fetch(`http://127.0.0.1:8000/api/testimonials/${id}/`, {
+        method: "DELETE",
+        headers,
+      });
+    } catch (e) {
+      console.warn("Backend delete call skipped:", e);
+    }
+    setTestimonials((prev) => prev.filter((t) => String(t.id) !== String(id)));
+    showToast("Patient review deleted from clinic records", "info");
   };
 
   // Gallery

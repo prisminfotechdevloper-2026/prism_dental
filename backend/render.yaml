@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: prism-dental-backend
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn backend.wsgi:application"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.0
+      - key: DEBUG
+        value: "False"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        fromDatabase:
+          name: prism-dental-db
+          property: connectionString
+
+databases:
+  - name: prism-dental-db
+    databaseName: prism_dental
+    user: prism_user
+    plan: free

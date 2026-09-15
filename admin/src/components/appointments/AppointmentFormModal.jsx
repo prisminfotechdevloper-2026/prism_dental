@@ -295,8 +295,8 @@ export function AppointmentFormModal({ isOpen, onClose, initialData = null }) {
     <Modal
       isOpen={isOpen}
       onClose={onClose}
-      title={initialData ? "Edit Appointment Details" : "Schedule New Dental Appointment"}
-      subtitle={initialData ? `Record ID: ${initialData.id}` : "Book an appointment directly into clinic calendar"}
+      title={initialData ? "Reschedule & Edit Appointment" : "Reschedule Appointment"}
+      subtitle={initialData ? `Record ID: ${initialData.id} • Website Patient Booking` : "Update patient consultation schedule and details"}
       maxWidth="max-w-2xl"
     >
       <AppointmentFormContent

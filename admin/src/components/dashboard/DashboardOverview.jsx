@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { useAdmin } from "../../context/AdminContext";
 import { StatusBadge } from "../common/Badge";
 import {
@@ -5,7 +6,7 @@ import {
   Clock,
   UserCheck,
   AlertCircle,
-  Plus,
+  CalendarClock,
   MessageSquare,
   ArrowUpRight,
   TrendingUp,
@@ -14,7 +15,6 @@ import {
 } from "lucide-react";
 
 export function DashboardOverview({
-  onOpenNewAppointment,
   onOpenDetail,
   onOpenWhatsApp,
 }) {
@@ -26,6 +26,7 @@ export function DashboardOverview({
     setCurrentTab,
     updateAppointmentStatus,
   } = useAdmin();
+  const navigate = useNavigate();
 
   const todayStr = new Date().toISOString().split("T")[0];
   const todayAppointments = appointments.filter((a) => a.date === todayStr);
@@ -142,23 +143,29 @@ export function DashboardOverview({
             </h2>
           </div>
           <p className="text-xs text-white/80">
-            Rapidly schedule consultations, notify patients via WhatsApp, or manage clinical staff
+            Review incoming website bookings, notify patients via WhatsApp, or manage clinical staff
           </p>
         </div>
 
         <div className="flex flex-wrap items-center gap-2.5">
           <button
-            onClick={onOpenNewAppointment}
+            onClick={() => {
+              setCurrentTab("appointments");
+              navigate("/appointments");
+            }}
             className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white text-[#083258] hover:bg-[#F5FBFC] text-xs font-bold transition-all shadow-xs cursor-pointer"
           >
-            <Plus className="w-3.5 h-3.5 text-[#0AADA8]" />
-            <span>Book Appointment</span>
+            <CalendarClock className="w-3.5 h-3.5 text-[#0AADA8]" />
+            <span>Manage Appointments ({stats.newAppointmentsCount} New)</span>
           </button>
           <button
-            onClick={() => setCurrentTab("appointments")}
+            onClick={() => {
+              setCurrentTab("appointments");
+              navigate("/appointments");
+            }}
             className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white/20 hover:bg-white/30 text-white text-xs font-semibold transition-colors cursor-pointer"
           >
-            <span>All Enquiries ({appointments.length})</span>
+            <span>All Bookings ({appointments.length})</span>
           </button>
           <button
             onClick={() => setCurrentTab("doctors")}

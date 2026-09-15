@@ -16,7 +16,6 @@ import {
 } from "lucide-react";
 
 export function AppointmentsList({
-  onOpenNewAppointment,
   onOpenDetail,
   onOpenEdit,
   onOpenWhatsApp,
@@ -193,13 +192,10 @@ export function AppointmentsList({
               <span>Export CSV</span>
             </button>
 
-            <button
-              onClick={onOpenNewAppointment}
-              className="flex items-center gap-1.5 px-4 py-2 text-xs font-bold text-white bg-[#0AADA8] hover:bg-[#089692] rounded-xl shadow-xs transition-all cursor-pointer"
-            >
-              <Plus className="w-4 h-4" />
-              <span>Book Appointment</span>
-            </button>
+            <div className="flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-[#083258] bg-[#E8F8F8] border border-[#BCEBE9] rounded-xl shadow-2xs">
+              <span className="w-2 h-2 rounded-full bg-[#0AADA8] animate-pulse"></span>
+              <span>Website Bookings Live</span>
+            </div>
           </div>
         </div>
 
@@ -259,13 +255,18 @@ export function AppointmentsList({
               No appointments found
             </h3>
             <p className="text-xs text-[#6B8BA2] max-w-sm mx-auto">
-              Try adjusting your search terms or filters, or book a new appointment.
+              No appointments found matching your selected search terms or filters.
             </p>
             <button
-              onClick={onOpenNewAppointment}
+              onClick={() => {
+                setSearchQuery("");
+                setStatusFilter("all");
+                setDoctorFilter("all");
+                setDateFilter("all");
+              }}
               className="px-4 py-2 text-xs font-bold text-white bg-[#0AADA8] hover:bg-[#089692] rounded-xl transition-all cursor-pointer"
             >
-              Book New Appointment
+              Reset Filters
             </button>
           </div>
         ) : (
@@ -296,6 +297,9 @@ export function AppointmentsList({
                           </span>
                           <span className="text-[10px] text-[#6B8BA2] font-mono">
                             {apt.id}
+                          </span>
+                          <span className="text-[9px] font-semibold px-1.5 py-0.2 rounded-md bg-[#E8F8F8] text-[#0AADA8] border border-[#BCEBE9]">
+                            Website
                           </span>
                         </div>
                         <div className="flex items-center gap-3 text-[#426480] text-[11px] mt-0.5">

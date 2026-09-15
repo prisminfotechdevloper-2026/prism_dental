@@ -285,7 +285,7 @@ export function LoginPage() {
                     type="text"
                     value={identifier}
                     onChange={(e) => setIdentifier(e.target.value)}
-                    placeholder="e.g. admin@prismdental.com"
+                    placeholder="e.g. contact.prisminfotech@gmail.com"
                     autoComplete="username"
                     required
                     className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-[#D5ECF0] bg-[#F8FDFF] text-[#083258] text-xs font-medium placeholder-[#6B8BA2] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0AADA8] transition-all"
@@ -309,7 +309,7 @@ export function LoginPage() {
                     }}
                     className="text-[11px] font-semibold text-[#0AADA8] hover:underline"
                   >
-                    Use Default (admin123)
+                    Use Default (prism123)
                   </button>
                 </div>
                 <div className="relative">
@@ -393,8 +393,9 @@ export function LoginPage() {
           {/* Footer note */}
           <div className="mt-8 pt-4 border-t border-[#E8F1F5] flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-[#6B8BA2]">
             <p>© {new Date().getFullYear()} Prism Dental Clinic Portal.</p>
-            <p className="flex items-center gap-1 font-medium text-[#083258]">
-               Local Storage Mode (Backend Ready)
+            <p className="flex items-center gap-1 font-medium text-[#0AADA8]">
+              <ShieldCheck className="w-3.5 h-3.5" />
+              JWT Secure Backend Authentication
             </p>
           </div>
         </div>
