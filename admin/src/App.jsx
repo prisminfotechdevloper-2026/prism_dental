@@ -12,6 +12,7 @@ import { PublicRoute } from "./components/auth/PublicRoute";
 import { LoginPage } from "./components/auth/LoginPage";
 import { Sidebar } from "./components/layout/Sidebar";
 import { Header } from "./components/layout/Header";
+import { Footer } from "./components/layout/Footer";
 import { Toast } from "./components/common/Toast";
 import { DashboardOverview } from "./components/dashboard/DashboardOverview";
 import { AppointmentsList } from "./components/appointments/AppointmentsList";
@@ -92,6 +93,9 @@ function AdminPortal() {
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
+
+        {/* Global Clinic Admin Footer */}
+        <Footer />
       </div>
 
       {/* Appointment Create / Edit Modal */}
