@@ -91,8 +91,15 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 # Database
 # Supports DATABASE_URL on Render (PostgreSQL) and local development fallback
+is_on_render = bool(os.environ.get('RENDER') or os.environ.get('RENDER_EXTERNAL_HOSTNAME'))
 
 DATABASE_URL = os.environ.get('DATABASE_URL')
+if not DATABASE_URL:
+    if is_on_render:
+        DATABASE_URL = os.environ.get('Internal_Database_URL') or os.environ.get('External_Database_URL')
+    else:
+        DATABASE_URL = os.environ.get('External_Database_URL') or os.environ.get('Internal_Database_URL')
+
 if DATABASE_URL:
     DATABASES = {
         'default': dj_database_url.config(
@@ -105,11 +112,11 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': os.environ.get('DB_NAME', 'prism_dental'),
-            'USER': os.environ.get('DB_USER', 'postgres'),
-            'PASSWORD': os.environ.get('DB_PASSWORD', 'admin123'),
-            'HOST': os.environ.get('DB_HOST', 'localhost'),
-            'PORT': os.environ.get('DB_PORT', '5432'),
+            'NAME': os.environ.get('DB_NAME') or os.environ.get('database', 'prism_dental'),
+            'USER': os.environ.get('DB_USER') or os.environ.get('username', 'postgres'),
+            'PASSWORD': os.environ.get('DB_PASSWORD') or os.environ.get('password', 'admin123'),
+            'HOST': os.environ.get('DB_HOST') or os.environ.get('hostname', 'localhost'),
+            'PORT': os.environ.get('DB_PORT') or os.environ.get('port', '5432'),
         }
     }
 
